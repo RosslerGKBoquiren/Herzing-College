@@ -1,2 +1,0 @@
-Assignment 1 
-Create a basic HTML page with an h1 heading and two paragraphs. Make the title of the page "My First Article". 
