@@ -1,0 +1,3 @@
+Sketch a page that contains header text and 3 paragraphs (with a smaller header for each paragraph). Make sure this is all in a container div (id is main, 800px wide, minimum 400 pixels tall, 20 pixels padding and solid 1 pixel black border). Before the paragraphs is an ordered list of items. Sketch this is an image editor,label the parts and submit the graphic. Create this page as a top three list of your choice of favourite things. Describe each paragraph with a header (can use lorem ipsum).
+
+Create the page you just made a sketch of, using all the parts and include an ordered list at the top followed by the three headers and paragraphs. 

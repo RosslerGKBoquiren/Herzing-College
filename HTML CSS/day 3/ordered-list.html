@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ordered List / Unordered List</title>
+		<style>
+			#listItem {
+				padding: 0px;
+				margin-left: 100px;
+			}
+			
+			#item1 {
+				list-style: none;
+			}
+			
+			#listItem2 {
+				padding: 0px;
+				width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+				border: 2px solid red;
+			}
+			
+			.li-it2 {
+				list-style: none;
+				display: inline-block;
+				padding: 15px;
+				border: 1px solid red;
+			}
+			
+			#listItem3 {
+				padding: 0px;
+				width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+				border: 2px solid red;
+			}
+			
+			.li-it3 {
+				list-style: none;
+				display: inline-block;
+				padding: 15px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>You can put lists in as block elements in the content areas.</p>
+		<h3>Ordered List - Grocery list</h3>
+		<ol>
+			<li>Milk</li>
+			<li>Bread</li>
+			<li>Banana</li>
+			<li>Oatmeal</li>
+			<li>Juice</li>
+			<li>Strawberry</li>
+		</ol>
+		
+		<h3>Unordered List</h3>
+		<ul>
+			<li>Display in bullet form</li>
+			<li>lists are a good way to organize common "lists" of elements</li>
+			<li>Products</li>
+			<li>Images</li>
+			<li>or groceries</li>
+		</ul>
+		
+		<p>The "pre" tag will allow you to keep formatting, but watch out because the font will be different. 
+		it preserves both spaces and line breaks</p>
+		
+		<pre>
+		This text is in &lt; pre&gt tags. 
+		Talomg away the padding will move away the spacing for the bullets.
+		But they are still behind the element. 
+		Setting a margin (spacing around the element) will show us.
+		Take away the maring and the bullets are outside the screen.
+		The style setting "list-style:none;" will take the bullet or numbers away.
+		</pre>
+		
+		<ul id="listItem">
+			<li id="item1">List 1</li>
+			<li>List 2</li>
+			<li>List 3</li>
+			<li>List 4</li>
+			<li>List 5</li>
+		</ul>
+		
+		<pre>
+		You can set the width and height of a list item &lt; li&gt; tag.
+		You can also set them as "inline-block".
+		This allows us to set the width and height, but it won't create a new line before and after,
+		so the element remains "inline".
+		Using margin-left and maring-right set to "auto" will center our element in a relative way. 
+		Below we do it with the unordered list. 
+		The margin is the area outside an element. 
+		</pre>
+		
+		<ul id="listItem2">
+			<li class="li-it2">List 1</li>
+			<li class="li-it2">List 2</li>
+			<li class="li-it2">List 3</li>
+			<li class="li-it2">List 4</li>
+			<li class="li-it2">List 5</li>
+			<li class="li-it2">List 6</li>
+			<li class="li-it2">List 7</li>
+			<li class="li-it2">List 8</li>
+		</ul>
+		
+		<pre>
+			If we use links we can make a CSS menu. 
+		</pre>
+		
+		<ul id="listItem3">
+			<li class="li-it3"><a href="index.html">Home</a></li>
+			<li class="li-it3"><a href="about.html">About</a></li>
+			<li class="li-it3"><a href="services.html">Services</a></li>
+			<li class="li-it3"><a href="contact.html">Contact</a></li>
+		</ul>
+		<pre>
+			If we float the elements left it will remove the space in between.
+			When we float object at the end of the float we have to set style to the last list item
+			below the floats. This will clear the floats and set the border properly. 
+			We will also set the width and height to 0 to make sure it doesn't affect the layout. 
+		</pre>
+		
+		<ul style="padding: 0; border: solid 1px black; width: 50%">
+			<li style="list-style:none; float:left; padding: 20px; border:solid 1px blue;"><a href="index.html">Home</a></li>
+			<li style="list-style:none; float:left; padding: 20px; border:solid 1px blue;"><a href="about.html">About</a></li>
+			<li style="list-style:none; float:left; padding: 20px; border:solid 1px blue;"><a href="services.html">Services</a></li>
+			<li style="list-style:none; float:left; padding: 20px; border:solid 1px blue;"><a href="contact.html">contact</a></li>
+			<li style="clear:both; width:0; height:0;"><!--This last list item will clear the float.--></li>
+		</ul>
+	</body>
+</html>
