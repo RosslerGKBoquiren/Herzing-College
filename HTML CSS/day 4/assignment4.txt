@@ -1,0 +1,4 @@
+Create an HTML page with a black background, and a white page (container) with five images. Center the content and images. Make sure they are larger enough to fill up at least half of the container. Put a header caption with a description of the image above each image. Make sure to use alt tags.
+Set the width of the page to 900px and the min-height to 600px. 
+Set the padding to 20px. 
+Set the margin-top of the page to 40px.
