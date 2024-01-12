@@ -1,0 +1,8 @@
+Create a blog page with headers, paragraphs, and a background.
+
+Create an HTML blog style article with 6 paragraphs, a table of contents in an ordered list at the top with anchor links to each paragraph on the page. Include a header for the article and choose an image to use as a background. This can be applied to resize, be static or scrolling on the screen.
+
+"main" content div
+Page width = 800px
+padding = 30px
+margin-top = 20px
