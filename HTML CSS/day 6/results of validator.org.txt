@@ -1,0 +1,81 @@
+Assignment #1
+- Warning: Consider adding a lang attribute to the html start tag to declare the language of this document.
+From line 1, column 16; to line 2, column 6
+type HTML>↩<html>↩<head
+For further guidance, consult Declaring the overall language of a page and Choosing language tags.
+If the HTML checker has misidentified the language of this document, please file an issue report or send e-mail to report the problem.
+
+- Error: The character encoding was not declared. Proceeding using windows-1252.
+
+
+
+Assignment #2
+Similar errors with assignment #1
+
+
+
+Assignment #3
+Warning: Consider adding a lang attribute to the html start tag to declare the language of this document.
+From line 1, column 16; to line 2, column 6
+type html>↩<html>↩	<hea
+For further guidance, consult Declaring the overall language of a page and Choosing language tags.
+If the HTML checker has misidentified the language of this document, please file an issue report or send e-mail to report the problem.
+
+Error: CSS: Parse Error.
+At line 28, column 16
+Error: Element h4 not allowed as child of element ol in this context. (Suppressing further errors from this subtree.)
+From line 41, column 6; to line 41, column 9
+↩<h4>Playin Content model for element ol:
+Zero or more li and script-supporting elements.
+
+Error: Element p not allowed as child of element ol in this context. (Suppressing further errors from this subtree.)
+From line 42, column 6; to line 42, column 31
+/h4>↩<p class="paragraph-main">Lorem 
+Contexts in which element p may be used:
+Where flow content is expected.
+Content model for element ol:
+Zero or more li and script-supporting elements.
+
+Error: Element h4 not allowed as child of element ol in this context. (Suppressing further errors from this subtree.)
+From line 53, column 6; to line 53, column 9
+
+				↩					<h4>Relaxi
+
+Content model for element ol:
+Zero or more li and script-supporting elements.
+Error: Element p not allowed as child of element ol in this context. (Suppressing further errors from this subtree.)
+
+From line 54, column 6; to line 54, column 31
+
+/h4>↩					<p class="paragraph-main">Nullam
+
+Contexts in which element p may be used:
+Where flow content is expected.
+Content model for element ol:
+Zero or more li and script-supporting elements.
+Error: Element h4 not allowed as child of element ol in this context. (Suppressing further errors from this subtree.)
+
+From line 64, column 6; to line 64, column 9
+
+				↩					<h4>Budget
+
+Content model for element ol:
+Zero or more li and script-supporting elements.
+Error: Element p not allowed as child of element ol in this context. (Suppressing further errors from this subtree.)
+
+From line 65, column 6; to line 65, column 31
+
+/h4>↩					<p class="paragraph-main">Pellen
+
+Contexts in which element p may be used:
+Where flow content is expected.
+Content model for element ol:
+Zero or more li and script-supporting elements.
+
+
+Assignment #4
+No errors
+
+
+Assignment #5
+Same as Assignment #1 - declare language of this document. 

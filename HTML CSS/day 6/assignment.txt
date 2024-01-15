@@ -1,0 +1,2 @@
+Test all past assignments with the w3c validator and record your results.
+Fix where you can. We will go over and discuss our findings.
