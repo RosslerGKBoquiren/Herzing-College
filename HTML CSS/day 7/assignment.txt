@@ -1,0 +1,5 @@
+Create your own layout using the more advanced method of creating separate columns for the content (left and right). Make sure to have a header, area for a menu and a footer, in addition to the content area. Size can be your choice although it is a good idea to go for something greater than or equal to 700 pixels. 
+
+Do not put borders around the content areas (left and right) but make sure there is padding for the content to breathe. Put a header with 3 paragraphs of lorem ipsum text and at least 1 image in the content area. 
+
+Color the smaller widget area" sidebar another color or put your choice of content (widgets, pictures, other text, etc) in to take up space. include any plans or sketches.
