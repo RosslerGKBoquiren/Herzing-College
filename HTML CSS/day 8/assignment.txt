@@ -1,0 +1,1 @@
+Take all previous lessons and assignments with CSS in them and separate any style tags and put them into their own style sheets.

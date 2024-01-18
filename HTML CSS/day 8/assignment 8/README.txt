@@ -1,0 +1,1 @@
+My assignment #1 did not have CSS. Therefore, I did not include it in this submission.
