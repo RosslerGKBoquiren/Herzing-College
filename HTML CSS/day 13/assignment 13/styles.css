@@ -1,0 +1,65 @@
+.main-div {
+	width: 700px;
+	height: 400px;
+	padding: 20px;
+	border: solid black 1px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1, p {
+	text-align: center;
+}
+
+.statstable {
+	width: 80%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+}
+
+.table-name {
+	background-color: red;
+	color: white;
+	padding: 5px;
+	border: solid black 1px;
+}
+
+#warriors {
+	background-color: royalblue;
+	color: yellow;
+	border: solid black 1px;
+}
+
+#lakers {
+	background-color: yellow;
+	color: purple;
+	border: solid black 1px;
+}
+
+#grizzlies {
+	background-color: lightblue;
+	border: solid black 1px;
+}
+
+#bucks {
+	background-color: lightgreen;
+	border: solid black 1px;
+}
+
+#celtics {
+	background-color: green;
+	color: white;
+	border: solid black 1px;
+}
+
+.alternate-style {
+	background-color: lightgrey;
+}
+
+tbody, td {
+	border-collapse: collapse;
+	border: solid black 1px;
+}

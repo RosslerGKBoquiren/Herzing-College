@@ -1,0 +1,7 @@
+Create a centered (horizontally and vertically) div with a black 1 pixel border. make it 500px wide and 500 px tall.
+
+Create 4 divs that will be relatively positioned (stacked vertically) in the box. the first one is red, the second orange, the third yellow the last green. they are all 100% width but only 125px tall.
+
+Create 4 other divs that are absolutely positioned and will go in each corner of the main div, each of these will be 75 px wide and tall. color them black.
+
+
