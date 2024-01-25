@@ -1,0 +1,15 @@
+Create an HTML registration form with the following controls:
+
+Name - textbox
+Username - textbox
+Password - password textbox
+confirm password - password textbox
+Address 1 - textbox
+Address 2 - textbox
+Email Address - textbox
+Province - select (drop down with provinces)
+I agree to the Terms and Conditions - checkbox
+Submit button
+Reset Button
+
+Do not worry about functionality at this point we will come back to HTML forms later and use them in PHP and javascript.
