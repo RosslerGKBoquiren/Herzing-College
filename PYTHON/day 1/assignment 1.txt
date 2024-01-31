@@ -1,0 +1,13 @@
+Create a program that has two variables.
+These are name and age. Take these as input.
+
+output a statement welcoming the name that is stored in the variable.
+ie - "Welcome, Frank"
+
+then out put the following based on the age.
+if the age is less than 5, output "You are very young"
+	 greater than 5 and less than 15, output "You are young"
+	 greater than 15 and less than 30, output "You are a young adult"
+	 greater than 30 and less than 50, output "You are an adult"
+	 greater than 50 and less than 65, output "You are middle aged"
+	 greater than 65, output "You are a senior citizen"
