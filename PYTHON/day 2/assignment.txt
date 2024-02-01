@@ -1,0 +1,4 @@
+Create a program that takes in a sentence from the user and reverses all the characters using a loop.
+
+
+Print the original sentence and then the reversed one.
