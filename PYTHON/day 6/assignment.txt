@@ -1,0 +1,15 @@
+create a sqlite database called "yourname.db".
+create a table in the database called "survey" with the following fields:
+
+id PRIMARY
+choice TEXT
+
+Create a python application that runs in a loop. It first asks the user if they want to submit their favourite color. If they select yes, ask them what it is. Give them the selection of 1 - Black, 2 - White, 3 - Red, 4 - Blue, 5 - Green, or 9 - Quit.
+
+If they make an invalid selection, tell them they have made an invalid selection and give them the color options again.
+
+When they have submitted a valid color, insert it into the database. (insert it as "1 - Black" or "4 - Blue"
+
+keep asking them if they want to submit their favourite color again, until they select no (this is the loop part)
+
+When the program ends, query the results of all the colors that we submitted and output the totals for each.
