@@ -5,8 +5,8 @@ sentence = input('Enter a sentence: ')
 reversed_sentence = ''
 
 # Loop through each letter(i) in the sentence in reverse order
-for i in reversed(sentence):
-    reversed_sentence += i
+for characters in reversed(sentence):
+    reversed_sentence += characters
 
 # Print the original sentence and reversed sentences
 print('Original sentence: ' + sentence)
