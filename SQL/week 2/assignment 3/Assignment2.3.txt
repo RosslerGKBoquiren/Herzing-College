@@ -67,8 +67,7 @@ American Bully: 23, 17, 21, 27
 American Curl: 33, 35, 37, 41, 44, 31, 3
 Abyssinian: 43, 40, 30, 32, 42, 34, 39, 8
 Bengal: 29, 36, 38
-Part IV - Add race to animals (fk)
-Part V - Add Foreign Key
+Part IV - Add Foreign Key to race_id
 
 
 3. Parents

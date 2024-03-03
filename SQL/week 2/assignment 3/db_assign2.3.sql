@@ -1,3 +1,5 @@
+USE zoo;
+
 SET NAMES utf8;
 
 DROP TABLE IF EXISTS animals;
