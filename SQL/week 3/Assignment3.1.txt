@@ -1,0 +1,14 @@
+Assignment 3.1
+
+Utilize the "join" operation for this assignment.
+
+Part 1: EASY
+List all the American Bully (*)
+List all the animals (name, dob, race) who don’t have the word color in their race description.
+Part 2: MED
+List all the Cats and Parrots with their sex, species, Latin name, and race if exist. Order by animal type and race.
+List the female dogs who do not race and were born before July 2016. (name, dob, and race)
+Part3: HARD
+List all the Cats who have parents (name and parent’s name)
+List all Bouli’s kids (name, sex, and dob)
+List all the animals that have a father, a mother, and a race. We must know the parent’s race. (name, parents name, race name)
