@@ -1,0 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%   Assignment 3.2   %%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Please do all the following queries using SUBQUERIS.
+
+1- Update all the dog's nulled comments to "woff, woff, woff"
+2- List of animals (Name, Sex, DOB, Race_Id) whose race description has the word color in it.
+3- List of Bouli’s kid(s) (Name, Sex and DOB)
+4- How many races exist in the animals table? (Display all of their names)
+5- How many species exist in the races table? (Display all of their names)
