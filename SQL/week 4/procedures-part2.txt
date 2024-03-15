@@ -1,0 +1,238 @@
+#Two local variables can have the same name as long they’re in different blocks.
+
+#test range 2
+DROP PROCEDURE IF EXISTS test_range2;
+DELIMITER |
+CREATE PROCEDURE test_range2()
+BEGIN
+	DECLARE w1 VARCHAR(15) DEFAULT 'Programming';
+    DECLARE w2 VARCHAR(15) DEFAULT 'Montreal';
+    
+    BEGIN
+		DECLARE w2 VARCHAR(15) DEFAULT 'Herzing';
+		SELECT "Scope 2" AS Scope, w1 AS 'W1', w2 AS 'W2';
+	END ;
+    
+    SELECT "Scope 1" AS Scope, w1 AS 'W1', w2 AS 'W2';
+END |
+DELIMITER ;
+
+
+
+
+#Nested stored procedures help to break up large amounts of SQL statements into smaller reusable pieces. 
+#Moving reusable logic pieces into smaller composable pieces can make your procedures more readable and easy to debug.
+#instruction of block
+DROP PROCEDURE IF EXISTS instructionBlock;
+DELIMITER |
+CREATE PROCEDURE instructionBlock()
+BEGIN
+	SELECT "Main Instruction Block " As Main;
+    
+    BEGIN
+		SELECT "Second Instruction Block (nested in Main) " As Second;
+        
+         BEGIN
+			SELECT "Third Instruction Block (nested in Second) " As Third;
+         END;
+	END ;
+END |
+DELIMITER ;
+
+
+
+#Create temporary table
+#while loop
+DROP PROCEDURE IF EXISTS count_in_while2;
+DELIMITER |
+
+CREATE PROCEDURE count_in_while2(IN num INT)
+BEGIN
+	DECLARE i INT DEFAULT 0;
+   
+	#create temporary table
+    CREATE TEMPORARY TABLE IF NOT EXISTS whileloop(
+		num INT
+    );
+    
+    #empty table
+    TRUNCATE TABLE whileloop;
+    
+    WHILE i < num DO
+		INSERT INTO whileloop VALUES(i);
+        SET i = i + 1;
+    END WHILE;
+    
+    SELECT * FROM whileloop;
+END |
+DELIMITER ;
+
+CALL count_in_while2(50);
+
+#after calling count_in_while2 for 1 time, you may have following query:
+SELECT MAX(num), MIN(num), AVG(num) FROM whileloop;
+
+
+
+#while loop with odd numbers
+DROP PROCEDURE IF EXISTS count_in_while3;
+DELIMITER |
+CREATE PROCEDURE count_in_while3(IN num INT)
+BEGIN
+	DECLARE i INT DEFAULT 0;
+   
+	#create temporary table
+    CREATE TEMPORARY TABLE IF NOT EXISTS whileloop(
+		num INT
+    );
+    
+    #empty table
+    TRUNCATE TABLE whileloop;
+    
+    WHILE i < num DO
+		IF i MOD 2 != 0 THEN
+			INSERT INTO whileloop VALUES(i);
+		END IF;
+        
+        SET i = i + 1;
+    END WHILE;
+    
+    SELECT * FROM whileloop;
+END |
+DELIMITER ;
+
+
+
+#The LEAVE statement allows you to terminate a loop. 
+#The general syntax for the LEAVE statement when used in the LOOP, REPEAT, and WHILE statements.
+#leave example 1
+DROP PROCEDURE IF EXISTS leave1;
+DELIMITER |
+CREATE PROCEDURE leave1(IN num INT, IN stopTo INT)
+BEGIN
+	DECLARE i INT DEFAULT 0;
+    DECLARE output TEXT;
+	
+    r1: REPEAT
+		SET output = CONCAT_WS(", ", output, i);
+        SET i = i + 1;
+        
+        IF i = stopTo THEN
+			LEAVE r1;
+		END IF;
+    UNTIL i > num END REPEAT r1;
+    
+    SELECT output AS Result;
+END |
+DELIMITER ;
+
+CALL leave1(50, 21);
+
+
+#leave example 2			-- LEAVE + Nested while loop --
+DROP PROCEDURE IF EXISTS leave2;
+DELIMITER |
+CREATE PROCEDURE leave2(IN num INT, IN stopTo INT)
+BEGIN
+	DECLARE i INT DEFAULT 0;
+    DECLARE j INT DEFAULT 1;
+    DECLARE output TEXT;
+    
+    #create temporary table
+    CREATE TEMPORARY TABLE IF NOT EXISTS whileloop2(
+		num TEXT
+    );
+    
+    #empty table
+    TRUNCATE TABLE whileloop2;
+	
+    w1: WHILE i < num DO
+		SET j = 1;
+        SET output = "";
+        
+        w2: WHILE j < num DO
+			SET output = CONCAT_WS(", ", output, CONCAT(i,"::",j));
+			SET j = j + 1;
+			
+			IF j = stopTo THEN
+				LEAVE w2;
+			END IF;
+        END WHILE w2;
+		
+        INSERT INTO whileloop2 VALUES(output);
+        SET i = i + 1;
+    END WHILE w1;
+    
+    SELECT * FROM whileloop2;
+END |
+DELIMITER ;
+
+CALL leave2(10, 5);
+
+
+#ITERATE
+#This instruction can be used in a loop.
+#When executed, a new iteration of the loop begins. 
+#All instructions in the loop following ITERATE are ignored.
+
+DROP PROCEDURE IF EXISTS iterateLoop;
+DELIMITER |
+CREATE PROCEDURE iterateLoop(IN num INT)
+BEGIN
+	DECLARE i INT DEFAULT 0;
+	
+    w1: WHILE i < num DO
+		SELECT i AS Num;
+        SET i = i + 1;
+        
+        SELECT "Before IF";
+		IF i MOD 2 = 0 THEN
+			SELECT "INSIDE IF";
+            ITERATE w1;
+        END IF;
+        SELECT "After IF";
+    END WHILE w1;
+END |
+DELIMITER ;
+
+
+#Loop
+#There is no condition anywhere. 
+#In fact, LOOP is an instruction that requires an element 
+#that will make it stop: 
+#typically a LEAVE statement. Otherwise, it is an infinite loop.
+
+DROP PROCEDURE IF EXISTS LoopDemo;
+
+DELIMITER |
+CREATE PROCEDURE loop_demo(IN num INT, IN stopAt INT)
+BEGIN
+	
+	DECLARE str  VARCHAR(255);
+        
+	SET str =  '';
+        
+	loop_label:  LOOP
+		IF  num > stopAt THEN 
+			LEAVE  loop_label;
+		END  IF;
+            
+		SET  num = num + 1;
+		IF  (num mod 2) THEN
+			ITERATE  loop_label;
+		ELSE
+			SET  str = CONCAT(str,num,',');
+		END  IF;
+	END LOOP;
+	SELECT str;
+END|
+
+DELIMITER ;
+
+CALL loop_demo(5,10):
+CALL loop_demo(10,5);
+# The stored procedure constructs a string from the even numbers e.g., 2, 4, ...
+# The loop_label before the LOOP statement for use with the ITERATE and LEAVE statements.
+# If the value of num is greater than stopAt, the loop is terminated because of the LEAVE statement.
+# If the value of the num is an odd number, the ITERATE ignores everything below it and starts a new loop iteration.
+# If the value of the num is an even number, the block in the ELSE statement will build the result string from even numbers.

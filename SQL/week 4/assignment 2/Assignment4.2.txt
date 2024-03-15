@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+      Assignment 4.2
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+			 ********************
+			 * STORE PROCEDURES *
+			 ********************
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+	PART 1
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+1. STORE PROCEDURE: list_animals
+	Display the list of all the animals with animal name and race name
+
+2. STORE PROCEDURE: fetch_animal_age
+	IN: Animal id
+	OUT: Animal age in numbers
+
+3. STORE PROCEDURE: price_of_pets
+	IN: 3 Animal ids
+	OUT: Price of the 3 animals
+	(price is determined by adding species price to race price if exists)
+
+4. STORE PROCEDURE: total_age_of_animal
+	IN: 1 Animal id
+	INOUT: Cumulative age of the animals
+	Do it for at least 5 animals
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+	PART 2
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+5. STORE PROCEDURE: fetch_animal_parents
+	IN: animal id
+	Display if both parents exist -> show the parent's name (both mom and dad)
+	Else if only one of the parent exist -> show their name
+	Else show -> No parents
+
+6. STORE PROCEDURE: fetch_animal_info
+	IN: animal id
+	Display the animal name, gender, dob, and race.
+		-if animal doesn't have a name display: "No name"
+		-if animal doesn't have a gender display: "To Be Decided"
+		-if animal doesn't have a race display: "Unknown"
+
+7. STORE PROCEDURE: Say_ma_name
+	IN: Animal id
+	OUT: Animal's name as much as it's age.
+	ex: I'm 3 -> Naz, Naz, Naz

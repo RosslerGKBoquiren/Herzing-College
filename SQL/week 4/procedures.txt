@@ -1,0 +1,224 @@
+USE zoo;
+
+DROP PROCEDURE IF EXISTS today_tomorrow;
+DELIMITER |
+CREATE PROCEDURE today_tomorrow()
+BEGIN
+	#declare variables
+    DECLARE today DATE DEFAULT NOW();
+    DECLARE tomorrow DATE DEFAULT today + INTERVAL 1 DAY;
+    DECLARE day2 DATE DEFAULT today + INTERVAL 2 DAY;
+    DECLARE day3 DATE DEFAULT today + INTERVAL 3 DAY;
+    
+       
+    #display the variables
+    SELECT DATE_FORMAT(today, "%W, %M, %D %Y") AS Today,
+			DATE_FORMAT(tomorrow, "%W, %M, %e %Y") AS Tomorrow,
+            DATE_FORMAT(day2, "%W, %M, %d %Y") AS 'In 2 Days',
+            DATE_FORMAT(day3, "%W, %M, %D %Y") AS 'In 3 Days';
+END |
+DELIMITER ;
+
+CALL today_tomorrow();
+
+
+
+
+
+DROP PROCEDURE IF EXISTS test;
+DELIMITER |
+CREATE PROCEDURE test()
+BEGIN
+	SET @test = 12;
+    SELECT @test;
+END |
+DELIMITER ;
+CALL test();
+SELECT @test;
+
+
+
+#test range 1
+DROP PROCEDURE IF EXISTS test_range1;
+DELIMITER |
+CREATE PROCEDURE test_range1()
+BEGIN
+	DECLARE w1 VARCHAR(15) DEFAULT 'Montreal';
+    
+    BEGIN
+		DECLARE w2 VARCHAR(15) DEFAULT 'Herzing';
+		SELECT "Scope 2" AS Scope, w1 AS 'W1', w2 AS 'W2';
+	END ;
+    
+    SELECT "Scope 1" AS Scope, w1 AS 'W1', w2 AS 'W2';
+END |
+DELIMITER ;
+CALL test_range1();
+
+
+
+
+
+
+#if condition in regular query
+SELECT name, dob, IF(YEAR(dob) = 2010, 'Lucky', 'Unlucky') AS Luck
+FROM animal;
+USE zoo;
+SELECT * FROM adoption;
+
+
+
+
+
+#if cases
+DROP PROCEDURE IF EXISTS is_adopted;
+DELIMITER |
+CREATE PROCEDURE is_adopted(IN a_id INT)
+BEGIN
+	DECLARE bool TINYINT DEFAULT 0;
+    DECLARE a_name VARCHAR(50);
+    
+    #get the animal name
+    SELECT name INTO a_name
+    FROM animal
+    WHERE id = a_id;
+		
+	#check to see if animal is in adoption table
+    SELECT COUNT(*) INTO bool
+    FROM adoption
+    WHERE animal_id = a_id;
+    
+    #if case
+    IF bool > 0 THEN
+		SELECT CONCAT_WS(" ", a_name, "is adopted") As Adoption;
+	ELSE
+		SELECT CONCAT_WS(" ", a_name, "is not adopted") As Adoption;
+	END IF;
+    
+END |
+DELIMITER ;
+CALL is_adopted(39);
+
+
+
+
+#with an if else if case
+DROP PROCEDURE IF EXISTS is_before_2010;
+DELIMITER |
+CREATE PROCEDURE is_before_2010(IN a_id INT)
+BEGIN
+	DECLARE a_name VARCHAR(50);
+    DECLARE a_year INT DEFAULT 0;
+    
+    #get the animal info
+    SELECT name, YEAR(dob) INTO a_name, a_year
+    FROM animal
+    WHERE id = a_id;
+    
+    #conditions
+    IF a_year = 0 THEN
+		SELECT CONCAT(a_id, " is invalid") AS Result; 
+	ELSEIF a_year > 2010 THEN
+		SELECT CONCAT(a_name, " was born after 2010") AS Result; 
+	ELSEIF a_year < 2010 THEN
+		SELECT CONCAT(a_name, " was born before 2010") AS Result; 
+	ELSE
+		SELECT CONCAT(a_name, " was born in 2010") AS Result; 
+	END IF;
+END |
+DELIMITER ;
+
+CALL is_before_2010(6);
+
+
+
+
+
+#with a case
+DROP PROCEDURE IF EXISTS is_before_2010_case;
+DELIMITER |
+CREATE PROCEDURE is_before_2010_case(IN a_id INT)
+BEGIN
+	DECLARE a_name VARCHAR(50);
+    DECLARE a_year INT DEFAULT 0;
+    DECLARE before_after VARCHAR(10);
+    
+    #get the animal info
+    SELECT name, YEAR(dob) INTO a_name, a_year
+    FROM animal
+    WHERE id = a_id;
+    
+    SET before_after = IF(a_year > 2010, 'after', 'before');
+    
+    #conditions
+    CASE a_year 
+		WHEN 0 THEN
+			SELECT CONCAT(a_id, " is invalid") AS Result; 
+		WHEN 2010 THEN
+			SELECT CONCAT(a_name, " was born in 2010") AS Result;  
+		ELSE
+			SELECT CONCAT(a_name, " was born ", before_after, " 2010") AS Result; 
+	END CASE;
+END |
+DELIMITER ;
+
+CALL is_before_2010_case(65);
+
+
+
+
+
+
+
+#while loop
+DROP PROCEDURE count_in_while;
+DELIMITER |
+CREATE PROCEDURE count_in_while(IN num INT)
+BEGIN
+	DECLARE i INT DEFAULT 0;
+    DECLARE output TEXT;
+    
+    WHILE i < num DO
+		SET output = CONCAT_WS(", ", output, i);
+        SET i = i + 1;
+    END WHILE;
+    
+    SELECT output AS Result;
+END |
+DELIMITER ;
+
+CALL count_in_while(5);
+
+
+
+
+#count in repeat
+DROP PROCEDURE count_in_repeat;
+DELIMITER |
+CREATE PROCEDURE count_in_repeat(IN num INT)
+BEGIN
+	DECLARE i INT DEFAULT 0;
+    DECLARE output TEXT;
+	
+    REPEAT
+	SET output = CONCAT_WS(", ", output, i);
+        SET i = i + 2;
+    UNTIL i > num 
+    END REPEAT;
+    
+    SELECT output AS Result;
+END |
+DELIMITER ;
+
+CALL count_in_repeat(50);
+
+
+
+
+
+
+
+
+
+
+
