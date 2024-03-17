@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+      Assignment 4.3
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+			 ********************
+			 * STORED FUNCTIONS *
+			 ********************
+
+
+1. STORED FUNCTION: count_backwards
+	INPUT: Number to start from (x)
+	INPUT: Number to go to (Y)
+	Display (Returns) all the numbers (inclusive) from x to y as one comma-separated value
+	Ex: x = 10, y = 5, Display: 10,9,8,7,6,5
+
+2. STORED FUNCTION: count_funny
+	INPUT: Number to start from (x)
+	INPUT: Number to go to (Y)
+	Display (Returns) all the numbers (inclusive) from x to y and a special message for any number divisible by 5
+	Ex: x = 10, y = 0
+	Display: 	10 <- funny
+				9
+				8
+				7
+				6
+				5 <- funny
+				4
+				3
+				2
+				1
+				0 <- funny
+
+
+3. STORED FUNCTION: my_birthday
+	INPUT: your birthday (DATE)
+	Display (Returns) all the dates between Jan 1 - Dec 31 of this year in a loop.
+	Stop the loop on your birthday (the variable entered)
+
+	Ex: 2024-01-01
+		2024-01-02
+		2024-01-03
+		2024-01-04
+		2024-01-05 <- My Birthday :D
+
+4. Create a function that retrieves the animal’s id and returns its price. 
+Price is determined by the race’s price if not exist by species’ price.
+Then execute the following query :
+	SELECT name, dob, sex, get_species_name(species_id) species, get_mother_name(id) mom, get_price(id) price FROM animal
+
+
+			 ********************
+			 *     TRIGGERS     *
+			 ********************
+
+5. Add a new column to the "species" table to show the count of each species number 
+found in the "animal" table by utilizing the "count_species" function and inserting the appropriate values. 
+
+Then create a trigger that updates this column each time a record is inserted into the "animal" table. 
+To test it insert a new record in animal table.
+
+
