@@ -117,6 +117,41 @@ VALUES
 (1, 1, '2024-09-02'),
 (2, 2, '2024-09-02');
 
+-- Stored procedure to add a new class
+DROP PROCEDURE IF EXISTS add_class;
+DELIMITER |
+CREATE PROCEDURE add_class(IN program_name_param VARCHAR(100))
+BEGIN
+    DECLARE program_id_param INT;
+    DECLARE max_capacity_param INT;
+    DECLARE room_number_param VARCHAR(20);
+    DECLARE start_date_param DATE;
+    
+    -- Get the program_id for the given program_name
+    SELECT id, max_capacity INTO program_id_param, max_capacity_param 
+    FROM programs 
+    WHERE program_name = program_name_param;
+    
+    -- Get the room_number based on the maximum capacity of the program
+    SET room_number_param = CONCAT('Room ', max_capacity_param);
+    
+    -- Calculate the start_date
+    SET start_date_param = (
+        SELECT 
+            CASE
+                WHEN MONTH(CURDATE()) >= 9 THEN 
+                    DATE_ADD(DATE(CONCAT(YEAR(CURDATE()) + 1, '-03-01')), INTERVAL (14 - WEEKDAY(DATE(CONCAT(YEAR(CURDATE()) + 1, '-03-01')))) DAY)
+                ELSE 
+                    DATE_ADD(DATE(CONCAT(YEAR(CURDATE()), '-09-01')), INTERVAL (14 - WEEKDAY(DATE(CONCAT(YEAR(CURDATE()), '-09-01')))) DAY)
+            END
+    );
+    
+    -- Insert the new class into the classes table
+    INSERT INTO classes (classroom_id, program_id, start_date) 
+    VALUES ((SELECT id FROM classrooms WHERE room_number = room_number_param), program_id_param, start_date_param);
+    
+END |
+
 -- Stored procedure to get the next start date for a program
 DROP PROCEDURE IF EXISTS next_start_date;
 DELIMITER |
@@ -165,7 +200,11 @@ BEGIN
     DECLARE next_start_date DATE;
     
     -- Get the program_id for the given program_name
-    SELECT id INTO program_id FROM programs WHERE program_name = program_name;
+    SELECT id INTO program_id 
+    FROM programs 
+    WHERE program_name = program_name
+    ORDER BY created_date DESC
+    LIMIT 1; -- Select only the latest program
     
     -- Calculate the next start date for the program
     SET next_start_date = calculate_new_date(YEAR(CURDATE()), program_name);
