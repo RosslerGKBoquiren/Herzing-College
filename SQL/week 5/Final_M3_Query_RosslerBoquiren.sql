@@ -75,11 +75,11 @@ VALUES
 -- 4. insert values Classrooms table
 INSERT INTO Classrooms (room_number, capacity)
 VALUES
-('Room 101', 10),
-('Room 102', 8),
-('Room 103', 5),
-('Room 104', 10),
-('Room 105', 8);
+('Room 110', 0),
+('Room 108', 0),
+('Room 105', 0),
+('Room 210', 0),
+('Room 208', 0);
 
 -- 5. insert values Students table
 INSERT INTO Students (first_name, last_name, DOB, address, phone, email)
@@ -92,13 +92,21 @@ VALUES
 
 -- 6. insert values Student_Profile table
 INSERT INTO Student_Profile (student_id, enrolment_date, classes_id, status)
-SELECT id, CURDATE(), NULL, 'Active'
-FROM Students;
+VALUES
+(1, '2024-03-02', 1, 'Active'),
+(2, '2024-03-02', 2, 'Active'),
+(3, '2024-03-05', 3, 'Active'),
+(4, '2024-03-05', 4, 'Active'),
+(5, '2024-03-08', 5, 'Active');
 
 -- 7. insert values Student_Invoice_Bills table
 INSERT INTO Student_Invoice_Bills (student_id, balance, date, status)
-SELECT id, 0, CURDATE(), '0'
-FROM Students;
+VALUES
+(1, 30000.00, '2024-03-02', 1),
+(2, 30000.00, '2024-03-02', 0),
+(3, 24000.00, '2024-03-05', 0),
+(4, 24000.00, '2024-03-05', 1),
+(5, 12000.00, '2024-03-08', 0);
 
 -- 8. insert values Classes table
 INSERT INTO Classes (classroom_id, program_id, start_date)
@@ -109,59 +117,59 @@ VALUES
 (1, 1, '2024-09-02'),
 (2, 2, '2024-09-02');
 
--- stored procedure add new class
-DROP PROCEDURE IF EXISTS add_class;
+-- Stored procedure to get the next start date for a program
+DROP PROCEDURE IF EXISTS next_start_date;
 DELIMITER |
-CREATE PROCEDURE add_class (
-    IN program_name VARCHAR(100),
-    IN classroom_id INT,
-    OUT new_class_id INT
-)
+CREATE PROCEDURE next_start_date(IN program_name VARCHAR(100), OUT next_start_date DATE)
 BEGIN
-    DECLARE program_id INT;
-    DECLARE max_capacity INT;
-    DECLARE latest_start_date DATE;
-    DECLARE new_start_date DATE;
+    -- Get the current date
+    SET @current_date := CURDATE();
     
-    -- Get Program ID and max capacity
-    SELECT id, max_capacity INTO program_id, max_capacity FROM Programs WHERE program_name = program_name LIMIT 1;
+    -- Get the next year
+    SET @next_year := YEAR(CURDATE()) + 1;
     
-    -- Get latest start date for the program
-    SELECT MAX(start_date) INTO latest_start_date FROM Classes WHERE program_id = program_id;
-    
-    -- Calculate new start date
-    SET new_start_date = CASE
-        WHEN latest_start_date IS NULL THEN
-            CASE
-                WHEN MONTH(CURDATE()) < 9 THEN DATE(CONCAT(YEAR(CURDATE()), '-09-01'))
-                ELSE DATE(CONCAT(YEAR(CURDATE()) + 1, '-09-01'))
-            END
-        ELSE DATE_ADD(latest_start_date, INTERVAL 6 MONTH)
-    END;
-
-    -- Insert values into Classes table
-    INSERT INTO Classes (classroom_id, program_id, start_date) VALUES (classroom_id, program_id, new_start_date);
-    SET new_class_id = LAST_INSERT_ID();
+    -- Calculate the next start date for the program
+    SELECT 
+        CASE
+            WHEN MONTH(@current_date) >= 9 THEN DATE_ADD(DATE(CONCAT(@next_year, '-03-01')), INTERVAL (14 - WEEKDAY(DATE(CONCAT(@next_year, '-03-01')))) DAY)
+            ELSE DATE_ADD(DATE(CONCAT(YEAR(@current_date), '-09-01')), INTERVAL (14 - WEEKDAY(DATE(CONCAT(YEAR(@current_date), '-09-01')))) DAY)
+        END
+    INTO next_start_date;
 END |
+
+-- Stored function to calculate and return the start date for a new program
+DROP FUNCTION IF EXISTS calculate_new_date;
+DELIMITER |
+CREATE FUNCTION calculate_new_date(program_year INT, program_name VARCHAR(100)) RETURNS DATE
+BEGIN
+    DECLARE next_start_date DATE;
     
--- stores procedure Delete Classes
+    -- Calculate the new start date for the program
+    SELECT 
+        CASE
+            WHEN MONTH(CURDATE()) >= 9 THEN DATE_ADD(DATE(CONCAT(program_year, '-03-01')), INTERVAL (14 - WEEKDAY(DATE(CONCAT(program_year, '-03-01')))) DAY)
+            ELSE DATE_ADD(DATE(CONCAT(program_year - 1, '-09-01')), INTERVAL (14 - WEEKDAY(DATE(CONCAT(program_year - 1, '-09-01')))) DAY)
+        END
+    INTO next_start_date;
+    
+    RETURN next_start_date;
+END |
+
+
+-- Stored procedure to delete classes if needed
 DROP PROCEDURE IF EXISTS delete_class;
 DELIMITER |
-CREATE PROCEDURE delete_class (IN class_id INT)
+CREATE PROCEDURE delete_class(IN program_name VARCHAR(100))
 BEGIN
-    DELETE FROM Classes WHERE id = class_id;
-END |
-
-
--- stored procedure display latest class
-DROP PROCEDURE IF EXISTS display_latest_class;
-DELIMITER |
-CREATE PROCEDURE display_latest_class(IN program_name VARCHAR(100))
-BEGIN
-	SELECT *
-    FROM Classes
-    INNER JOIN Programs ON Classes.Program_id = Programs.id
-    WHERE Programs.program_name = program_name
-    ORDER BY Classes.start_date DESC
-    LIMIT 1;
+    DECLARE program_id INT;
+    DECLARE next_start_date DATE;
+    
+    -- Get the program_id for the given program_name
+    SELECT id INTO program_id FROM programs WHERE program_name = program_name;
+    
+    -- Calculate the next start date for the program
+    SET next_start_date = calculate_new_date(YEAR(CURDATE()), program_name);
+    
+    -- Delete classes if the start date of the program is after today's date
+    DELETE FROM classes WHERE program_id = program_id AND start_date > next_start_date;
 END |
