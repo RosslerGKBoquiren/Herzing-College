@@ -49,8 +49,9 @@ CREATE TABLE Student_Profile (
     id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT,
     enrolment_date DATE NOT NULL,
+    graduation_date DATE,
     classes_id INT,
-    status ENUM('Active', 'Graduated', 'Suspended'),
+    status ENUM('Active', 'Graduated', 'Suspended', 'Balance Pending'), -- Add 'Balance Pending' to ENUM
     FOREIGN KEY (student_id) REFERENCES Students(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (classes_id) REFERENCES Classes(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -172,9 +173,6 @@ BEGIN
 END |
 
 
-
-
-
 -- Delete Classes Procedure
 DROP PROCEDURE IF EXISTS delete_classes;
 DELIMITER |
@@ -258,57 +256,93 @@ BEGIN
     VALUES (store_student_id, store_next_start_date, store_class_id, 'Active');
 END |
 
+-- determine the end date of each class
+DROP FUNCTION IF EXISTS end_date;
+DELIMITER |
+CREATE FUNCTION end_date(start_date DATE, program_duration_months INT) RETURNS DATE
+BEGIN
+    DECLARE end_date_result DATE;
+    
+    -- Calculate end date by adding program duration (in months) to start date
+    SET end_date_result = DATE_ADD(start_date, INTERVAL program_duration_months MONTH);
 
+    RETURN end_date_result;
+END |
 
 -- Edit Student Status Procedure
 DROP PROCEDURE IF EXISTS edit_student_status;
 DELIMITER |
-CREATE PROCEDURE edit_student_status(
-    IN input_student_id INT
-)
+CREATE PROCEDURE edit_student_status (IN input_student_id INT)
 BEGIN
-    DECLARE balance_status INT;
-    DECLARE program_duration INT;
-    DECLARE class_start_date DATE;
-    DECLARE current_date_var DATE;
-    DECLARE student_status VARCHAR(20);
+    DECLARE invoice_status INT;
+    DECLARE graduation_date_check DATE;
 
-    -- Check if the student's balance status is paid
-    SELECT status INTO balance_status
+    -- Check if the student has paid the balance
+    SELECT status INTO invoice_status
     FROM student_invoice_bills
-    WHERE student_id = input_student_id
-    ORDER BY date DESC
-    LIMIT 1;
+    WHERE student_id = input_student_id;
 
-    -- Get program duration and class start date
-    SELECT programs.duration, classes.start_date INTO program_duration, class_start_date
+    -- Check graduation date
+    SELECT graduation_date INTO graduation_date_check
     FROM student_profile
-    JOIN classes ON student_profile.classes_id = classes.id
-    JOIN programs ON classes.program_id = programs.id
-    WHERE student_profile.student_id = input_student_id;
+    WHERE student_id = input_student_id;
 
-    -- Get the current date
-    SET current_date_var = CURDATE();
-
-    -- Update student profile status based on balance status and program duration
-    IF balance_status = 0 THEN
-        -- Update status to 'Pending Balance'
-        UPDATE student_profile
-        SET status = 'Pending Balance'
-        WHERE student_id = input_student_id;
-    ELSE
-        -- Check if program duration exceeds class start date compared to today's date
-        IF program_duration >= DATEDIFF(current_date_var, class_start_date) THEN
-            -- Update status to 'Graduated'
-            UPDATE student_profile
-            SET status = 'Graduated'
-            WHERE student_id = input_student_id;
-        END IF;
-    END IF;
+    -- Update status based on conditions
+    IF graduation_date_check <= CURDATE() AND invoice_status = 1 THEN
+		-- Student has paid the balance
+		-- Student has completed the program
+		UPDATE student_profile
+		SET status = 'Graduated'
+		WHERE student_id = input_student_id;
+	ELSEIF invoice_status = 0 THEN
+		-- Student has not paid the balance
+		UPDATE student_profile
+		SET status = 'Balance Pending'
+		WHERE student_id = input_student_id;
+	END IF;
 END |
 
-
-
+-- need a function for adjusting graduation_date to simplify procedure to edit_student_status
+DROP FUNCTION IF EXISTS update_graduation_date;
+DELIMITER |
+CREATE FUNCTION update_graduation_date()
+RETURNS BOOLEAN
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE class_id INT;
+    DECLARE program_dur INT;
+    DECLARE class_start_date DATE;
+    DECLARE end_date_result DATE;
+    
+    DECLARE cur CURSOR FOR
+        SELECT student_profile.classes_id, programs.duration, classes.start_date
+        FROM student_profile
+        JOIN classes ON student_profile.classes_id = classes.id
+        JOIN programs ON classes.program_id = programs.id;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    
+    OPEN cur;
+    read_loop: LOOP
+        FETCH cur INTO class_id, program_dur, class_start_date;
+        
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        -- Calculate end date using the end_date function
+        SET end_date_result = end_date(class_start_date, program_dur);
+        
+        -- Update graduation_date in student_profile table
+        UPDATE student_profile
+        SET graduation_date = end_date_result
+        WHERE classes_id = class_id;
+        
+    END LOOP;
+    
+    CLOSE cur;
+    RETURN TRUE;
+END |
 
 
 -- Add Invoice Procedure
@@ -354,15 +388,22 @@ DROP PROCEDURE IF EXISTS add_penalty_or_fee;
 DELIMITER |
 CREATE PROCEDURE add_penalty_or_fee(
     IN input_student_id INT,
-    IN input_amount DECIMAL(10,2),
     IN input_status ENUM('0', '1')
 )
 BEGIN
-    INSERT INTO student_invoice_bills (student_id, balance, date, status)
-    VALUES (input_student_id, input_amount, CURDATE(), input_status);
+    DECLARE student_balance DECIMAL(10,2);
+    DECLARE total_amount DECIMAL(10,2);
+
+    -- Calculate total amount including penalty
+    SET total_amount = get_student_balance_and_penalty(input_student_id);
+
+    -- Update the existing bill
+    UPDATE student_invoice_bills
+    SET balance = total_amount,
+        date = CURDATE(),
+        status = input_status
+    WHERE student_id = input_student_id;
 END |
-
-
 
 -- Add Program Procedure
 DROP PROCEDURE IF EXISTS add_program;
