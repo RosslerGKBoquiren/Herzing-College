@@ -107,4 +107,41 @@ operations will be evaluated in the following order:
 
 echo 94 - 4.25 + 7 - (23.50 + (23.50 * 0.2)) + (20 / 4);  // prints: 73.55
 
+
+
 METHEMATICAL ASSIGNMENT OPERATORS
+one common task when manipulating number variables is to reassign them to their old value with some 
+operation performed on it 
+$savings = 800;
+$bike_cost = 75;
+$savings = $savings - $bike_cost;
+echo $savings; // Prints: 725
+
+a short way to reqrite the syntax above: 
+$savings = 800;
+$bike_cost = 75;
+$savings -= $bike_cost; // (-=)
+echo $savings; //PrintsL 725
+
+one more shortcut, increment operators allow us to subtract or add to a number with just two characters. 
+$age = 89;
+$age++;
+echo $sage; //Prints: 90
+
+$days_till_vacation = 7;
+$days_till_vacation--;
+echo $days_till_vacation; // Prints: 6
+
+<?php
+// Write your code below:
+
+$my_num = 30;
+$answer = $my_num;
+$answer += 2; // add 2 to $answer
+$answer *= 2; // multiply $answer by 2
+$answer -= 2; // subtract 2 from $answer
+$answer /= 2;  // divide $answer by 2
+$answer -= $my_num; //subtract your original number from $answer
+echo $answer;
+
+// no matter what the original number was, the $answer would be = 1
