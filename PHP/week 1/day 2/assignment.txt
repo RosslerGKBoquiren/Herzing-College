@@ -1,0 +1,23 @@
+Part 1 (5 pts). Create an input form for us to use in processing this week. Include the following fields:
+
+Username: type=textbox
+FirstName: type=textbox
+LastName: type=textbox
+Password: type=password
+Confirm Password: type=password
+Email: type=textbox
+Province: select box
+Accept Terms: type=checkbox
+Submit button (input type=submit)
+
+Put the form into the content area of your portfolio layout.
+
+Part 2 (5 pts).
+Create a function in php called calculate() which takes three variables, $number1 and $number2, and an optional variable called $operator. Set $operator to have a default value of "a" for addition but allow the user to use the value "s" for subtraction, "d" for division and "m" for multiplication. Return the value that is calculated from the function and output the results to the screen.
+
+Output should look like:
+
+Number 1 = 36
+Number 2 = 42
+Operator = "a"
+Result = 78

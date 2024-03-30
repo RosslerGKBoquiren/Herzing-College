@@ -1,0 +1,2 @@
+Create a basic page layout using one of the methods from our HTML/CSS course. Review the different layout types and decide what you are going to use. We will use this as a template for our database work. Extract the header and footer and place them into their own separate php file, in a folder called php.
+
