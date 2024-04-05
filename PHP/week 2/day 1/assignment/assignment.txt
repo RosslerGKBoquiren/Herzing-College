@@ -1,0 +1,4 @@
+Add validation code to your user input form.
+All Fields are required.
+Use proper validation to ensure the email address is a valid email address.
+Output the same as in previous assignment. If a user misses a field, do not output the form results, just tell them what field was missing. If they get them all without missing any, output the results.
