@@ -1,6 +1,17 @@
 <?php
 //create array of names called $names
-$names = array('Kobe', 'Curry', 'Lebron', 'Kawai', 'Howard', 'Smith', 'Rogers', 'Banner', 'Widow', 'Frank');
+$names = [
+	'0' => 'Kobe', 
+	'1' => 'Curry', 
+	'2' => 'Lebron', 
+	'3' => 'Kawai', 
+	'4' => 'Howard', 
+	'5' => 'Smith', 
+	'6' => 'Rogers', 
+	'7' => 'Banner', 
+	'8' => 'Widow', 
+	'9' => 'Frank'
+	];
 
 //create for loop names in order
 for ($i = 0; $i < count($names); $i++) {
@@ -17,26 +28,36 @@ for ($i = count($names) - 1; $i >= 0; $i--) {
 
 
 <?php
-require_once('header.php');
+echo '<hr>';
 require_once('form_check.php');
 
 if(isset($_POST['btnSubmit'])) {
     $has_no_errors = checkVariableforBlankFields($_POST);
-    
+    var_dump($_POST); // Added semicolon
     if ($has_no_errors) {
-        echo 'Your form has been completed correctly.';
+        echo 'Your form has been completed correctly.<br>';
+        echo "Username: " . $_POST['username'] . "<br>";
+        echo "Name: " . $_POST['first_name'] . " " . $_POST['last_name'] . "<br>";
+        echo "Password: " . $_POST['password'] . "<br>";
+        echo "Email: " . $_POST['email'] . "<br>"; // Corrected key
+        echo "Accept Terms: ";
+        if(isset($_POST['accept_terms']))
+            echo "True";
+        else
+            echo "False";
+        echo "<br>";
+        
     } else {
         echo 'You have to provide all the information.';
     }
-	print_r($_POST);
-	echo'<hr>';
-	var_dump($_POST);
+    var_dump($_POST); // Added semicolon
 }
 ?>
 
 
 
 <?php require_once('header.php'); ?>
+<hr>
 <div id='form-div'>
     <form method='post'>
         <ul>

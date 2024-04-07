@@ -9,7 +9,25 @@
 			margin: 0;
 		}
 		
-		.form-div {
+		.output_message {
+			background-color: white;
+			border: 1px solid black;
+			border-radius: 5px;
+			padding: 15px;
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		.error_message {
+			color: red;
+		}
+
+		.success_message {
+			color: green;
+		}
+
+		
+		#form-div {
 			width: 50%;
 			margin: 50px auto;
 			background-color: whitesmoke;
@@ -38,7 +56,7 @@
 			box-sizing: border-box;
 		}
 		
-		#submit, #reset {
+		#btnSubmit {
 			width: 30%;
 			margin-right: auto;
 			margin-left: auto;
@@ -49,7 +67,7 @@
 			border-radius: 5px;
 		}
 
-		#submit:hover, #reset:hover {
+		#btnSubmit:hover {
 			background-color: lightgreen;
 		}
 
@@ -58,18 +76,23 @@
 			justify-content: center;
 		}
 
-		#checkbox {
+		#accept_terms {
 			width: 20px;
 			margin-top: 12px;
 		}
-
-		a {
-			color: blue;
-			text-decoration: none;
+		
+		#footer-div {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			background-color: grey;
+			color: white;
+			padding: 20px;
+			text-align: center;
 		}
 
-		a:hover {
-			text-decoration: underline;
+		#footer-div p {
+			margin: 0;
 		}
 
 	</style>
