@@ -225,3 +225,85 @@ echo rand(1, 52); // 10, could also be anything between 1 and 52
 
 
 DOCUMENTATION 
+<?php
+namespace Codecademy;
+
+$a = 29;
+$b = "You did it!";
+$c = STR_PAD_BOTH;
+$d = "*~*";
+
+// Write your code below:
+echo str_pad($b, $a, $d, $c);
+
+
+FINDING FUNCTIONS 
+<?php
+namespace Codecademy;
+
+// Write your code below:
+function convertToShout($str)
+{
+  return strtoupper($str) . "!";
+}
+
+echo convertToShout("woah there, buddy"); // WOAH THERE, BUDDY!
+
+function tipGenerously($cost)
+{
+  return ceil($cost * 1.20);
+}
+
+echo "\n";
+echo tipGenerously(100.00); // 120
+
+
+function calculateCircleArea($r)
+{
+  return pi() * ($r/2) ** 2;
+}
+
+echo "\n";
+echo calculateCircleArea(25); //490.87385212341
+
+
+<?php
+$string_var = "Check it out";
+echo strtoupper($string_var) . "!\n";
+
+echo ceil(8.873);
+echo "\n";
+  
+echo pi();
+echo "\n";
+
+echo str_pad("PHP", 30, "*^*-", STR_PAD_BOTH);
+echo "\n";
+
+echo getrandmax();
+echo "\n";
+
+echo rand();
+echo "\n";
+
+echo rand(1, 52);
+echo "\n";
+
+echo abs(-1287);
+echo "\n";
+
+echo round(8723.999);
+echo "\n";
+
+echo substr_count($string_var, " ");
+echo "\n";
+
+echo strrev("\n.pu ti peeK .taerg gniod er'uoY");
+
+echo strtolower("SOON, tHiS WILL Look NoRmAL.\n");
+
+echo str_repeat("There's no place like home.\n", 3);
+
+echo gettype($string_var);
+echo "\n";
+echo var_dump($string_var);

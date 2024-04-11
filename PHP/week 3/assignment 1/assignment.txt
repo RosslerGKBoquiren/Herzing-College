@@ -1,0 +1,14 @@
+create a database called "store" add a user with a password to access it. Create a table called "users" with the fields that match the registration form from last week.
+
+Fields:
+ID - int PRIMARY KEY - autoincrement
+username - varchar(20) - NOT NULL
+firstname - varchar(30) - NOT NULL
+lastname - varchar(50) - NOT NULL
+password - varchar(100) - NOT NULL
+province - varchar(20) - NOT NULL
+email - varchar(100) - NOT NULL
+
+This field was not on the form but it is useful to track
+dates in a database:
+datejoined - timestamp - NOT NULL - DEFAULT: CURRENT_TIMESTAMP
