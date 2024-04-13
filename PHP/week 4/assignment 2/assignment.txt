@@ -1,0 +1,1 @@
+Take your finished assignment from Day 4 last week (The registration form that validates user input and outputs errors or validated input) and set it up to insert a record after data is validated into the database you created from yesterdays assignment. 
