@@ -1,0 +1,19 @@
+Total out of 15
+
+Create a delete and update page for registered users based on the work we did with the provinces table. Have the users table direct an admin to the update or delete page based on id, and delete or update accordingly.
+
+We do not need the password field as usually changing the password is a separate activity that a user will do themselves unless locked out. We are looking at it from an administrators point of view in this form, so we are only looking to update basic details. 1pt
+
+Make sure you check if editid or delid are set. Use that id to get the user from the database and load into the form value attributes. Use an array $user and set all the object fields based on the form.  3pts
+
+We dont need Terms and conditions either as this is a situation where the user is already set up. 1pt
+
+Fields needed to update: 5pts
+Username
+Firstname
+Lastname
+Province
+Email
+
+Load each field with the existing data. For province, check each field to see if the loaded province data matches the particular province, and then echo "checked=\"checked\""; to have that particular province selected.   5pts
+

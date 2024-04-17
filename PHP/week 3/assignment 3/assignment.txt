@@ -1,0 +1,7 @@
+Total out of 12 points
+
+Create a users html table that lists all the registered users from the database with the options to edit or delete them.  5pts
+
+Make sure the edit and delete options are set up as a link to another page with the id passed along so the right record can be brought up. Use the example from today to get started.   5pts
+
+Place this within the bounds of your Website layout template. 2pts
