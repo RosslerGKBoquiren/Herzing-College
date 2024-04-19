@@ -52,9 +52,14 @@ main {
 
 /* Table Styles */
 
-.table {
+.table-container {
     width: 100%;
+    overflow-x: auto; 
+}
+
+.table {
     border-collapse: collapse;
+    width: max-content; 
 }
 
 .table th,
@@ -75,14 +80,15 @@ main {
     background-color: lightgray;
 }
 
-#edit, #delete {
+#edit,
+#delete {
     color: darkcyan;
 }
 
 /* Form */
 
 #form-div {
-    width: 50%;
+    width: 25%;
     margin: 50px auto;
     background-color: mintcream;
     padding: 20px;
@@ -119,6 +125,8 @@ input, select {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
+    display: block;
+    margin: 15px auto 5px auto;
 }
 
 #btnSubmit:hover, #cancel_btn:hover {

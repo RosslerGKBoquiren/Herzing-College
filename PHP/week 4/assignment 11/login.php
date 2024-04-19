@@ -7,12 +7,6 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="header">
-            <h1>LOGIN</h1>
-        </div>
-    </header>
-
     <?php
     // Check if logout parameter is set and logout cookie
     if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
@@ -23,13 +17,6 @@
         exit();
     }
 
-    // Check if user is already logged in
-    if(isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == 'true') {
-        // Show logout link
-        echo '<a href="login.php?logout=true">Logout</a>';
-        exit();
-    }
-
     // Check if form is submitted
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password'])) {
         // Database connection
@@ -37,8 +24,8 @@
             or die ("Error connecting to MySQL server.");
 
         // Retrieve user inputs
-        $username = isset($_POST['username']) ? $_POST['username'] : '';
-        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $username = isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '';
+        $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '';
 
         // Check if username and password are not empty
         if (!empty($username) && !empty($password)) {
@@ -55,7 +42,9 @@
             if (mysqli_num_rows($result) > 0) {
                 // User exists, set loggedin cookie
                 setcookie('loggedin', 'true', time() + 120, '/');
-                // Redirect to login page to show logout link
+                // Display logout link
+                echo '<nav><div class="menu"><span><a href="login.php?logout=true">LOGOUT</a></span></div></nav>';
+                // Redirect to dashboard if user is logged in
                 header('Location: dashboard.php');
                 exit();
             } else {
@@ -69,14 +58,19 @@
     }
     ?>
 
+    <header>
+        <div class="header">
+            <h1>LOGIN</h1>
+        </div>
+    </header>
 
     <!-- Login form -->
     <div id="form-div">
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" class="form">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
             <input type="submit" id="btnSubmit" value="Login">
         </form>
     </div>
@@ -88,3 +82,4 @@
     </footer>
 </body>
 </html>
+

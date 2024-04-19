@@ -52,9 +52,14 @@ main {
 
 /* Table Styles */
 
-.table {
+.table-container {
     width: 100%;
+    overflow-x: auto; 
+}
+
+.table {
     border-collapse: collapse;
+    width: max-content; 
 }
 
 .table th,
@@ -75,7 +80,8 @@ main {
     background-color: lightgray;
 }
 
-#edit, #delete {
+#edit,
+#delete {
     color: darkcyan;
 }
 

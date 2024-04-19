@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="edit_user_style.css">
 </head>
 <body>
     <header>
@@ -46,7 +46,7 @@
 
                 // Array of Canadian provinces
                 $provinces = array(
-                    "Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador",
+                    "Select Province", "Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador",
                     "Nova Scotia", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan",
                     "Northwest Territories", "Nunavut", "Yukon"
                 );

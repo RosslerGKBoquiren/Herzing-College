@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>REGISTRATION FORM</title>
-    <link rel="stylesheet" type="text/css" href="style.css">   
+    <link rel="stylesheet" type="text/css" href="registration_style.css">   
 </head>
-<body>
+<body class="registration-page">
 
     <header>
         <div class="header">
@@ -75,8 +75,8 @@
     }
     ?>
 
-    <div id='form-div'>
-        <form class='form' method='post'>
+    <div id="form-div">
+        <form class="form" method="post">
             <label for="username">Username:</label> <input type='text' id='username' name='username' placeholder='Enter your Username...' value='<?php echo isset($_POST["username"]) ? htmlspecialchars($_POST["username"]) : ""; ?>'><br>
             <label for="first_name">First Name:</label> <input type='text' id='first_name' name='first_name' placeholder='Enter your First Name...' value='<?php echo isset($_POST["first_name"]) ? htmlspecialchars($_POST["first_name"]) : ""; ?>'><br>
             <label for="last_name">Last Name:</label> <input type='text' id='last_name' name='last_name' placeholder='Enter your Last Name...' value='<?php echo isset($_POST["last_name"]) ? htmlspecialchars($_POST["last_name"]) : ""; ?>'><br>

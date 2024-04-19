@@ -1,0 +1,166 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 60px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header h1 {
+    color: darkcyan;
+    font-size: 35px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin: 130px 0 60px 0;
+
+}
+
+/* Navigation */
+
+nav {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+
+nav span {
+  display: block;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin: 10px 0px;
+}
+
+nav a {
+  color: grey;
+}
+
+/* Content Container */
+
+main {
+  margin: 20px auto;
+}
+
+/* Table Styles */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid lightgray;
+  padding: 8px;
+}
+
+.table th {
+  background-color: lightslategrey;
+}
+
+.table tr:nth-child(even) {
+  background-color: mintcream;
+}
+
+.table tr:hover {
+  background-color: lightgray;
+}
+
+#edit, #delete {
+    color: darkcyan;
+}
+
+/* Form */
+
+#form-div {
+  width: 30%;
+  margin: 50px auto;
+  background-color: mintcream;
+  padding: 8px;
+  border: solid lightgray 1px;
+  border-radius: 10px;
+}
+
+.form {
+  max-width: 400px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+#btnSubmit, #delete_btn, #cancel_btn {
+    width: 30%;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
+    background-color: darkcyan;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+#btnSubmit:hover, #cancel_btn:hover {
+    background-color: lightslategray;
+}
+
+#delete_btn:hover {
+  background-color: red;
+}
+
+.checkbox-div {
+    display: flex;
+    justify-content: center;
+}
+
+#accept_terms {
+    width: 20px;
+    margin-top: 12px;
+}
+
+/* Delete user */
+
+.confirm_message {
+  display: block;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+}
+
+#footer-div {
+  background-color: darkcyan;
+  color: whitesmoke;
+  padding: 3px 0;
+}
