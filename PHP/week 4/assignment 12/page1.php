@@ -3,7 +3,7 @@
 		session_start(); // start the session
 
 		$_SESSION['name'] = htmlentities($_POST['name']);
-		$_SESSIONp['email'] = htmlentities($_POST['email']);
+		$_SESSION['email'] = htmlentities($_POST['email']);
 		header('location: page2.php')
 	}
 ?>
