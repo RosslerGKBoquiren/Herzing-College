@@ -1,0 +1,6 @@
+SecureImage: Open Source PHP Captcha Script
+
+1- gd extension will help you in converting text to image.
+	edit php.ini (access to php.ini -> c:\wamp64\bin\apache\apache2.4.43\bin\php.ini)
+	find extension gd2 and uncomment or change gd to gd2 as extension in php.ini
+2- make sure the version of PHP on your wamp servrt is 7 unless the code does run correctly.
