@@ -1,0 +1,72 @@
+###########################################
+#########   ASSIGNMENT 21 - 22   ##########
+###########################################
+
+
+Enhancing User Registration with Image Upload
+
+Part 1: Database Table Correction (3 points)
+
+In this assignment, you will build upon your previous user registration assignments. Begin by modifying the database table to accommodate the new feature. Add a new column named 'photo' to store the image path.
+ALTER TABLE `users` ADD COLUMN `photo` VARCHAR(255) AFTER `email`;
+or
+ALTER TABLE users ADD COLUMN photo VARCHAR(255) DEFAULT NULL;
+
+Part 2: Adding a New Field for Image Upload (3 points)
+
+Extend your user registration form to include a new field for image upload. Ensure that the form validates the file type to only accept images and imposes a size limitation (e.g., less than 200KB).
+
+UPDATE HTML FORM
+<label for="photo">Upload Photo:</label>
+<input type="file" id="photo" name="photo" accept="image/*" required>
+
+MODIFY PHP SCRIPT
+// Check if a file is uploaded
+if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+    // Validate file type
+    $allowed_types = array('image/jpeg', 'image/png', 'image/gif');
+    $file_type = $_FILES['photo']['type'];
+    if (!in_array($file_type, $allowed_types)) {
+        echo '<div class="output_message error_message">Only JPEG, PNG, and GIF files are allowed.</div>';
+        $isvalid = false;
+    }
+
+    // Validate file size (less than 200KB)
+    if ($_FILES['photo']['size'] > 200 * 1024) {
+        echo '<div class="output_message error_message">File size must be less than 200KB.</div>';
+        $isvalid = false;
+    }
+
+    // Move uploaded file to a permanent location
+    $upload_dir = 'uploads/'; // Directory to store uploaded files
+    $uploaded_file = $upload_dir . basename($_FILES['photo']['name']);
+    if (!move_uploaded_file($_FILES['photo']['tmp_name'], $uploaded_file)) {
+        echo '<div class="output_message error_message">Failed to upload photo.</div>';
+        $isvalid = false;
+    }
+
+    // Set the photo path to be stored in the database
+    $photo_path = $uploaded_file;
+} else {
+    // No file uploaded
+    echo '<div class="output_message error_message">Please upload a photo.</div>';
+    $isvalid = false;
+}
+
+// Check if all previous validations passed
+if (!$isvalid) {
+    // Validation failed, stop processing
+    return;
+}
+
+
+Part 3: Successful Image Path Update and Upload (6 points)
+
+Implement the logic to update the database with the image path and upload the image to a designated folder. Ensure the system displays appropriate error messages if the file type is incorrect or exceeds the size limit (referring to the learning content of day 14).
+
+Part 4: Displaying Photo After Login (3 points)
+
+Finally, modify the login process to display a welcome message along with the user's username and photo upon successful login.
+
+Make sure to submit your assignment by the specified deadline. 
+Happy coding!
