@@ -25,72 +25,104 @@
     <?php
     require_once('form_check.php');
 
-        if(isset($_POST['btnSubmit'])) {
-            // Check all fields are provided
-            if(empty($_POST['username']) || empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['password']) || empty($_POST['confirm_password']) || empty($_POST['email']) || !isset($_POST['accept_terms'])) {
-                echo '<div class="output_message error_message">You have to provide all the information.</div>';
+    if(isset($_POST['btnSubmit'])) {
+        // Check all fields are provided
+        if(empty($_POST['username']) || empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['password']) || empty($_POST['confirm_password']) || empty($_POST['email']) || !isset($_POST['accept_terms'])) {
+            echo '<div class="output_message error_message">You have to provide all the information.</div>';
+        } else {
+            // Validate email format
+            $email = $_POST['email'];
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo '<div class="output_message error_message">Invalid email address format.</div>';
             } else {
-                // Validate email format
-                $email = $_POST['email'];
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    echo '<div class="output_message error_message">Invalid email address format.</div>';
+                // Check if password matches confirm password
+                $password = $_POST['password'];
+                $confirm_password = $_POST['confirm_password'];
+                if ($password !== $confirm_password) {
+                    echo '<div class="output_message error_message">Passwords do not match.</div>';
                 } else {
-                    // Check if password matches confirm password
-                    $password = $_POST['password'];
-                    $confirm_password = $_POST['confirm_password'];
-                    if ($password !== $confirm_password) {
-                        echo '<div class="output_message error_message">Passwords do not match.</div>';
+                    // Call the Captcha files
+                    require_once 'securimage/securimage.php';
+                    $securimage = new Securimage(); // Instance of the Secure Image Class
+                    
+                    // Validate Captcha
+                    if ($securimage->check($_POST['captcha_code']) == false) {
+                        echo '<div class="output_message error_message">The security code entered was incorrect. Please try again.</div>';
                     } else {
-                        // Call the Captcha files
-                        require_once 'securimage/securimage.php';
-                        $securimage = new Securimage(); // Instance of the Secure Image Class
+                        // Captcha validation passed, continue with other checks
+                        // Sanitize inputs
+                        $username = addslashes(strip_tags($_POST['username']));
+                        $first_name = addslashes(strip_tags($_POST['first_name']));
+                        $last_name = addslashes(strip_tags($_POST['last_name']));
+                        // won't sanitize password here
+                        $password = $_POST['password'];
+                        $email = addslashes(strip_tags($_POST['email']));
+
+                        // Retrieve the value of province from the form submission
+                        $province = isset($_POST["province"]) ? $_POST["province"] : "";
+
+                        // Connect to the database
+                        $database_connect = mysqli_connect('localhost', 'root', '', 'store') or die ('Error connecting to MySQL server.');
                         
-                        // Validate Captcha
-                        if ($securimage->check($_POST['captcha_code']) == false) {
-                            echo '<div class="output_message error_message">The security code entered was incorrect. Please try again.</div>';
-                        } else {
-                            // Captcha validation passed, continue with other checks
-                            // Sanitize inputs
-                            $username = addslashes(strip_tags($_POST['username']));
-                            $first_name = addslashes(strip_tags($_POST['first_name']));
-                            $last_name = addslashes(strip_tags($_POST['last_name']));
-                            // Note: We won't sanitize password here
-                            $password = $_POST['password'];
-                            $email = addslashes(strip_tags($_POST['email']));
+                        // Hash the password using sha1
+                        $hashed_password = sha1($password);
+                        
+                        // Handle file upload
+                        if(isset($_FILES['photo'])) {
+                            $photo = $_FILES['photo'];
 
-                            // Retrieve the value of province from the form submission
-                            $province = isset($_POST["province"]) ? $_POST["province"] : "";
-
-                            // Connect to the database
-                            $database_connect = mysqli_connect('localhost', 'root', '', 'store') or die ('Error connecting to MySQL server.');
-                            
-                            // Hash the password using sha1
-                            $hashed_password = sha1($password);
-                            
-                            // Insert data into database
-                            $query = "INSERT INTO users (username, first_name, last_name, password, email, province) 
-                                VALUES ('$username', '$first_name', '$last_name', '$hashed_password', '$email', '$province')";
-                            $result = mysqli_query($database_connect, $query);
-                            
-                            // Check if insertion was successful
-                            if ($result) {
-                                echo '<div class="confirm_message">Your form has been completed correctly</div>';
-                            } else {
-                                echo '<div class="confirm_message">An error occurred. Please try again later</div>';
+                            // Validate file type
+                            $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
+                            $file_ext = pathinfo($photo['name'], PATHINFO_EXTENSION);
+                            if(!in_array(strtolower($file_ext), $allowed_types)) {
+                                echo '<div class="output_message error_message">Invalid file type. Only JPG, JPEG, PNG, and GIF are allowed.</div>';
+                                exit(); // Exit script if file type is invalid
                             }
+                            
+                            // Validate file size
+                            if($photo['size'] > 200000) { // 200 KB
+                                echo '<div class="output_message error_message">File size exceeds the limit (200 KB).</div>';
+                                exit(); // Exit script if file size exceeds limit
+                            }
+                            
+                            // Move the uploaded file to uploaded_photos
+                            $upload_dir = 'uploaded_photos/';
+                            $upload_file = $upload_dir . basename($photo['name']);
 
-                            // Close the database connection
-                            mysqli_close($database_connect);
+                            if (move_uploaded_file($photo['tmp_name'], $upload_file)) {
+                                $photo_path = $upload_file;
+                            } else {
+                                echo '<div class="output_message error_message">Error uploading file.</div>';
+                                exit(); // Exit script if file upload fails
+                            }
+                        } else {
+                            $photo_path = ''; // If no file is uploaded, set photo path to empty string
                         }
+                        
+                        // Insert data into database
+                        $query = "INSERT INTO users (username, first_name, last_name, password, email, province, photo) 
+                            VALUES ('$username', '$first_name', '$last_name', '$hashed_password', '$email', '$province', '$photo_path')";
+                        $result = mysqli_query($database_connect, $query);
+                        
+                        // Check if insertion was successful
+                        if ($result) {
+                            echo '<div class="confirm_message">Your form has been completed correctly</div>';
+                        } else {
+                            echo '<div class="confirm_message">An error occurred. Please try again later</div>';
+                        }
+
+                        // Close the database connection
+                        mysqli_close($database_connect);
                     }
                 }
             }
         }
+    }
     ?>
 
 
     <div id="form-div">
-        <form class="form" method="post">
+        <form class="form" method="post" enctype="multipart/form-data">
             <label for="username">Username:</label> <input type='text' id='username' name='username' placeholder='Enter your Username...' value='<?php echo isset($_POST["username"]) ? htmlspecialchars($_POST["username"]) : ""; ?>'><br>
             <label for="first_name">First Name:</label> <input type='text' id='first_name' name='first_name' placeholder='Enter your First Name...' value='<?php echo isset($_POST["first_name"]) ? htmlspecialchars($_POST["first_name"]) : ""; ?>'><br>
             <label for="last_name">Last Name:</label> <input type='text' id='last_name' name='last_name' placeholder='Enter your Last Name...' value='<?php echo isset($_POST["last_name"]) ? htmlspecialchars($_POST["last_name"]) : ""; ?>'><br>
@@ -118,6 +150,9 @@
                 <option value='Northwest Territories' <?php echo (isset($_POST["province"]) && $_POST["province"] == "Northwest Territories") ? "selected" : ""; ?>>Northwest Territories</option>
             </select><br>
 
+            <label for="photo">Photo:</label> 
+            <input type="file" id="photo" name="photo" accept="image/*"><br>
+
             <div class="captcha-div">
                 <li>
                 <br>
@@ -144,3 +179,4 @@
     </footer>
 </body>
 </html>
+

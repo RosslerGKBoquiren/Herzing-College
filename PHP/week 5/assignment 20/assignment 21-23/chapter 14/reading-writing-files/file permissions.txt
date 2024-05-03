@@ -1,0 +1,25 @@
+For FTP, Windows and Linux there is a set of permissions for accessing and running content from directories. 
+
+For FTP and Linux we can use Linux file permissions. The overall concepts of Linux vs Windows control lists are the same.
+
+The various types of permission in Linux permissions are r (read), w(write) and x(execute)The numeric
+value of the permission are as follow:-
+1) read permission (r) contain numeric value "4".
+2) Write permission (w) contain numeric value "2".
+3) Execute permission (x) contain numeric value "1".
+
+What are various permissions on files stand for:-
+755 permission on file means the owner of that file has permission to read that file,
+write that file and execute that file. Group members of that file have permission to
+read that file and execute that file but they cant make changes in that fileother
+users also can execute that file and read that file but they can not make changes
+in that file. 777 permission on file means that the owner on that file,all members in
+that group and other users have full privileges on that file.
+ 
+Note:- 777 means everyone who access that file has full privileges on that file.
+
+Note: an 'x' will allow you to give permissions specific to a file or directory that will override the permissions of the parent folder
+
+In windows we look at it a little differently.
+
+A specific user will have read, write or execute permissions set by right clicking on the folders, going to properties, then the security tab. Once there, you will see an ACL (Access control list) of users and you can click on each one and see what privileges they have. You can edit the list if you are an administrator, and will need some write permissions set on the controlling user account NETWORK SERVICE

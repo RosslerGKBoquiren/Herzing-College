@@ -73,6 +73,7 @@ if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
                     if (mysqli_num_rows($result) > 0) {
                         // User exists, set session variables
                         $_SESSION['loggedin'] = true;
+                        $_SESSION['username'] = $username; // Add this line to set the username in the session
                         // Redirect to dashboard if user is logged in
                         header('Location: dashboard.php');
                         exit();

@@ -160,6 +160,14 @@ input, select {
   color: red;
 }
 
+img {
+  width: 150px;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make it a circular shape */
+  margin: 20px auto; /* Center the image */
+  display: block; /* Ensure block-level display */
+}
+
 /* Footer */
 
 footer {
