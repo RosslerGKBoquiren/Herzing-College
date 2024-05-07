@@ -1,0 +1,4 @@
+Exception caught: php_network_getaddresses: getaddrinfo for this_server_doesnt_exist failed: No such host is known. 
+Exception caught: php_network_getaddresses: getaddrinfo for this_server_doesnt_exist failed: No such host is known. 
+Exception caught: php_network_getaddresses: getaddrinfo for testing_if_errorlog_works failed: No such host is known. 
+Exception caught: php_network_getaddresses: getaddrinfo for testing_if_errorlog_works failed: No such host is known. 

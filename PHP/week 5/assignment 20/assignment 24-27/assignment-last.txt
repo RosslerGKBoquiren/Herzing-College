@@ -1,0 +1,22 @@
+###########################################
+#########     LAST ASSIGNMENT    ##########
+###########################################
+
+
+"Enhance your logged-in assignment with a group messaging feature."
+
+1- Create a Textarea for Message Sending: (Points: 5)
+	Add a textarea to allow logged-in users to send messages to the group chat. 
+
+2- Database Table for Messages: (Points: 5)
+	Introduce a new table in your database named 'messages.'
+	Include columns for 'message' and 'user_id' (foreign key). 
+
+3- Implement Group Chat Section: (Points: 5)
+	Display a chat section on the right side, visible even before login.
+	Show messages from all users, including their names and images.
+	Order messages from the latest to the oldest.
+
+Reference: You have a screenshot for your guidance.
+
+Feel free to ask if you have any questions or need further clarification.
