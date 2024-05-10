@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\MatchGame\obj\Debug\
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\MatchGame\obj\Release\
 MatchGame
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\MatchGame\App.xaml
 1219584333
 
-7586814045
+6-1626064633
 13-1310406943
 MainWindow.xaml;
 
-False
+True
 
