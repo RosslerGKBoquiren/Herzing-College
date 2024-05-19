@@ -1,0 +1,14 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\assignment 3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\assignment 3.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\assignment 3.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\assignment 3.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\bin\Debug\net8.0\assignment 3.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\bin\Debug\net8.0\assignment 3.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\bin\Debug\net8.0\assignment 3.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\bin\Debug\net8.0\assignment 3.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\bin\Debug\net8.0\assignment 3.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\assignment 3.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\refint\assignment 3.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\assignment 3.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\assignment 3.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 3\assignment 3\obj\Debug\net8.0\ref\assignment 3.dll
