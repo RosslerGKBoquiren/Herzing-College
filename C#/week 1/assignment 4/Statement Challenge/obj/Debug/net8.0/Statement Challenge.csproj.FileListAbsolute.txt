@@ -1,0 +1,14 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\bin\Debug\net8.0\Statement Challenge.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\bin\Debug\net8.0\Statement Challenge.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\bin\Debug\net8.0\Statement Challenge.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\bin\Debug\net8.0\Statement Challenge.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\bin\Debug\net8.0\Statement Challenge.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\Statement Challenge.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\Statement Challenge.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\Statement Challenge.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\Statement Challenge.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\Statement Challenge.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\refint\Statement Challenge.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\Statement Challenge.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\Statement Challenge.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 1\assignment 4\Statement Challenge\obj\Debug\net8.0\ref\Statement Challenge.dll
