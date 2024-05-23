@@ -4,10 +4,7 @@ namespace Assignment5
 {
     class Program
     {
-        const string symbols = "~`!@#$%^&*-_=+";
-        const string capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const string lowLetters = "abcdefghijklmnopqrstuvwxyz";
-        const string numbers = "0123456789";
+  
         const int minLength = 8;
         static string[] userInformation = new string[8];
 
@@ -17,14 +14,14 @@ namespace Assignment5
             while (true)
             {
 
-                Console.Write("Hello, what would you like to do?: (1-Register New User, 2-Edit User, 3-Exit): ");
+                Console.Write("Hello, what would you like to do?: (1 - Register New User, 2 - Edit User, 3 - Exit): ");
                 string userInput = Console.ReadLine().ToLower();
                 switch (userInput)
                 {
                     case "1":
                     case "register new user":
                     case "register":
-                        RegisterUser();
+                        RegisterUser(); 
                         break;
 
                     case "2":
@@ -45,14 +42,16 @@ namespace Assignment5
             }
         }
 
+        
         static void RegisterUser()
         {
+
             Console.WriteLine("REGISTER NEW USER");
             while (true)
             {
                 Console.Write("First Name: ");
                 string firstNameInput = Console.ReadLine().ToLower();
-                if (!string.IsNullOrWhiteSpace(firstNameInput))
+                if (!string.IsNullOrWhiteSpace(firstNameInput) && IsAllLetters(firstNameInput))
                 {
                     userInformation[0] = firstNameInput;
                     break;
@@ -64,7 +63,7 @@ namespace Assignment5
             {
                 Console.Write("Last Name: ");
                 string lastNameInput = Console.ReadLine().ToLower();
-                if (!string.IsNullOrWhiteSpace(lastNameInput))
+                if (!string.IsNullOrWhiteSpace(lastNameInput) && IsAllLetters(lastNameInput))
                 {
                     userInformation[1] = lastNameInput;
                     break;
@@ -110,7 +109,7 @@ namespace Assignment5
             {
                 Console.Write("Teacher: ");
                 string teacherInput = Console.ReadLine().ToLower();
-                if (!string.IsNullOrWhiteSpace(teacherInput))
+                if (!string.IsNullOrWhiteSpace(teacherInput) && IsAllLetters(teacherInput))
                 {
                     userInformation[5] = teacherInput;
                     break;
