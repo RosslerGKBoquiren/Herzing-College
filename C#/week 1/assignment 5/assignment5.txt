@@ -1,0 +1,44 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+		Assignment 5
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+Objective: Develop a console program to manage users' information, including their first name, last name, age, GPA, program, teacher, username, and password.
+
+Functionality:
+
+Register a New User:
+
+Ask the user to input information for a new user registration via the console.
+Prompt the user for each piece of information required.
+
+Edit a User:
+
+Enable the user to modify his/her information.
+Require the user to log in first, then display the user information.
+Provide options to update any of the user's information.
+
+User Interface:
+
+Design a clear and intuitive CONSOLE interface that guides the user through the options for registering, logging in, and editing information.
+Utilize console output for displaying prompts and messages to the user.
+
+Implementation:
+
+Develop the program using a C# console application.
+Utilize console input and output for interaction with the user.
+
+Testing:
+
+Thoroughly test the program to ensure it correctly handles registering, logging in, and editing information.
+Verify the program's behavior for various scenarios, including valid and invalid user inputs.
+
+Additional Considerations:
+
+Implement robust error handling to manage unexpected user inputs or system errors gracefully.
+Add features for data validation to ensure the integrity of the user information.
+Provide options to exit the program.
