@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     Assignment 6      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Painting Auction List Data Structure
+
+Objective: 
+This assignment will help you practice class design, variables, property encapsulation, methods (both static and instance), and list operations 
+by creating a program to manage a list of Painting Auction items.
+
+Instructions:
+Create a Painting Class:
+
+Define the required properties with nice datatype.
+Ensure IsSold can only be modified within the class using property encapsulation.
+
+
+Include necessary methods such as mark an item as sold, number of painting, ....
+
+Create a PaintingList Class:
+
+Use a List<Painting> to store the paintings.
+Implement methods to:
+Add an item to the list.
+Delete an item from the list (only if not sold).
+Edit an item’s price or status (only if not sold).
+Show all items with their details (title, author, price, status, rank).
+Show the minimum and maximum priced items (only if not sold).
+Find an item by author or title (using full name or title).
+
+Main Program:
+
+Create a console application that displays the following menu:
+
+================================================================================================
+                           Painting Auction Menu
+================================================================================================
+1. Add items (Add item to the list)
+2. Delete items (Delete item from the list) [ONLY IF NOT SOLD]
+3. Edit item (change price or status) [ONLY IF NOT SOLD]
+4. Show all items (title, author, price, status, rank) [See display below]
+5. Show min and max items (by price) [ONLY IF NOT SOLD]
+6. Find an item (Author or Title) [YES, FULL NAME OR FULL TITLE]
+7. Exit
+Note: As an auction, only 20 items can be sold at a time.
+
+Display Format:
+
+================================================================================================
+No.  Artists Name        Picture Title     Rank    Price $     Sold $$
+================================================================================================
+1    Michael Angel       Mon Li            1       $50,000     -Not Sold-
+2    James Hire          The flower        5       $1,000      $200
+3    Alysha Lowery       Masterpiece       10      $50,000     -Not Sold-
+4    Taylor Bird         The Rainbow       7       $45,000     -Not Sold-
+5    Robert Hockey       Scribble          2       $100.00     -Not Sold-
+================================================================================================
+Program Requirements:
+
+Password Protection: Implement a password protection mechanism at the start of the program.
+Input Validation:
+Ensure numerical inputs are validated.
+Prevent blank inputs.
+Editing Constraints:
+Sold items are not editable.
+User-Friendly Interface:
+Clear the console each time the menu is shown.
+Provide meaningful messages and feedback.
+
+Concepts to Practice:
+Classes and Objects: Define and use classes to represent paintings and the list.
+Properties and Encapsulation: Use properties with encapsulation to manage the painting details.
+Methods (Static and Instance): Implement methods to manipulate the list and paintings.
+List Operations: Use list operations to manage the collection of paintings.
+User Input and Validation: Handle user input with validation.
+Console Interaction: Interact with the user via the console, ensuring a user-friendly experience.
+Complete the assignment by implementing the required classes and functionality, ensuring your program adheres to the outlined requirements and practices good coding standards.
