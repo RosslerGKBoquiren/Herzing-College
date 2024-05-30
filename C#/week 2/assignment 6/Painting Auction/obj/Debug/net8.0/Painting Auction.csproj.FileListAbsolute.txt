@@ -1,0 +1,14 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\Painting Auction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\Painting Auction.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\Painting Auction.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\Painting Auction.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\bin\Debug\net8.0\Painting Auction.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\bin\Debug\net8.0\Painting Auction.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\bin\Debug\net8.0\Painting Auction.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\bin\Debug\net8.0\Painting Auction.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\bin\Debug\net8.0\Painting Auction.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\Painting Auction.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\refint\Painting Auction.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\Painting Auction.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\Painting Auction.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 2\assignment 6\Painting Auction\obj\Debug\net8.0\ref\Painting Auction.dll
