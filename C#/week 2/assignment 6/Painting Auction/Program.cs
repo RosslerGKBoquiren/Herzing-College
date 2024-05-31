@@ -5,7 +5,7 @@ using System.Linq;
 namespace PaintingAuction
 {
     /// <summary>
-    /// Representing a painting in the auction - title, author, price, rank, sold or not sold
+    /// Defines the properties and methods for a painting
     /// </summary>
     public class Painting // blueprint for the attributes of my list
     {
@@ -14,16 +14,18 @@ namespace PaintingAuction
         public decimal Price { get; set; }
         public int Rank { get; set; }
         public bool IsSold { get; private set; } = false; // default is 'Not Sold'
+        public decimal SoldPrice { get; private set; } // Stores the price at which the painting was sold
 
         // if sold
-        public void MarkAsSold()
+        public void MarkAsSold(decimal soldPrice)
         {
             IsSold = true;
+            SoldPrice = soldPrice;
         }
     }
 
     /// <summary>
-    /// List of paintings in the autction
+    /// List of paintings in the auction and provides methods to manipulate the list 
     /// </summary>
     public class PaintingList
     {
@@ -88,7 +90,7 @@ namespace PaintingAuction
             int count = 1;
             foreach (var painting in paintings)
             {
-                Console.WriteLine($"{count}    {painting.Author}          {painting.Title}       {painting.Rank}       ${painting.Price}     {(painting.IsSold ? "$" + painting.Price.ToString() : "-Not Sold-")}");
+                Console.WriteLine($"{count}    {painting.Author}          {painting.Title}       {painting.Rank}       ${painting.Price}     {(painting.IsSold ? "$" + painting.SoldPrice.ToString() : "-Not Sold-")}");
                 count++;
             }
             Console.WriteLine("==================================================================================");
@@ -132,26 +134,51 @@ namespace PaintingAuction
                 Console.WriteLine("No paintings found with the given search criteria.");
             }
         }
-    }
 
+        /// <summary>
+        /// Find a painting by its title.
+        /// </summary>
+        /// <param name="title">Title of the painting.</param>
+        /// <returns>Returns the painting if found, otherwise null.</returns>
+        public Painting FindPaintingByTitle(string title)
+        {
+            return paintings.FirstOrDefault(p => p.Title == title);
+        }
+    }
 
     public class Program
     {
+        // keeping the password from being used outside of this class or modified directly
         private static string password = "user123456";
 
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Painting Auction Menu");
-            Console.WriteLine("Please enter your password: ");
-            string passwordInput = Console.ReadLine();
 
-            if (passwordInput != password)
+            bool isAuthenticated = false;
+            while (!isAuthenticated)
             {
-                Console.WriteLine("Incorrect Password");
-                return;
+                Console.WriteLine("Please enter your password: ");
+                string passwordInput = Console.ReadLine();
+
+                if (passwordInput == password)
+                {
+                    isAuthenticated = true;
+                    Console.WriteLine("Access granted");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect Password. Try again or type 'exit' to quit.");
+                    if (passwordInput.ToLower() == "exit")
+                    {
+                        Console.WriteLine("Exiting program");
+                        return;
+                    }
+                }
             }
 
             PaintingList paintingList = new PaintingList();
+            InitializePaintings(paintingList);
             bool exit = false;
 
             while (!exit)
@@ -212,6 +239,25 @@ namespace PaintingAuction
             }
         }
 
+        private static void InitializePaintings(PaintingList paintingList)
+        {
+            Painting painting1 = new Painting { Title = "Mon Li", Author = "Michael Angel", Price = 50000m, Rank = 1 };
+            paintingList.AddPainting(painting1);
+
+            Painting painting2 = new Painting { Title = "The flower", Author = "James Hire", Price = 1000m, Rank = 5 };
+            painting2.MarkAsSold(200m); // Mark as sold
+            paintingList.AddPainting(painting2);
+
+            Painting painting3 = new Painting { Title = "Masterpiece", Author = "Alysha Lowery", Price = 50000m, Rank = 10 };
+            paintingList.AddPainting(painting3);
+
+            Painting painting4 = new Painting { Title = "The Rainbow", Author = "Taylor Bird", Price = 45000m, Rank = 7 };
+            paintingList.AddPainting(painting4);
+
+            Painting painting5 = new Painting { Title = "Scribble", Author = "Robert Hockey", Price = 100m, Rank = 2 };
+            paintingList.AddPainting(painting5);
+        }
+
         /// <summary>
         /// add new painting to the list
         /// </summary>
@@ -251,7 +297,25 @@ namespace PaintingAuction
         {
             Console.Write("Enter the title of the painting to delete: ");
             string title = Console.ReadLine();
-            paintingList.DeletePainting(title);
+            var painting = paintingList.FindPaintingByTitle(title);
+            if (painting != null)
+            {
+                Console.Write($"Are you sure you want to delete \"{title}\"? (yes/no): ");
+                string confirmation = Console.ReadLine().ToLower();
+                if (confirmation == "yes")
+                {
+                    paintingList.DeletePainting(title);
+                    Console.WriteLine($"Painting \"{title}\" has been deleted.");
+                }
+                else
+                {
+                    Console.WriteLine("Deletion canceled.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No records of that Painting.");
+            }
         }
 
         /// <summary>
@@ -285,3 +349,5 @@ namespace PaintingAuction
         }
     }
 }
+
+
