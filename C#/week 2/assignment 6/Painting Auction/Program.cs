@@ -7,16 +7,15 @@ namespace PaintingAuction
     /// <summary>
     /// Defines the properties and methods for a painting
     /// </summary>
-    public class Painting // blueprint for the attributes of my list
+    public class Painting
     {
-        public string Title { get; set; } // be able to read and modify values of private fields
+        public string Title { get; set; }
         public string Author { get; set; }
         public decimal Price { get; set; }
         public int Rank { get; set; }
-        public bool IsSold { get; private set; } = false; // default is 'Not Sold'
-        public decimal SoldPrice { get; private set; } // Stores the price at which the painting was sold
+        public bool IsSold { get; private set; } = false;
+        public decimal SoldPrice { get; private set; }
 
-        // if sold
         public void MarkAsSold(decimal soldPrice)
         {
             IsSold = true;
@@ -29,28 +28,16 @@ namespace PaintingAuction
     /// </summary>
     public class PaintingList
     {
-        // List<Painting> to store the paintings data
-        // encapsulate the list to control and protect how the list is accessed and modified
         private List<Painting> paintings = new List<Painting>();
 
-        /// <summary>
-        /// add painting to the list
-        /// </summary>
-        /// <param name="painting">the item to add</param>
         public void AddPainting(Painting painting)
         {
             paintings.Add(painting);
         }
 
-        /// <summary>
-        /// delete painting from the list if not sold
-        /// </summary>
-        /// <param name="title">title of painting to delete</param>
         public void DeletePainting(string title)
         {
-            // built-in method FirstOrDefault searches for the first matching title, else return null
-            // using lambda expression for anonymous function 
-            var painting = paintings.FirstOrDefault(p => p.Title == title);
+            var painting = paintings.FirstOrDefault(p => p.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
             if (painting != null && !painting.IsSold)
             {
                 paintings.Remove(painting);
@@ -61,14 +48,9 @@ namespace PaintingAuction
             }
         }
 
-        /// <summary>
-        /// edit painting price/status if not sold
-        /// </summary>
-        /// <param name="title">title of the painting to edit</param>
-        /// <param name="newPrice">new price of the painting</param>
         public void EditPainting(string title, decimal newPrice)
         {
-            var painting = paintings.FirstOrDefault(p => p.Title == title);
+            var painting = paintings.FirstOrDefault(p => p.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
             if (painting != null && !painting.IsSold)
             {
                 painting.Price = newPrice;
@@ -79,26 +61,26 @@ namespace PaintingAuction
             }
         }
 
-        /// <summary>
-        /// show all items and details
-        /// </summary>
         public void ShowAllPaintings()
         {
             Console.WriteLine("==================================================================================");
-            Console.WriteLine("No.  Artists Name        Picture Title     Rank    Price $     Sold $$");
+            Console.WriteLine("{0,-4} {1,-18} {2,-20} {3,-8} {4,-16} {5,-16}", "No.", "Artists Name", "Picture Title", "Rank", "Price $", "Sold $$");
             Console.WriteLine("==================================================================================");
             int count = 1;
             foreach (var painting in paintings)
             {
-                Console.WriteLine($"{count}    {painting.Author}          {painting.Title}       {painting.Rank}       ${painting.Price}     {(painting.IsSold ? "$" + painting.SoldPrice.ToString() : "-Not Sold-")}");
+                Console.WriteLine("{0,-4} {1,-18} {2,-20} {3,-8} {4,-16:C} {5,-16}",
+                                  count,
+                                  painting.Author,
+                                  painting.Title,
+                                  painting.Rank,
+                                  painting.Price,
+                                  (painting.IsSold ? painting.SoldPrice.ToString("C") : "-Not Sold-"));
                 count++;
             }
             Console.WriteLine("==================================================================================");
         }
 
-        /// <summary>
-        /// Show the minimum and maximum price of items not sold
-        /// </summary>
         public void ShowMinMaxPricedPaintings()
         {
             var unsoldPaintings = paintings.Where(p => !p.IsSold).ToList();
@@ -115,40 +97,19 @@ namespace PaintingAuction
             }
         }
 
-        /// <summary>
-        /// Find an item by author or title
-        /// </summary>
-        /// <param name="search">search by author or title</param>
-        public void FindPainting(string search)
+        public List<Painting> FindPainting(string search)
         {
-            var foundPaintings = paintings.Where(p => p.Author == search || p.Title == search).ToList();
-            if (foundPaintings.Any())
-            {
-                foreach (var painting in foundPaintings)
-                {
-                    Console.WriteLine($"Found: {painting.Title} by {painting.Author}, Price: ${painting.Price}, Sold: {(painting.IsSold ? "Yes" : "No")}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("No paintings found with the given search criteria.");
-            }
+            return paintings.Where(p => p.Author.Equals(search, StringComparison.OrdinalIgnoreCase) || p.Title.Equals(search, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        /// <summary>
-        /// Find a painting by its title.
-        /// </summary>
-        /// <param name="title">Title of the painting.</param>
-        /// <returns>Returns the painting if found, otherwise null.</returns>
         public Painting FindPaintingByTitle(string title)
         {
-            return paintings.FirstOrDefault(p => p.Title == title);
+            return paintings.FirstOrDefault(p => p.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
         }
     }
 
     public class Program
     {
-        // keeping the password from being used outside of this class or modified directly
         private static string password = "user123456";
 
         public static void Main(string[] args)
@@ -241,113 +202,231 @@ namespace PaintingAuction
 
         private static void InitializePaintings(PaintingList paintingList)
         {
-            Painting painting1 = new Painting { Title = "Mon Li", Author = "Michael Angel", Price = 50000m, Rank = 1 };
+            Painting painting1 = new Painting { Title = "Marie Therese", Author = "Pablo Picaso", Price = 103410000m, Rank = 1 };
             paintingList.AddPainting(painting1);
 
-            Painting painting2 = new Painting { Title = "The flower", Author = "James Hire", Price = 1000m, Rank = 5 };
-            painting2.MarkAsSold(200m); // Mark as sold
+            Painting painting2 = new Painting { Title = "In This Case", Author = "JM Basquiat", Price = 93105000m, Rank = 2 };
             paintingList.AddPainting(painting2);
 
-            Painting painting3 = new Painting { Title = "Masterpiece", Author = "Alysha Lowery", Price = 50000m, Rank = 10 };
+            Painting painting3 = new Painting { Title = "Portrait", Author = "Sandro Botticelli", Price = 92184000m, Rank = 3 };
             paintingList.AddPainting(painting3);
 
-            Painting painting4 = new Painting { Title = "The Rainbow", Author = "Taylor Bird", Price = 45000m, Rank = 7 };
+            Painting painting4 = new Painting { Title = "No.7", Author = "Mark Rothko", Price = 82468500m, Rank = 4 };
             paintingList.AddPainting(painting4);
 
-            Painting painting5 = new Painting { Title = "Scribble", Author = "Robert Hockey", Price = 100m, Rank = 2 };
+            Painting painting5 = new Painting { Title = "Le Nez", Author = "Albert Giacometti", Price = 78396000m, Rank = 5 };
             paintingList.AddPainting(painting5);
+
+            Painting painting6 = new Painting { Title = "Le Bassin Nympheas", Author = "Claude Monet", Price = 40900000m, Rank = 7 };
+            painting6.MarkAsSold(70353000m); // sold 
+            paintingList.AddPainting(painting6);
+
+            Painting painting7 = new Painting { Title = "The First 5000 Days", Author = "Beeple, Everydays", Price = 69346250m, Rank = 8 };
+            paintingList.AddPainting(painting7);
+
+            Painting painting8 = new Painting { Title = "Number 17", Author = "Jackson Pollock", Price = 58400000m, Rank = 9 };
+            painting8.MarkAsSold(61161000m);
+            paintingList.AddPainting(painting8);
+
+            Painting painting9 = new Painting { Title = "Untitled", Author = "Cy Twombly", Price = 58863000m, Rank = 10 };
+            painting9.MarkAsSold(70000000m);
+            paintingList.AddPainting(painting9);
         }
 
         /// <summary>
-        /// add new painting to the list
+        /// Adds a new painting to the list with input validation.
         /// </summary>
-        /// <param name="paintingList"></param>
+        /// <param name="paintingList">The list of paintings.</param>
         private static void AddItem(PaintingList paintingList)
         {
-            Console.Write("Enter the title of the painting: ");
-            string title = Console.ReadLine();
-            Console.Write("Enter the author of the painting: ");
-            string author = Console.ReadLine();
-            Console.Write("Enter the price of the painting: ");
-            if (decimal.TryParse(Console.ReadLine(), out decimal price))
+            string title;
+            string author;
+            decimal price;
+            int rank;
+
+            // Get and validate the title
+            do
+            {
+                Console.Write("Enter the title of the painting: ");
+                title = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(title))
+                {
+                    Console.WriteLine("Title cannot be empty.");
+                }
+            } while (string.IsNullOrWhiteSpace(title));
+
+            // Get and validate the author
+            do
+            {
+                Console.Write("Enter the author of the painting: ");
+                author = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(author))
+                {
+                    Console.WriteLine("Author cannot be empty.");
+                }
+            } while (string.IsNullOrWhiteSpace(author));
+
+            // Get and validate the price
+            do
+            {
+                Console.Write("Enter the price of the painting: ");
+                if (!decimal.TryParse(Console.ReadLine(), out price) || price <= 0)
+                {
+                    Console.WriteLine("Invalid price. Please enter a positive number.");
+                }
+            } while (price <= 0);
+
+            // Get and validate the rank
+            do
             {
                 Console.Write("Enter the rank of the painting: ");
-                if (int.TryParse(Console.ReadLine(), out int rank))
+                if (!int.TryParse(Console.ReadLine(), out rank) || rank <= 0)
                 {
-                    Painting painting = new Painting { Title = title, Author = author, Price = price, Rank = rank };
-                    paintingList.AddPainting(painting);
-                    Console.WriteLine("Painting added successfully!");
+                    Console.WriteLine("Invalid rank. Please enter a positive integer.");
                 }
-                else
-                {
-                    Console.WriteLine("Invalid rank.");
-                }
-            }
-            else
+            } while (rank <= 0);
+
+            // Create and add the painting
+            Painting painting = new Painting
             {
-                Console.WriteLine("Invalid price.");
-            }
+                Title = title,
+                Author = author,
+                Price = price,
+                Rank = rank
+            };
+
+            paintingList.AddPainting(painting);
+            Console.WriteLine("Painting added successfully!");
         }
 
         /// <summary>
-        /// delete a painting from the list
+        /// Deletes a painting from the list.
         /// </summary>
-        /// <param name="paintingList">list of paintings</param>
+        /// <param name="paintingList">The list of paintings.</param>
         private static void DeleteItem(PaintingList paintingList)
         {
-            Console.Write("Enter the title of the painting to delete: ");
-            string title = Console.ReadLine();
-            var painting = paintingList.FindPaintingByTitle(title);
-            if (painting != null)
+            while (true)
             {
-                Console.Write($"Are you sure you want to delete \"{title}\"? (yes/no): ");
-                string confirmation = Console.ReadLine().ToLower();
-                if (confirmation == "yes")
+                Console.Write("Enter the title of the painting to delete: ");
+                string title = Console.ReadLine();
+
+                // Check if the painting exists
+                var painting = paintingList.FindPaintingByTitle(title);
+                if (painting == null)
                 {
-                    paintingList.DeletePainting(title);
-                    Console.WriteLine($"Painting \"{title}\" has been deleted.");
+                    Console.WriteLine("The title does not exist. Please try again.");
+                    Console.WriteLine("Press any key to continue or type 'exit' to return to the menu...");
+                    string input = Console.ReadLine().ToLower();
+                    if (input == "exit")
+                    {
+                        return;
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Deletion canceled.");
+                    Console.Write($"Are you sure you want to delete \"{title}\"? (yes/no): ");
+                    string confirmation = Console.ReadLine().ToLower();
+                    if (confirmation == "yes")
+                    {
+                        paintingList.DeletePainting(title);
+                        Console.WriteLine($"Painting \"{title}\" has been deleted.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Deletion canceled.");
+                    }
+
+                    Console.WriteLine("Press any key to return to the menu...");
+                    Console.ReadKey();
+                    return;
                 }
-            }
-            else
-            {
-                Console.WriteLine("No records of that Painting.");
             }
         }
 
         /// <summary>
-        /// edit price of painting
+        /// Edits the price of a painting.
         /// </summary>
-        /// <param name="paintingList">the list of paintings</param>
+        /// <param name="paintingList">The list of paintings.</param>
         private static void EditItem(PaintingList paintingList)
         {
             Console.Write("Enter the title of the painting to edit: ");
             string title = Console.ReadLine();
-            Console.Write("Enter the new price of the painting: ");
-            if (decimal.TryParse(Console.ReadLine(), out decimal newPrice))
+
+            // Check if the painting exists
+            var painting = paintingList.FindPaintingByTitle(title);
+            if (painting == null)
             {
-                paintingList.EditPainting(title, newPrice);
+                Console.WriteLine("The title does not exist.");
+                Console.WriteLine("Press any key to return to the menu...");
+                Console.ReadKey();
+                return;
             }
-            else
+
+            while (true)
             {
-                Console.WriteLine("Invalid price.");
+                // Prompt for the new price
+                Console.Write("Enter the new price of the painting (leave blank to keep the current price): ");
+                string input = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    // If the input is empty or whitespace, do not change the price
+                    Console.WriteLine("Price not changed.");
+                    break;
+                }
+                else if (!decimal.TryParse(input, out decimal newPrice) || newPrice <= 0)
+                {
+                    // If the input is invalid, display an error message
+                    Console.WriteLine("Invalid price. Please enter a valid positive number.");
+                }
+                else
+                {
+                    // If the input is a valid positive decimal number, update the price
+                    painting.Price = newPrice;
+                    Console.WriteLine("Price updated successfully.");
+                    break;
+                }
             }
+
+            Console.WriteLine("Press any key to return to the menu...");
+            Console.ReadKey();
         }
 
         /// <summary>
-        ///  find painting by author or title
+        /// Find a painting by author or title.
         /// </summary>
-        /// <param name="paintingList">the list of paintings</param>
+        /// <param name="paintingList">The list of paintings.</param>
         private static void FindItem(PaintingList paintingList)
         {
-            Console.Write("Enter the author or title to search: ");
-            string search = Console.ReadLine();
-            paintingList.FindPainting(search);
+            while (true)
+            {
+                Console.Write("Enter the author or title to search: ");
+                string search = Console.ReadLine();
+
+                var foundPaintings = paintingList.FindPainting(search);
+                if (!foundPaintings.Any())
+                {
+                    Console.WriteLine("No paintings found with the given search criteria. Please try again.");
+                    Console.WriteLine("Press any key to continue or type 'exit' to return to the menu...");
+                    string input = Console.ReadLine().ToLower();
+                    if (input == "exit")
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Found the following paintings:");
+                    foreach (var painting in foundPaintings)
+                    {
+                        Console.WriteLine($"Title: {painting.Title}, Author: {painting.Author}, Price: ${painting.Price}, Sold: {(painting.IsSold ? "Yes" : "No")}");
+                    }
+
+                    Console.WriteLine("Press any key to return to the menu...");
+                    Console.ReadKey();
+                    return;
+                }
+            }
         }
     }
 }
-
-
