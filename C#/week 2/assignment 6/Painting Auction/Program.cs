@@ -41,10 +41,11 @@ namespace PaintingAuction
             if (painting != null && !painting.IsSold)
             {
                 paintings.Remove(painting);
+                Console.WriteLine($"Painting \"{title}\" has been deleted.");
             }
             else
             {
-                Console.WriteLine("No records of that Painting.");
+                Console.WriteLine("No records of that Painting or it is already sold.");
             }
         }
 
@@ -54,10 +55,11 @@ namespace PaintingAuction
             if (painting != null && !painting.IsSold)
             {
                 painting.Price = newPrice;
+                Console.WriteLine($"Painting \"{title}\" price updated successfully.");
             }
             else
             {
-                Console.WriteLine("No records of that Painting.");
+                Console.WriteLine("No records of that Painting or it is already sold.");
             }
         }
 
@@ -105,6 +107,20 @@ namespace PaintingAuction
         public Painting FindPaintingByTitle(string title)
         {
             return paintings.FirstOrDefault(p => p.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public void MarkPaintingAsSold(string title, decimal soldPrice)
+        {
+            var painting = FindPaintingByTitle(title);
+            if (painting != null && !painting.IsSold)
+            {
+                painting.MarkAsSold(soldPrice);
+                Console.WriteLine($"Painting \"{title}\" marked as sold for {soldPrice:C}.");
+            }
+            else
+            {
+                Console.WriteLine("No records of that Painting or it is already sold.");
+            }
         }
     }
 
@@ -154,7 +170,8 @@ namespace PaintingAuction
                 Console.WriteLine("4. Show all items");
                 Console.WriteLine("5. Show min and max items by price");
                 Console.WriteLine("6. Find an item");
-                Console.WriteLine("7. Exit");
+                Console.WriteLine("7. Mark an item as sold");
+                Console.WriteLine("8. Exit");
                 Console.Write("Select an option: ");
                 string option = Console.ReadLine().ToLower();
 
@@ -173,14 +190,13 @@ namespace PaintingAuction
                         EditItem(paintingList);
                         break;
                     case "4":
-                    case "all items":
+                    case "show all items":
                         paintingList.ShowAllPaintings();
                         Console.WriteLine("Press any key to return to the menu...");
                         Console.ReadKey();
                         break;
                     case "5":
-                    case "min max":
-                    case "by price":
+                    case "show min max items":
                         paintingList.ShowMinMaxPricedPaintings();
                         Console.WriteLine("Press any key to return to the menu...");
                         Console.ReadKey();
@@ -190,6 +206,10 @@ namespace PaintingAuction
                         FindItem(paintingList);
                         break;
                     case "7":
+                    case "mark as sold":
+                        MarkItemAsSold(paintingList);
+                        break;
+                    case "8":
                     case "exit":
                         exit = true;
                         break;
@@ -244,7 +264,6 @@ namespace PaintingAuction
             decimal price;
             int rank;
 
-            // Get and validate the title
             do
             {
                 Console.Write("Enter the title of the painting: ");
@@ -255,7 +274,6 @@ namespace PaintingAuction
                 }
             } while (string.IsNullOrWhiteSpace(title));
 
-            // Get and validate the author
             do
             {
                 Console.Write("Enter the author of the painting: ");
@@ -266,7 +284,6 @@ namespace PaintingAuction
                 }
             } while (string.IsNullOrWhiteSpace(author));
 
-            // Get and validate the price
             do
             {
                 Console.Write("Enter the price of the painting: ");
@@ -276,7 +293,6 @@ namespace PaintingAuction
                 }
             } while (price <= 0);
 
-            // Get and validate the rank
             do
             {
                 Console.Write("Enter the rank of the painting: ");
@@ -286,7 +302,6 @@ namespace PaintingAuction
                 }
             } while (rank <= 0);
 
-            // Create and add the painting
             Painting painting = new Painting
             {
                 Title = title,
@@ -310,11 +325,10 @@ namespace PaintingAuction
                 Console.Write("Enter the title of the painting to delete: ");
                 string title = Console.ReadLine();
 
-                // Check if the painting exists
                 var painting = paintingList.FindPaintingByTitle(title);
-                if (painting == null)
+                if (painting == null || painting.IsSold)
                 {
-                    Console.WriteLine("The title does not exist. Please try again.");
+                    Console.WriteLine("The title does not exist or the painting is already sold. Please try again.");
                     Console.WriteLine("Press any key to continue or type 'exit' to return to the menu...");
                     string input = Console.ReadLine().ToLower();
                     if (input == "exit")
@@ -329,7 +343,6 @@ namespace PaintingAuction
                     if (confirmation == "yes")
                     {
                         paintingList.DeletePainting(title);
-                        Console.WriteLine($"Painting \"{title}\" has been deleted.");
                     }
                     else
                     {
@@ -352,11 +365,10 @@ namespace PaintingAuction
             Console.Write("Enter the title of the painting to edit: ");
             string title = Console.ReadLine();
 
-            // Check if the painting exists
             var painting = paintingList.FindPaintingByTitle(title);
-            if (painting == null)
+            if (painting == null || painting.IsSold)
             {
-                Console.WriteLine("The title does not exist.");
+                Console.WriteLine("The title does not exist or the painting is already sold.");
                 Console.WriteLine("Press any key to return to the menu...");
                 Console.ReadKey();
                 return;
@@ -364,26 +376,21 @@ namespace PaintingAuction
 
             while (true)
             {
-                // Prompt for the new price
                 Console.Write("Enter the new price of the painting (leave blank to keep the current price): ");
                 string input = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(input))
                 {
-                    // If the input is empty or whitespace, do not change the price
                     Console.WriteLine("Price not changed.");
                     break;
                 }
                 else if (!decimal.TryParse(input, out decimal newPrice) || newPrice <= 0)
                 {
-                    // If the input is invalid, display an error message
                     Console.WriteLine("Invalid price. Please enter a valid positive number.");
                 }
                 else
                 {
-                    // If the input is a valid positive decimal number, update the price
-                    painting.Price = newPrice;
-                    Console.WriteLine("Price updated successfully.");
+                    paintingList.EditPainting(title, newPrice);
                     break;
                 }
             }
@@ -428,5 +435,38 @@ namespace PaintingAuction
                 }
             }
         }
+
+        private static void MarkItemAsSold(PaintingList paintingList)
+        {
+            Console.Write("Enter the title of the painting to mark as sold: ");
+            string title = Console.ReadLine();
+
+            var painting = paintingList.FindPaintingByTitle(title);
+            if (painting == null || painting.IsSold)
+            {
+                Console.WriteLine("The title does not exist or the painting is already sold.");
+                Console.WriteLine("Press any key to return to the menu...");
+                Console.ReadKey();
+                return;
+            }
+
+            while (true)
+            {
+                Console.Write("Enter the sold price of the painting: ");
+                if (!decimal.TryParse(Console.ReadLine(), out decimal soldPrice) || soldPrice <= 0)
+                {
+                    Console.WriteLine("Invalid sold price. Please enter a positive number.");
+                }
+                else
+                {
+                    paintingList.MarkPaintingAsSold(title, soldPrice);
+                    break;
+                }
+            }
+
+            Console.WriteLine("Press any key to return to the menu...");
+            Console.ReadKey();
+        }
     }
 }
+
