@@ -1,0 +1,14 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\bin\Debug\net8.0\ConsoleApps6.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\bin\Debug\net8.0\ConsoleApps6.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\bin\Debug\net8.0\ConsoleApps6.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\bin\Debug\net8.0\ConsoleApps6.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\bin\Debug\net8.0\ConsoleApps6.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ConsoleApps6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ConsoleApps6.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ConsoleApps6.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ConsoleApps6.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ConsoleApps6.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\refint\ConsoleApps6.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ConsoleApps6.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ConsoleApps6.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 3\ConsoleApps6\obj\Debug\net8.0\ref\ConsoleApps6.dll
