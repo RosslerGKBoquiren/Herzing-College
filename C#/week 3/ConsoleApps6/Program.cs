@@ -7,6 +7,12 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
+            Car myCar = new Car();
+            myCar.Name = "Mazda";
+            Console.WriteLine(myCar.Name);
+
+            /* myCar.Details();
+
             Car audi = new Car("Audi", 260, "red");
             audi.Details();
             audi.Drive();
@@ -18,7 +24,7 @@ namespace ConsoleApp6
             if (userInput == "1")
                 audi.Stop();
             else
-                Console.WriteLine("Car is still moving.");
+                Console.WriteLine("Car is still moving."); */
         }
     }
 }

@@ -14,6 +14,19 @@ namespace ConsoleApps6
         private int _hp;
         private string _color;
 
+        public string GetName()
+        { 
+            return "The name of the car is: " + _name;
+        }
+
+        public void SetName(string name)
+        {
+            if (name == "")
+                _name = "Default name";
+            else
+                _name = name;
+        }
+
         // default constructor
         public Car()
         {

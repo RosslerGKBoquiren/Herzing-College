@@ -1,0 +1,38 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+		Assignment 7
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Assignment: Managing Embassies Using Dictionaries
+
+Objective:
+Create a C# application that uses a dictionary to manage information about embassies in various countries. The dictionary will have KEYS representing country codes and VALUES representing embassy details.
+
+Classes to Create:
+	- Country Class: 
+		- properties: 
+			- code: Abbreviation for the country name (e.g., "eng" for England).
+			- name: Full name of the country (e.g., "England").
+
+	- Embassy Class:
+		- Properties:
+			- address: Address of the embassy.
+			- ambassador: Name of the ambassador.
+			- telephoneNumber: Telephone number of the embassy.
+
+	- Program Class:
+
+		- A dictionary to store the country codes and embassy details:
+			Dictionary<Country, Embassy> dicEmbassy = new Dictionary<Country, Embassy>();
+		- Methods to:
+			- Add a new embassy entry.
+			- Display all embassy entries.
+			- Search for an embassy by country code or country name.
+
+Ensure the program is user-friendly and handles various scenarios (e.g., searching for a non-existent country).
+Validation is a MUST.
+
+Good luck!
