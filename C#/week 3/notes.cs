@@ -18,6 +18,17 @@ the declared type is only visible in the currnet source file. File scoped types 
 used for source generators
 
 
+// Dictionary pros and cons
+1. key-based access
+A dictionary allows you to access elements using a key, which in this case is an integer representing an employee ID. It 
+provides an efficient way to access specific employees without iterating over the entire collection.  
+
+2. Handling non sequential and sparse data  
+
+3. flexibility in modifying the collection 
+
+
+
 namespace ConsoleApp10
 {
 	internal class Program
