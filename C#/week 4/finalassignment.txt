@@ -1,0 +1,61 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     FINAL    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ASSIGNMENT  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+Library Management System
+
+Objective:
+Develop a console application to efficiently manage a library system, proficiently handling books, members, and library staff. The system should offer functionalities for adding, removing, and listing books, as well as for borrowing and returning them.
+
+Requirements:
+
+Classes and Inheritance:
+Establish a base class named Person encompassing properties like Name, ID, and ContactNumber.
+Derive two subclasses from Person: Member and Staff, with additional properties specific to each (e.g., MemberID, MembershipType for Member, and StaffID, JobTitle for Staff, ...).
+Design a class named Book with properties including Title, Author, ISBN, and IsBorrowed.
+Implement a class named Library responsible for managing books, members, and staff.
+
+Constructor and Properties:
+Implement constructors for each class to initialize properties. Ensure subclass constructors inherit base class properties.
+Utilize auto-implemented properties with both getters and setters.
+
+Methods:
+Incorporate methods in the Library class to facilitate the addition and removal of books, members, and staff. Ensure borrowed books and members with borrowed books are not inadvertently removed.
+Add methods enabling members to borrow and return books, effectively managing the maximum number of books each member can borrow concurrently.
+Utilize try and catch blocks for robust error handling, such as attempting to borrow a book that is already on loan.
+Override methods in subclasses for customized display of information.
+
+Collections:
+Utilize lists to store books, members, and staff within the Library class.
+Employ LINQ methods like Where, Find, and Any to streamline filtering and searching within the collections.
+
+Dictionary:
+Implement a dictionary to establish mappings between borrowed books and members.
+
+Static Keyword:
+Utilize a static method to generate unique IDs for both books and members.
+
+String Manipulation:
+Leverage string methods and String.Format to present information in a user-friendly format.
+
+Loops and Decision Making:
+Employ loops to systematically display lists of books, members, and staff.
+Utilize if-else and switch statements for effective decision-making within the main program logic.
+
+Nullable Types:
+Employ nullable types for optional properties, such as a member's middle name.
+
+Flexibility:
+Embrace the flexibility to introduce additional properties, methods, or components as necessary to comprehensively address various scenarios and requirements.
+As the programmer, ensure comprehensive handling of all possible situations to deliver a robust and user-friendly library management system.
+
+
+
+
+
+
+
