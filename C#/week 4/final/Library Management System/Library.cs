@@ -44,7 +44,7 @@ namespace Library_Management_System
             }
         }
 
-        public void RemoveMember(string memberId)
+        public void AddMember(Member member)
         {
             Members.Add(member);
         }
@@ -91,6 +91,19 @@ namespace Library_Management_System
             catch (Exception exception)
             {
                 Console.WriteLine($"Error borrowing book: {exception.Message}");
+            }
+        }
+
+        public void ReturnBook(string isbn, string memberId)
+        {
+            try
+            {
+                var book = Books.FirstOrDefault(b => b.ISBN == isbn);
+                if (book != null && book.IsBorrowed && BorrowedBooks.ContainsKey(isbn) && BorrowedBooks[isbn] == memberId)
+                {
+                    book.IsBorrowed = false;
+                    BorrowedBooks.Remove(isbn);
+                }
             }
         }
     }
