@@ -9,14 +9,20 @@ namespace Library_Management_System
     public class Person
     {
         public string Name { get; set; }
-        public string ID { get; set; }
+        public string ID { get; set; } 
         public string ContactNumber { get; set; }
 
-        public Person(string name, string id, string contactNumber)
+        public Person(string name, string id, string contactNumber) 
         {
             Name = name;
             ID = id;
             ContactNumber = contactNumber;
         }
+
+        public string GetPersonDetails()
+        {
+            return $"Name: {Name}, ID: {ID}, Contact: {ContactNumber}";
+        }
     }
 }
+

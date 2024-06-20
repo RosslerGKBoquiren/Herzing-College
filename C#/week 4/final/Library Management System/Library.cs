@@ -14,9 +14,9 @@ namespace Library_Management_System
         public Dictionary<string, string> BorrowedBooks { get; set; }
 
         public Library()
-        { 
+        {
             Books = new List<Book>();
-            Members = new List<Member> { };
+            Members = new List<Member>();
             Staffs = new List<Staff>();
             BorrowedBooks = new Dictionary<string, string>();
         }
@@ -25,7 +25,7 @@ namespace Library_Management_System
 
         // to generate unique IDs
         public static int IdGenerator()
-        { 
+        {
             return uniqueId++;
         }
 
@@ -59,7 +59,7 @@ namespace Library_Management_System
         }
 
         public void AddStaff(Staff staff)
-        { 
+        {
             Staffs.Add(staff);
         }
 
@@ -72,7 +72,6 @@ namespace Library_Management_System
             }
         }
 
-
         // to borrow and return books
         public void BorrowBook(string isbn, string memberId)
         {
@@ -81,13 +80,12 @@ namespace Library_Management_System
                 var book = Books.FirstOrDefault(b => b.ISBN == isbn);
                 var member = Members.FirstOrDefault(m => m.MemberID == memberId);
 
-                if (book != null && !book.IsBorrowed && member != null && BorrowedBooks.Values.Count(v => v == memberId) < member.MaxBooksAllowed)
+                if (book != null && !book.IsBorrowed && member != null && BorrowedBooks.Values.Count(v => v == memberId) < int.Parse(member.MaxBooksAllowed))
                 {
                     book.IsBorrowed = true;
                     BorrowedBooks[isbn] = memberId;
                 }
             }
-
             catch (Exception exception)
             {
                 Console.WriteLine($"Error borrowing book: {exception.Message}");
@@ -105,6 +103,38 @@ namespace Library_Management_System
                     BorrowedBooks.Remove(isbn);
                 }
             }
+            catch (Exception exception)
+            {
+                Console.WriteLine($"Error returning book: {exception.Message}");
+            }
+        }
+
+        // to list books
+        public void ListBooks()
+        {
+            foreach (var book in Books)
+            {
+                Console.WriteLine(book.ToString());
+            }
+        }
+
+        // to list members
+        public void ListMembers()
+        {
+            foreach (var member in Members)
+            {
+                Console.WriteLine(member.ToString());
+            }
+        }
+
+        // to list staff
+        public void ListStaff()
+        {
+            foreach (var staff in Staffs)
+            {
+                Console.WriteLine(staff.ToString());
+            }
         }
     }
 }
+

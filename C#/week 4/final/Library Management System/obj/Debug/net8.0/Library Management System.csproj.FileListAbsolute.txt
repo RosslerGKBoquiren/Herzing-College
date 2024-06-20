@@ -1,0 +1,4 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 4\final\Library Management System\obj\Debug\net8.0\Library Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 4\final\Library Management System\obj\Debug\net8.0\Library Management System.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 4\final\Library Management System\obj\Debug\net8.0\Library Management System.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\C#\week 4\final\Library Management System\obj\Debug\net8.0\Library Management System.csproj.CoreCompileInputs.cache
