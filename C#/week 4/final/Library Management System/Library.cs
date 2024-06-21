@@ -8,11 +8,12 @@ namespace Library_Management_System
 {
     public class Library
     {
-        public List<Book> Books { get; set; }
-        public List<Member> Members { get; set; }
-        public List<Staff> Staffs { get; set; }
-        public Dictionary<string, string> BorrowedBooks { get; set; }
+        public List<Book> Books { get; set; } // to represent all the books in the library
+        public List<Member> Members { get; set; } // to represent all the members of the library
+        public List<Staff> Staffs { get; set; } // to represent all the staff of the library
+        public Dictionary<string, string> BorrowedBooks { get; set; } // key is ISBN of a borrowed book, value is the 'MemberID' who borrowed it
 
+        // constructor initializes the lists and dictionary to ensure they are ready to use when a 'Library' object is created
         public Library()
         {
             Books = new List<Book>();
@@ -21,7 +22,7 @@ namespace Library_Management_System
             BorrowedBooks = new Dictionary<string, string>();
         }
 
-        private static int uniqueId = 1;
+        private static int uniqueId = 1; // privately accessible within 'Library' class and can be shares among all of its instances
 
         // to generate unique IDs
         public static int IdGenerator()
@@ -29,26 +30,34 @@ namespace Library_Management_System
             return uniqueId++;
         }
 
-        // to add and remove books, members, and staff
-        public void Addbook(Book book)
+
+        
+        // to add a 'Book' object to the 'Books' list of the 'Library' class
+        public void Addbook(Book book) // object type 'Book' class
         {
-            Books.Add(book);
+            Books.Add(book); // to refer to the 'Books' property of 'Library' class which holds 'Book' objects
         }
 
+        // to remove a 'Book' object from the 'Books' list
+        // using the ISBN to remove a book as practical choice due to their unique identifiers
         public void RemoveBook(string isbn)
         {
-            var book = Books.FirstOrDefault(b => b.ISBN == isbn);
+            // lambda expression to check if ISBN property matches the given isbn
+            var book = Books.FirstOrDefault(b => b.ISBN == isbn); // return the first element that matches the condition or null if not found
             if (book != null && !book.IsBorrowed)
             {
                 Books.Remove(book);
             }
         }
 
-        public void AddMember(Member member)
+        // to add a 'Member' object to the 'Members' list
+        public void AddMember(Member member) // object type 'Member' class
         {
-            Members.Add(member);
+            Members.Add(member); // to refer to the 'Members' property of 'Library' class which hold 'Member' objects
         }
 
+
+        // to remove a 'Member' object from the 'Members' list
         public void RemoveMember(string memberId)
         {
             var member = Members.FirstOrDefault(m => m.MemberID == memberId);

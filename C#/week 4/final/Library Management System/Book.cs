@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System
 {
-    public class Book
+    public class Book // publicly accessible
     {
         public string Title { get; set; }
         public string Author { get; set; }
         public string ISBN { get; set; }
         public bool IsBorrowed { get; set; }
 
-
+        // constructor takes three parameters to assign to corresponding properties
         public Book(string title, string author, string isbn)
         {
             Title = title;
             Author = author;
             ISBN = isbn;
-            IsBorrowed = false;
+            IsBorrowed = false; // boolean property to help track the availability of the book in the library
         }
     }
 }
