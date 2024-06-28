@@ -22,9 +22,9 @@ namespace Library_Management_System
         }
 
         // method to return string that includes details from 'Person' class and additional details specific to 'Member'
-        public string GetMemberDetails()
+        public override string ToString()
         {
-            return GetMemberDetails() + $", MemberID: {MemberID}, Membership Type: {MembershipType}, Max Books Allowed: {MaxBooksAllowed}";
+            return $"{Name,-20} {ID,-5} {ContactNumber,-15} {MemberID,-10} {MembershipType,-18} {MaxBooksAllowed,-5}";
         }
     }
 
@@ -42,9 +42,9 @@ namespace Library_Management_System
         }
 
         // method to return string that includes details from 'Person' class and additional details specfic to 'Staff'
-        public string GetStaffDetails()
+        public override string ToString()
         {
-            return GetStaffDetails() + $", StaffID: {StaffID}, Job Title: {JobTitle}";
+            return $"{Name,-20} {ID,-5} {ContactNumber,-15} {StaffID,-10} {JobTitle,-20}";
         }
     }
 }

@@ -8,10 +8,13 @@ namespace Library_Management_System
 {
     public class Library
     {
-        public List<Book> Books { get; set; } // to represent all the books in the library
-        public List<Member> Members { get; set; } // to represent all the members of the library
-        public List<Staff> Staffs { get; set; } // to represent all the staff of the library
-        public Dictionary<string, string> BorrowedBooks { get; set; } // key is ISBN of a borrowed book, value is the 'MemberID' who borrowed it
+        public List<Book> Books { get; set; } = new List<Book>(); // to represent all the books in the library
+        public List<Member> Members { get; set; } = new List<Member>(); // to represent all the members of the library
+        public List<Staff> Staffs { get; set; } = new List<Staff>(); // to represent all the staff of the library
+        public Dictionary<string, string> BorrowedBooks { get; set; } = new Dictionary<string, string>(); // key is ISBN of a borrowed book, value is the 'MemberID' who borrowed it
+        // using a dictionary for BorrowedBooks to ensure a clear and direct relationship between books and borrowers
+        // one ISBN to one MemberID, preventing duplicates
+
 
         // constructor initializes the lists and dictionary to ensure they are ready to use when a 'Library' object is created
         public Library()
@@ -58,58 +61,84 @@ namespace Library_Management_System
 
 
         // to remove a 'Member' object from the 'Members' list
+        // using the unique identifier memberID to remove a member
         public void RemoveMember(string memberId)
         {
+            // lambda expression to check if MemberID matches the given memberId
             var member = Members.FirstOrDefault(m => m.MemberID == memberId);
-            if (member != null && !BorrowedBooks.Values.Contains(memberId))
+            if (member != null && !BorrowedBooks.Values.Contains(memberId)) // return first element that matches the condition or null if not found
             {
                 Members.Remove(member);
             }
         }
 
-        public void AddStaff(Staff staff)
+
+        // to add a 'Staff' object to the 'Staffs' list
+        public void AddStaff(Staff staff) // object type 'Staff' class
         {
-            Staffs.Add(staff);
+            Staffs.Add(staff); // to refer to the 'Staffs' property of 'Library' class which holds 'Staff' objects
         }
 
+
+        // to remove a 'Staff' object from the 'Staffs' list
+        // using the unique identifier staffID to remove a staff
         public void RemoveStaff(string staffId)
         {
-            var staff = Staffs.FirstOrDefault(s => s.StaffID == staffId);
+            // to check if StaffID matches the given staffId
+            var staff = Staffs.FirstOrDefault(s => s.StaffID == staffId); // return first matching element or null if not
             if (staff != null)
             {
                 Staffs.Remove(staff);
             }
         }
 
-        // to borrow and return books
-        public void BorrowBook(string isbn, string memberId)
+        
+        // method allowing a member to borrow a book from the library, under certain conditions
+        // it updates the book's status to borrowed and records the borrowing in the 'BorrowedBooks' dictionary
+        public void BorrowBook(string isbn, string memberId) // using the unique identifiers of the book and the member 
         {
             try
             {
-                var book = Books.FirstOrDefault(b => b.ISBN == isbn);
-                var member = Members.FirstOrDefault(m => m.MemberID == memberId);
+                var book = Books.FirstOrDefault(b => b.ISBN == isbn); // finding the book
+                var member = Members.FirstOrDefault(m => m.MemberID.ToLower() == memberId); // finding the member
 
+
+                // four conditions:
+                // 1. ensuring that the book is found
+                // 2. ensuring that the book is not currently borrowed
+                // 3. ensuring that the memberID exists
+                // 4. ensuring that the member's borrowing limit is not exceeded
                 if (book != null && !book.IsBorrowed && member != null && BorrowedBooks.Values.Count(v => v == memberId) < int.Parse(member.MaxBooksAllowed))
                 {
-                    book.IsBorrowed = true;
-                    BorrowedBooks[isbn] = memberId;
+                    book.IsBorrowed = true; // if conditions are met, Isborrowed is set to true. Indicating that the book is now borrowed
+                    BorrowedBooks[isbn] = memberId; // the book's ISBN and member's ID are recorded in the dictionary
                 }
             }
+            // else, error message is printed to the console
             catch (Exception exception)
             {
                 Console.WriteLine($"Error borrowing book: {exception.Message}");
             }
         }
+        
 
+        // method to allow a member to return a borrowed book back to the library
+        // updates the book's status to not-borrowed and removes the entry from the dictionary
         public void ReturnBook(string isbn, string memberId)
         {
             try
             {
                 var book = Books.FirstOrDefault(b => b.ISBN == isbn);
-                if (book != null && book.IsBorrowed && BorrowedBooks.ContainsKey(isbn) && BorrowedBooks[isbn] == memberId)
+
+                // condition check:
+                // 1. ensures that a book is found
+                // 2. ensures that the book is currently borrowed
+                // 3. ensures that the book is recorded in the dictionary
+                // 4. ensures that the book was borrowed by the member with the given memberId
+                if (book != null && book.IsBorrowed && BorrowedBooks.ContainsKey(isbn) && BorrowedBooks[isbn].ToLower() == memberId)
                 {
-                    book.IsBorrowed = false;
-                    BorrowedBooks.Remove(isbn);
+                    book.IsBorrowed = false; // if conditions are met, IsBorrowed property is set to false. Book is no longer borrowed
+                    BorrowedBooks.Remove(isbn); // book's ISBN is removed from the dictionary, recording that it is returned
                 }
             }
             catch (Exception exception)
@@ -121,15 +150,38 @@ namespace Library_Management_System
         // to list books
         public void ListBooks()
         {
+            DisplayUtils.DisplayBooksHeader();
             foreach (var book in Books)
             {
                 Console.WriteLine(book.ToString());
             }
         }
 
+        // method to display list of available books
+        public void ListAvailableBooks()
+        {
+            DisplayUtils.DisplayBooksHeader();
+            foreach (var book in Books.Where(b => !b.IsBorrowed))
+            {
+                Console.WriteLine(book.ToString());
+            }
+        }
+
+        // method to display list of borrowed books
+        public void ListBorrowedBooks()
+        {
+            DisplayUtils.DisplayBorrowedBooksHeader();
+            foreach (var book in Books.Where(b => b.IsBorrowed))
+            {
+                Console.WriteLine(book.ToString());
+            }
+        }
+
+
         // to list members
         public void ListMembers()
         {
+            DisplayUtils.DisplayMembersHeader();
             foreach (var member in Members)
             {
                 Console.WriteLine(member.ToString());
@@ -139,6 +191,7 @@ namespace Library_Management_System
         // to list staff
         public void ListStaff()
         {
+            DisplayUtils.DisplayStaffHeader();
             foreach (var staff in Staffs)
             {
                 Console.WriteLine(staff.ToString());

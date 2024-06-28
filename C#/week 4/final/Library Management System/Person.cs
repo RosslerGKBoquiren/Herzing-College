@@ -21,7 +21,7 @@ namespace Library_Management_System
         }
 
         // method to return a string representing a person's details
-        public string GetPersonDetails()
+        public override string ToString()
         {
             return $"Name: {Name}, ID: {ID}, Contact: {ContactNumber}";
         }

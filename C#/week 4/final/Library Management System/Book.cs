@@ -21,5 +21,10 @@ namespace Library_Management_System
             ISBN = isbn;
             IsBorrowed = false; // boolean property to help track the availability of the book in the library
         }
+
+        public override string ToString()
+        {
+            return $"{Title,-40} {Author,-25} {ISBN,-20} {IsBorrowed,-10}";
+        }
     }
 }
