@@ -186,3 +186,297 @@ use String to store or display the final result
 		currency {0:C}
 		scientific notation: {0:E}
 		Zero Padding: {0:0000}*/
+
+
+
+// Handling errors in C#
+/* Try block and Catch block
+
+	Try block
+	You write the code that you want to run inside a try block.
+	the program will try to execute all the lines inside the try block one by one.
+	If everything goes well, the program moves on to the next part after the try block.
+
+
+	Catch block
+	right after, you write one or more catch blocks.
+	Each catch block is designed to handle a specific type of error called an exception. 
+	If an error occurs in the try block, the program jumps to the appropriate catch block and runs the code inside it
+	after the catch block finishes, the program continues with the code that comes after the catch blocks.  
+
+	Example:
+
+	using System;
+
+	class Program
+	{
+	    static void Main()
+	    {
+	        try
+	        {
+	            // Code that may throw different types of exceptions
+	            string input = "123a"; // This will cause a FormatException
+	            int number = Int32.Parse(input);
+
+	            int result = 10 / number; // This will cause a DivideByZeroException if number is zero
+	        }
+	        catch (FormatException formatEx)
+	        {
+	            // Handle FormatException (e.g., invalid input format)
+	            Console.WriteLine("Input was not in a correct format.");
+	            Console.WriteLine("Error details: " + formatEx.Message);
+	        }
+	        catch (DivideByZeroException divideByZeroEx)
+	        {
+	            // Handle DivideByZeroException (e.g., division by zero)
+	            Console.WriteLine("Cannot divide by zero.");
+	            Console.WriteLine("Error details: " + divideByZeroEx.Message);
+	        }
+	        catch (Exception ex)
+	        {
+	            // Handle any other exceptions
+	            Console.WriteLine("An unexpected error occurred.");
+	            Console.WriteLine("Error details: " + ex.Message);
+	        }
+	        finally
+	        {
+	            // Code that runs regardless of whether an exception is thrown or not
+	            Console.WriteLine("This code runs no matter what.");
+	        }
+	    }
+	}
+	
+
+	Catching specific exceptions:
+
+	1. Catch block syntax
+	This is simiar to a method parameter to specify which ttpe of exception to catch.
+	For example, catch(FormatException fEx) catches a FormatException and stores the exception details in the variable fEx
+	It is a specific type of exception that occurs when a string is not in a valid format to be converted to a number
+
+	2. Exception Object
+	While an exception is caught, the variable fEx contains an object with the details about the error. 
+	This object has various fields you can examine to understnad what went wrong.
+
+	3. Common fields in Exception Objects
+		- message fields: text description of the error. You vsn udr this message to inform the user about what went wrong
+		or log the details for debugging.
+
+		ex: try
+		{
+		    int number = Int32.Parse("invalid number");
+		}
+		catch (FormatException fEx)
+		{
+		    Console.WriteLine("An error occurred: " + fEx.Message);
+		}
+		
+
+		- StackTrace fields: show the sequence of method calls that led to the exception. THis is helpful for debugging
+		because it shows where in the code the error occured
+
+
+	4. Advanced Exception handlind
+		- Finally Block: it runs the code that execute whether or not an exception is thrown. It is often used for cleanup 
+		tasks, like closing files or releasing resources.
+
+		- Throw statement: You can use this to pass the exception up the stack, meaning you throw the exception to be handled 
+		at a higher level
+
+
+
+	Unhandled Exceptions in Simple Terms
+
+	What happens when there is no Catch Block
+
+	1. Error example: causes an OverflowException
+
+	2. No matching catch block: the OverflowException is NOT caught
+
+	3. Searching for a catch block: the process repeats, moving up the chain of calling methods.
+
+	4. Execution continues: if a matching block is found, it runs and the program continues. The original method that 
+	caused the error does not continue running
+
+	5. Method returns: if the try block is a method, the method stops and returns to the method that called it
+
+	6. Program termination: the program stops with an unhandled exception
+
+
+Using multiple Catch Handlers
+
+Different errors cause different types of exceptions. You can handle these by using multiple catch blocks, one for each type of exception. 
+
+example: 
+
+try
+{
+    // Code that might throw different types of exceptions
+    string input = "123a"; // Causes FormatException
+    int number = Int32.Parse(input);
+
+    int result = 10 / number; // Could cause DivideByZeroException
+}
+catch (FormatException formatEx)
+{
+    // Handle FormatException
+    Console.WriteLine("Input is not in the correct format.");
+}
+catch (DivideByZeroException divideByZeroEx)
+{
+    // Handle DivideByZeroException
+    Console.WriteLine("Cannot divide by zero.");
+}
+catch (Exception ex)
+{
+    // Handle any other exceptions
+    Console.WriteLine("An unexpected error occurred.");
+}
+
+
+
+Catching multiple Exceptions in Simple terms
+
+1. Exception Hierarchy: exceptions are organized into families
+FormatException and OverflowException are part of the SystemException which is part of a larger family called Exception.
+
+2. Catching general exceptions: instead of catching each specific exception, you can catch a general exception like
+SystemException or Exception. Catching Exception will handle all possinle exceptions. 
+
+Example:
+
+try
+{
+    // Code that might throw different types of exceptions
+}
+catch (SystemException sysEx)
+{
+    // Handle system exceptions like FormatException, OverflowException, etc.
+    Console.WriteLine("A system error occurred: " + sysEx.Message);
+}
+catch (Exception ex)
+{
+    // Handle any other exceptions
+    Console.WriteLine("An unexpected error occurred: " + ex.Message);
+}
+
+
+Simplified Catch-All
+
+try
+{
+    // Code that might throw different types of exceptions
+}
+catch
+{
+    // Handle any exception
+    Console.WriteLine("An error occurred.");
+}
+
+
+
+Order of catch Blocks
+
+1. Specific before general
+Place more specific catch blocks like FormatException before general ones like Exception
+
+2. First Match Wins
+When an exception occurs, the first matching catch is executed, and the rest are ignored. 
+
+
+example: 
+
+try
+{
+    // Code that might throw different types of exceptions
+}
+catch (FormatException formatEx)
+{
+    // Handle FormatException
+    Console.WriteLine("Input format is incorrect.");
+}
+catch (Exception ex)
+{
+    // Handle all other exceptions
+    Console.WriteLine("An unexpected error occurred.");
+}
+
+
+
+Why throwing exceptions
+
+When writing a method, sometimes you get input that doesnt make sense. Instead of returning a meaningless value, its
+better to throw an exception to indicate something went wrong.
+
+Imagine you have called monthName that takes an integer and returns that corresponding month name.
+
+- monthName(1) returns January
+- monthName(12) returns december
+
+but what if the input is less than 1 or greater than 12? Instead of returning something meaningless, you should throw an exception
+
+using ArgumentOutOfRangeException
+
+example:
+
+public string monthName(int month)
+{
+    switch (month)
+    {
+        case 1: return "January";
+        case 2: return "February";
+        case 3: return "March";
+        case 4: return "April";
+        case 5: return "May";
+        case 6: return "June";
+        case 7: return "July";
+        case 8: return "August";
+        case 9: return "September";
+        case 10: return "October";
+        case 11: return "November";
+        case 12: return "December";
+        default:
+            throw new ArgumentOutOfRangeException("month", "Month must be between 1 and 12.");
+    }
+}
+
+
+
+Why use Finally Blocks 
+
+When an exceptino is thrown, it changes the flow of the program. This means that you cant be sure that every statement 
+will run as excepted
+
+Conside the problem below:
+
+StreamReader reader = null;
+try
+{
+    reader = File.OpenText("file.txt");
+    // Read from the file...
+}
+catch (Exception ex)
+{
+    // Handle the exception...
+}
+finally
+{
+    if (reader != null)
+    {
+        reader.Close(); // Ensure the file is closed
+    }
+}
+
+
+Key points:
+
+1. Resource management
+if you open a file or a resource, you need to make sure it gets closed or released. If not, it may lead to
+problems 
+
+2. Finally block ensures that certain code runs no matter what, even if an exception is thrown
+
+3. always executes
+the finally block will always execute whether or not an exception is thrown.
+using a finally block ensures that critical code such as releasing resources always runs. This prevents resource leaks
+and other issues that can arise if an exceptino interrupts the normal flow of your program. */
