@@ -480,3 +480,55 @@ problems
 the finally block will always execute whether or not an exception is thrown.
 using a finally block ensures that critical code such as releasing resources always runs. This prevents resource leaks
 and other issues that can arise if an exceptino interrupts the normal flow of your program. */
+
+
+
+// Remembering arrays
+/* Arrays are a way to store multiple values of the same type in a single variable.
+
+key points:
+
+1. declaration
+int[] numbers
+declare an array with a type gollowed by square brackets and a variable
+
+2. initialization
+numbers = new int[5]
+initialize the array with a specified size
+
+or 
+
+int[] numbers = {1, 2, 3, 4, 5};
+
+3. accessing elements
+access array elements using an index, starting at 0
+
+4. looping through arrays
+use a loop to iterate through all elements
+for(int i = 0; 1 < numbers.Length; i++)
+{
+	Console.WriteLine(numbers[i]);
+}  
+
+example
+
+using System;
+
+class Program
+{
+	static void Main()
+	{
+		// declare and initialize an array
+		int[] numbers = {1, 2, 3, 4, 5};
+
+		// access and modify array elements
+		numbers[1] = 10;
+
+		// loop through the array and print each element
+		for (int i = 0; i < numbers.Length; i++)
+		{
+			Console.WriteLine(numbers[i]);
+		}
+	}
+}
+*/
