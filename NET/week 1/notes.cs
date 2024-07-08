@@ -532,3 +532,92 @@ class Program
 	}
 }
 */
+
+
+
+// Array and Collection interfaces in C# .NET
+
+/* IEnumerable
+	Purpose: Enables iteration over a collection. Allows the use of foreacj to loop through array elements
+	for example:
+
+	intp[] numbers = {1, 2, 3, 4, 5};
+	foreach (int number in numbers)
+	{
+		Console.WriteLine(number);
+	}
+
+	It simplifies looping through the array
+
+
+
+	ICollection
+	PUrpose: Extends IEnumerable with additional properties and methods
+	Properties and Methods:
+		Count: gets the number of elements in the collection
+		IsSynchronized: indicates if access to the collection is synchronized
+		SyncRoot: provides an object for synchronization
+
+	example:
+	int[] number = {1, 2, 3, 4, 5};
+	ICollection collection = numbers;
+	Console.WriteLine(collection.Count); // outputs the number of elements
+
+	it provides more informaiton and control over the collection's elements
+
+
+
+	IList
+	purpose: extends ICollection with additional methods and properties for more detailed manipulation
+	key properties and methods:
+		This[int index]: gets or sets the element at the specified index
+		Add(object value): adds an item to the collection
+		Remove(object value): removes the first occurence of a specific object from the collection
+		Insert(int index, object value): inserts an item at the specified index
+		RemoveAt(int index): removes the item at the specified index
+
+	example:
+	int[] numbers = {1, 2, 3, 4, 5};
+	IList list = numbers;
+	Console.WriteLine(List[0]); // outputs the first element
+	list[0] = 10; // sets tje first element to 10
+
+	offers more flexibility for modifying the collection
+
+
+
+	Here is a complete example demonstrating the use of these interfaces
+
+	using System;
+	using System.Collections;
+
+	class Program
+	{
+		static void Main()
+		{
+			int[] numbers = {1, 2, 3, 4, 5};
+
+			//IEnumerable
+			IEnumerable enumerable = numbers;
+			foreach (int number in enumerable)
+			{
+				Console.Write(number)
+			}
+
+
+			//ICollection
+			ICollection collection = numbers;
+			Console.WriteLine("Count: " + collection.Count);
+
+
+			//IList
+			IList list = numbers;
+			list[0] = 10; // modifying the first element
+			list.Add(6); // adding a new element
+
+			foreach (int number in list)
+			{
+				Console.WriteLine(number);
+			}
+		}
+	} */
