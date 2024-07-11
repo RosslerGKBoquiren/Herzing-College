@@ -1,0 +1,16 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception_Handling.Form1.resources
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.csproj.GenerateResource.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\bin\Debug\net8.0-windows\Exception Handling.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\bin\Debug\net8.0-windows\Exception Handling.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\bin\Debug\net8.0-windows\Exception Handling.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\bin\Debug\net8.0-windows\Exception Handling.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\bin\Debug\net8.0-windows\Exception Handling.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\refint\Exception Handling.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\Exception Handling.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 2\Exception Handling\obj\Debug\net8.0-windows\ref\Exception Handling.dll

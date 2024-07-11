@@ -30,46 +30,68 @@
         {
             inputTextBox = new TextBox();
             runButton = new Button();
+            MessageBox = new Label();
             label1 = new Label();
+            btnClear = new Button();
             SuspendLayout();
             // 
             // inputTextBox
             // 
-            inputTextBox.Location = new Point(203, 125);
+            inputTextBox.Location = new Point(104, 54);
             inputTextBox.Name = "inputTextBox";
-            inputTextBox.Size = new Size(100, 23);
+            inputTextBox.Size = new Size(122, 23);
             inputTextBox.TabIndex = 0;
             // 
             // runButton
             // 
-            runButton.Location = new Point(354, 127);
+            runButton.Location = new Point(232, 54);
             runButton.Name = "runButton";
-            runButton.Size = new Size(75, 23);
+            runButton.Size = new Size(40, 21);
             runButton.TabIndex = 1;
             runButton.Text = "Run";
             runButton.UseVisualStyleBackColor = true;
             runButton.Click += runButton_Click;
             // 
+            // MessageBox
+            // 
+            MessageBox.AutoSize = true;
+            MessageBox.Location = new Point(104, 106);
+            MessageBox.Name = "MessageBox";
+            MessageBox.Size = new Size(45, 15);
+            MessageBox.TabIndex = 2;
+            MessageBox.Text = "Result: ";
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(473, 132);
+            label1.Location = new Point(104, 36);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 2;
-            label1.Text = "label1";
+            label1.Size = new Size(122, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Enter an index (0 - 4): ";
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(278, 54);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(43, 21);
+            btnClear.TabIndex = 4;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(384, 161);
+            Controls.Add(btnClear);
             Controls.Add(label1);
+            Controls.Add(MessageBox);
             Controls.Add(runButton);
             Controls.Add(inputTextBox);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -78,6 +100,8 @@
 
         private TextBox inputTextBox;
         private Button runButton;
+        private Label MessageBox;
         private Label label1;
+        private Button btnClear;
     }
 }
