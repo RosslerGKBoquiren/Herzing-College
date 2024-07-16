@@ -620,4 +620,211 @@ class Program
 				Console.WriteLine(number);
 			}
 		}
-	} */
+	} 
+
+
+
+	More about ICollection
+	key features:
+
+	1. adding and removing elements
+		Add()
+		Remove()
+		Clear(): removes all elements from the collection
+
+	2. Checking and copying elements
+		Contains(): checks if an element is in the collection
+		CopyTo(): Copies elements to an array
+
+	3. Counting elements
+		Count()
+
+	4. Thread Safety
+		IsSynchronized: indidicates if the collection is thread-safe
+		SyncRoot: provides an object for synchronizing access to the collection
+
+
+Example:
+
+using System;
+using System.Collections;
+
+class Program
+{
+	static void Main()
+	{
+		ArrayList myList = new ArrayList();
+
+		// add elements
+		myList.Add(1);
+		myList.Add(2);
+		myList.Add(3);
+
+
+		// check if element exists
+		bool containsTwo = myList.Contains(2);
+		Console.WriteLine("Contains 2: " + containsTwo);
+
+		// get count
+		int count = myList.Count;
+		Console.WriteLine("Count: " + count);
+
+		// copy to array
+		int[] array = new int[myList.Count];
+		myList.CopyTo(array, 0);
+
+		// remove element
+		myList.Remove(2);
+
+		// final count
+		Console.WriteLine("Count after removal: " + myList.Count);
+	}
+}
+
+
+	Continue IList
+
+	IList represents a collection of objects that can be accessed by index. it allows you to store, manipulate, and access
+	a list of items. 
+
+	key features:
+	1. Access by index:
+	you can get or set items in the list using an index. 
+	example: myList[0] = 10; // sets the first item to 10
+
+	2. methods
+		Add()
+		Remove()
+		Insert(): inserts an item at a specific index
+		RemoveAt(): removes the item at a specific index
+
+	3. Properties
+		Count
+		IsReadOnly
+
+	4. Advanced features
+		Sort()
+		BinarySearch(): searches for an item using a binary search algorithm
+
+
+
+	Real World examples:
+	1. To do list
+	Tasks are stored in an IList colleciton, allowing easy additon, removal and updating of tasks
+
+	2. Ecommerce website
+	orders are stored in an IList collection, making it easy to manage orders
+
+	3. Inventory management system
+	products in stock are stored in an IList collection facilitating updates and management
+
+	4. Social media platform
+	user posts are stored in an IList collection, enabling easy display and interaction
+
+	5. Music player application
+	songs in a playlist are stored in an IList collection, allowing easy manipulation of the playlist.
+
+
+
+	example:
+
+	using System;
+	using System.Collections.Generic;
+
+	class Program
+	{
+		static void Main()
+		{
+			IList<int> myList = new List<int> {1, 2, 3};
+
+
+			// add an item
+			myList.Add(4);
+
+			// remove an item
+			myList.Remove(2);
+
+			// insert an item
+			myList.Insert(1, 5);
+
+			// access by index
+			Console.WriteLine(myList[0]); // output: 1
+
+			// get count
+			Console.WriteLine(myList.Count); // Output: 4
+
+			// sort the list
+			myList.Add(0);
+			((List<int>)myList).Sort();
+
+			foreach(var item in myList)
+			{
+				Console.WriteLine(item);
+			}
+		}
+	}
+
+
+
+	Procedures and Functions in C# .NET
+
+	Procedures and functions are blocks of code that can be reused to make your programs more organized and modular
+
+
+	Procedures:
+	definition: a block of code that performs a specific tasks and does not return a value
+	Syntax: using the void keyword
+	example:
+
+	void PrintMessage()
+	{
+		Console.WriteLine("Hello, World!");
+	}
+
+
+	calling a procedure:
+	PrintMessage(); // this will print "Hello, World!" to the console.
+
+
+
+	Functions:
+	definition: Similar to procedures but return a value
+	Syntax: defined with a return type
+	example:
+
+	int AddNumbers(int a, int b)
+	{
+		return a + b;
+	}
+
+	calling a function:
+	int result =AddNumbers(2, 3); // result will be 5
+	Console.WriteLine(result); // this will print 5 to the console
+
+
+
+	Parameters in procedures and functions
+
+	Both can take parameters to make them more flexible and reusable
+
+	void PrintMessage(string message)
+	{
+		Console.WriteLine(message);
+	}
+
+	// calling the procedure
+	PrintMessage("Hello, World!")
+
+
+
+	Function with parameters
+	int MultiplyNumbers(int a, int b)
+	{
+		return a * b;
+	}
+
+
+	In summary
+	Procedures do not return a value for a specific task
+	Functions return a value used for tasks that produce result
+	Parameters allow both procedures and functions to accept input values*/
