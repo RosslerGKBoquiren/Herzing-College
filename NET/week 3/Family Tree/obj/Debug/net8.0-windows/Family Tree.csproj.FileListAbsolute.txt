@@ -1,0 +1,16 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\bin\Debug\net8.0-windows\Family Tree.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\bin\Debug\net8.0-windows\Family Tree.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\bin\Debug\net8.0-windows\Family Tree.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\bin\Debug\net8.0-windows\Family Tree.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\bin\Debug\net8.0-windows\Family Tree.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family_Tree.Form1.resources
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.csproj.GenerateResource.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\refint\Family Tree.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\Family Tree.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 3\Family Tree\obj\Debug\net8.0-windows\ref\Family Tree.dll
