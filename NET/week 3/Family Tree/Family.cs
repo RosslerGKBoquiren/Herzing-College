@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace Family_Tree
 {
+    /// <summary>
+    /// A collection of Person objects and allows for iteration over the collection
+    /// </summary>
     public class Family : IEnumerable<Person>
     {
-
+        // use List to store the collection internally
         private List<Person> people = new List<Person>();
 
         /// <summary>
@@ -29,6 +32,21 @@ namespace Family_Tree
         public Person GetPersonById(int id)
         {
             return people.Find(p => p.ID == id);
+        }
+
+        /// <summary>
+        /// Assigns a parent to a person by their ID.
+        /// </summary>
+        /// <param name="personId">The ID of the person.</param>
+        /// <param name="parentId">The ID of the parent.</param>
+        public void AssignParentById(int personId, int parentId)
+        {
+            Person person = GetPersonById(personId);
+            Person parent = GetPersonById(parentId);
+            if (person != null && parent != null)
+            {
+                person.Parent = parent;
+            }
         }
 
         /// <summary>
