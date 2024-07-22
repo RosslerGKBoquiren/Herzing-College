@@ -3,10 +3,10 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div>
-            <h1>Contact</h1>
-            <p>Email: 5276151@mtl.herzing.ca</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/rossler-boquiren-1a39a5283/">LinkedIn Profile</a></p>
+        <div className="container mx-auto p-4">
+            <h1 className="text-3xl font-bold text-gray-800">Contact</h1>
+            <p className="text-gray-600">Email: your.email@example.com</p>
+            <p className="text-gray-600">LinkedIn: <a href="https://www.linkedin.com/in/yourprofile/" className="text-blue-500 hover:underline">Your LinkedIn Profile</a></p>
         </div>
     );
 };
