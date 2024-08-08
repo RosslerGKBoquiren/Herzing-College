@@ -1,0 +1,17 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\bin\Debug\net8.0-windows\Fitness_Center_Application.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\bin\Debug\net8.0-windows\Fitness_Center_Application.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\bin\Debug\net8.0-windows\Fitness_Center_Application.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\bin\Debug\net8.0-windows\Fitness_Center_Application.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\bin\Debug\net8.0-windows\Fitness_Center_Application.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.Form1.resources
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.csproj.GenerateResource.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\refint\Fitness_Center_Application.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\ref\Fitness_Center_Application.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 4\Fitness_Center_Application\obj\Debug\net8.0-windows\Fitness_Center_Application.Properties.Resources.resources
