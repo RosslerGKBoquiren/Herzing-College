@@ -1,0 +1,17 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\bin\Debug\net8.0-windows\RacingSimulator.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\bin\Debug\net8.0-windows\RacingSimulator.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\bin\Debug\net8.0-windows\RacingSimulator.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\bin\Debug\net8.0-windows\RacingSimulator.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\bin\Debug\net8.0-windows\RacingSimulator.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.Form1.resources
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.Properties.Resources.resources
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.csproj.GenerateResource.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\refint\RacingSimulator.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\RacingSimulator.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 5\Week5\RacingSimulator\obj\Debug\net8.0-windows\ref\RacingSimulator.dll
