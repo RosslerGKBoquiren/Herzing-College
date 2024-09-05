@@ -1,0 +1,102 @@
+Race Simulation
+
+Step 1: Define the Vehicle Superclass
+Objective: Establish a base class that encapsulates common properties and methods for all vehicles in the simulation.
+
+Key Points:
+
+Include properties such as Name, Color, and Speed.
+The Move() method will be defined as virtual to allow overriding in subclasses.
+Actions:
+
+Define the Vehicle class.
+Add the properties: Name, Color, Speed.
+Implement a constructor to initialize these properties.
+Define the Move() method as virtual.
+Provide basic movement logic in the Move() method using the Speed property.
+
+
+
+Step 2: Create Derived Classes
+Objective: Create four specific vehicle classes that inherit from the Vehicle superclass and override the Move() method to reflect their unique behaviors.
+
+Actions:
+
+Define the Car class:
+
+Inherit from Vehicle.
+Add an Acceleration property with a positive value less than 10.
+Override the Move() method to include acceleration logic in addition to speed.
+Define the Bicycle class:
+
+Inherit from Vehicle.
+Add an Acceleration property with a negative value.
+Override the Move() method to decrease speed over time due to negative acceleration.
+Define the Motorbike class:
+
+Inherit from Vehicle.
+Add an Acceleration property with a positive value between 10 and 15.
+Override the Move() method to include stronger acceleration in the movement calculation.
+Define the Truck class:
+
+Inherit from Vehicle.
+No Acceleration property needed.
+Override the Move() method, if necessary, to rely solely on speed.
+
+
+
+Step 3: Simulate a Race
+1. Create a Queue for Vehicle Objects:
+Objective: Use a queue to manage the order in which vehicles will participate in the race.
+Actions:
+Set up a queue data structure to hold instances of the selected vehicle objects.
+Ensure that vehicles are enqueued in the order the user selects them.
+
+2. Instantiate Vehicle Objects:
+Objective: Create a few instances of each vehicle type and store them in a collection for selection.
+Actions:
+Instantiate two objects for each vehicle subclass (Car, Bicycle, Motorbike, Truck).
+Store these objects in a list or collection that will be displayed in the GUI for selection.
+
+3. Implement GUI for Vehicle Selection:
+Objective: Design and implement a graphical user interface (GUI) that allows the user to select vehicles for the race.
+Actions:
+Vehicle List Display:
+Present a list of all available vehicles in the GUI, categorized by type (Car, Bicycle, Motorbike, Truck).
+Include details such as Name, Speed, Acceleration, and Color.
+Selection Mechanism:
+Use checkboxes, buttons, or another selection mechanism to allow the user to select exactly 4 vehicles.
+Display selected vehicles in a separate "Selected Vehicles" section for user confirmation.
+Enqueue Selected Vehicles:
+Once the user confirms their selection, enqueue the selected vehicles in the order they were chosen.
+
+4. Implement Progress Bars for Vehicle Movement:
+Objective: Visually represent each vehicle’s progress during the race using progress bars.
+Actions:
+Color Matching:
+Ensure each progress bar's color matches the selected vehicle's color.
+Labeling:
+Label each progress bar with the vehicle’s name to track progress easily.
+Movement Logic:
+For vehicles with acceleration, update the progress bar using the formula: value += speed + 1/2 * acceleration.
+For vehicles without acceleration (Truck), update the progress bar using the formula: value += speed.
+
+5. Race Logic & Real-Time Updates:
+Objective: Manage the race progression, determine the winner, and handle real-time updates.
+Actions:
+Starting the Race:
+The race begins when the user clicks the "Start Race" button.
+Each vehicle's progress bar begins to move according to its speed and acceleration.
+Determine the Winner:
+The first vehicle to reach 100% on its progress bar wins the race.
+If multiple vehicles reach 100% simultaneously, declare a tie.
+Real-Time Updates:
+Implement a timer to continuously update the progress bars, ensuring the GUI remains responsive.
+Use multi-threading or background workers if necessary to keep the UI from freezing during updates.
+
+6. Implement a Reset Feature:
+Objective: Allow the user to reset the race and start over with new or the same vehicles.
+Actions:
+Provide a "Reset Race" button that clears the selections and resets the progress bars.
+Ensure that all vehicle objects are dequeued, and the GUI is ready for a new race setup.
+

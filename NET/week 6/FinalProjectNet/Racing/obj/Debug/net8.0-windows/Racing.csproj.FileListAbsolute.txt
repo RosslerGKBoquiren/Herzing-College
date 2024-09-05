@@ -1,0 +1,17 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.Form1.resources
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.csproj.GenerateResource.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.AssemblyInfoInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.AssemblyInfo.cs
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.csproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\bin\Debug\net8.0-windows\Racing.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\bin\Debug\net8.0-windows\Racing.deps.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\bin\Debug\net8.0-windows\Racing.runtimeconfig.json
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\bin\Debug\net8.0-windows\Racing.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\bin\Debug\net8.0-windows\Racing.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\refint\Racing.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.genruntimeconfig.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\ref\Racing.dll
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\NET\week 6\FinalProjectNet\Racing\obj\Debug\net8.0-windows\Racing.Properties.Resources.resources
