@@ -1,0 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+      Assignment 2
+%%%%%%%%%%%%%%%%%%%%%%%%
+Task: Write a JavaScript program to find the largest of five numbers entered by the user and display the result.
+
+Instructions:
+
+Prompt the user to enter five numbers, one at a time.
+
+Validate each input to ensure it's a valid number. If the input is not a number, prompt the user to re-enter the value until a valid number is provided.
+
+Compare each number to find the largest one.
+
+Display the largest number found using an alert box.
+
+Test your program with different sets of numbers to ensure it works correctly.

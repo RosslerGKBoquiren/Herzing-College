@@ -1,0 +1,81 @@
+body {
+    font-family: 'Courier New', Courier, monospace; 
+    background-color: #282c34; 
+    color: #61dafb; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ffcc00; 
+    font-size: 2.5em;
+}
+
+h3 {
+    color: #ffffff; 
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 10px 0;
+    width: 50%; 
+    border: 2px solid #ffcc00; 
+    border-radius: 5px;
+    background-color: #20232a; 
+    color: #ffffff; 
+}
+
+input[type="text"]:focus {
+    border-color: #61dafb; 
+    outline: none; 
+}
+
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #ffcc00; 
+    color: #20232a; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #61dafb; 
+    color: #282c34; 
+}
+
+#questionsDisplay {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+#largestNumberDisplay {
+    font-size: 1.8em;
+    color: #ffcc00; 
+    margin-top: 20px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #20232a; 
+    color: #ffffff; 
+}
