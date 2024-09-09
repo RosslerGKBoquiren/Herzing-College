@@ -1,7 +1,7 @@
 body {
     font-family: 'Courier New', Courier, monospace; 
-    background-color: #282c34; 
-    color: #61dafb; 
+    background-color: black; 
+    color: cyan; 
     margin: 0;
     padding: 0;
     display: flex;
@@ -17,12 +17,12 @@ header {
 }
 
 h2 {
-    color: #ffcc00; 
+    color: gold; 
     font-size: 2.5em;
 }
 
 h3 {
-    color: #ffffff; 
+    color: white; 
     margin-bottom: 10px;
 }
 
@@ -31,14 +31,14 @@ input[type="text"] {
     padding: 10px;
     margin: 10px 0;
     width: 50%; 
-    border: 2px solid #ffcc00; 
+    border: 2px solid gold; 
     border-radius: 5px;
-    background-color: #20232a; 
-    color: #ffffff; 
+    background-color: black; 
+    color: white; 
 }
 
 input[type="text"]:focus {
-    border-color: #61dafb; 
+    border-color: cyan; 
     outline: none; 
 }
 
@@ -46,27 +46,27 @@ button {
     font-size: 1.2em;
     padding: 10px 20px;
     margin-top: 15px;
-    background-color: #ffcc00; 
-    color: #20232a; 
+    background-color: gold; 
+    color: black; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #61dafb; 
-    color: #282c34; 
+    background-color: cyan; 
+    color: black; 
 }
 
 #questionsDisplay {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: white;
 }
 
 #largestNumberDisplay {
     font-size: 1.8em;
-    color: #ffcc00; 
+    color: gold; 
     margin-top: 20px;
 }
 
@@ -76,6 +76,6 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background-color: #20232a; 
-    color: #ffffff; 
+    background-color: black; 
+    color: white; 
 }
