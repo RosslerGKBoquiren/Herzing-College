@@ -1,0 +1,100 @@
+body {
+    background-color: #2b3a2e; 
+    color: white; 
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    font-size: 3em;
+    color: white; 
+    text-transform: uppercase;
+    letter-spacing: 5px; 
+    text-shadow: 3px 3px 5px black; 
+}
+
+h2, p {
+    color: whitesmoke; 
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+main {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #2b3a2e; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px black;
+    box-sizing: border-box;
+}
+
+#questionsDisplay {
+    font-size: 1.5em;
+    color: olive; 
+}
+
+input[type="text"] {
+    font-size: 1.2em;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    border: 2px solid darkgreen; 
+    border-radius: 5px;
+    background-color: white; 
+    color: grey; 
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: greenyellow; 
+}
+
+button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: greenyellow;
+    color: darkgreen;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a3d98b; 
+}
+
+button:active {
+    background-color: #6e9f5f; 
+}
+
+#originalResults, #results {
+    font-size: 1.4em;
+    margin-top: 15px;
+    color: white;
+    text-shadow: 2px 2px 4px black; 
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #1d2b20; 
+    color: white;
+}

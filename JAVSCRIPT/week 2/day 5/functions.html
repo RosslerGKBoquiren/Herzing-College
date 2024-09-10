@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        //we can declare functions in JavaScript with the function keyword.
+        function myFunction() {
+            //this line will select the textbox.
+            var text = document.getElementById("passwordVal");
+            //here we access the document function getElementById() and the innerHTML property which allows 
+            //use to put text or HTML tags into an element. The key is selecting by the proper id attribute.
+            document.getElementById("p1").innerHTML = "Secret Text: " + text.value;
+            //the textbox has a value so we select the "value" property in this case to get the 
+            //text that was input.
+        }
+    </script>
+</head>
+<body>
+<h3>Input secret text into the textbox and click the button to show the text</h3>
+
+<p id="p1">A Paragraph</p>
+
+<!-- it is a good idea to use the name and id attributes on an input, this ensures both javascript and PHP can access it. -->
+<input type="password" id="passwordVal" name="passwordVal" />
+
+<input type="button" onclick="myFunction()" value="Set Paragraph Text" />
+</body>
+</html>

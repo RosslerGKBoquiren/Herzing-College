@@ -1,0 +1,93 @@
+body {
+    font-family: 'Bangers', sans-serif; 
+    background-color: lightgray; 
+    color: black; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+
+h1, h2 {
+    font-family: 'Bangers', sans-serif; 
+    color: black; 
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+}
+
+h1 {
+    font-size: 3em; 
+}
+
+h2 {
+    font-size: 1.8em; 
+}
+
+p {
+    font-size: 1.2em; 
+    color: grey; 
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    font-family: 'Courier New', Courier, monospace;  
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%; 
+    border: 3px solid black; 
+    border-radius: 5px;
+    background-color: white; 
+    color: black; 
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: grey; 
+}
+
+button {
+    font-family: 'Bangers', sans-serif;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background-color: black; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: grey; 
+}
+
+button:active {
+    background-color: darkgrey; 
+}
+
+#content {
+    font-size: 1.8em;
+    color: black; 
+    margin-top: 20px;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: black; 
+    color: white; 
+}

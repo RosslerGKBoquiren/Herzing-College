@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Basics</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //Call the function from a button click. 
+    function getValues() {
+        var num1 = prompt("number 1", 0);//5;  //using a prompt to ask the user for a value
+        var num2 = prompt("number 2", 0);//7;  //using a prompt to ask the user for a value
+
+        var total = parseInt(num1) + parseInt(num2);
+
+        document.getElementById("content").innerHTML = total;
+    }
+
+    //if we want to do something when a button is clicked, we can create a function and then 
+    //call it from the button, or assign it to the button.
+</script>
+    
+    <div id="content" style="color:red;font-size:32px;">
+        <!-- The total will end up here. -->
+    </div>
+
+    <input type="button" name="click" id="click" value="Click" onclick="getValues()" />
+
+</body>
+</html>

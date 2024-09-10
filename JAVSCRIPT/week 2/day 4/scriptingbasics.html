@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Basics</title>
+</head>
+<body>
+
+<script>
+    //you can put script tags anywhere in the document
+    //just make sure they are in the right loading order 
+    //or you are using the document.ready event.
+
+    //the attribute 'type="text/javascript"' was required prior to HTML5
+    //but this is no longer the case, and you can just use the script tags
+    //without the attribute.
+
+    //here are some basic variables in javascript, declared with the 'var' keyword
+    var num1 = prompt("number 1", 0);//5;  //using a prompt to ask the user for a value
+    var num2 = prompt("number 2", 0);//7;  //using a prompt to ask the user for a value
+
+    var total = parseInt(num1) + parseInt(num2); //try removing parseInt function to see what happens.
+
+    //Keep an eye on tabs for document structure in JavaScript
+    //tabs help to keep things organized.
+    //A lot of times we want to manipulate data from elements on a page.
+
+    //In order to access elements on the page we should use the window.onload event, 
+    //and assign a function to it. 
+    window.onload = function (){
+        //store an element in a variable
+        var content = document.getElementById("contentId");
+        
+        //change the contents of the html in the tag.
+        content.innerHTML = total;
+        
+        //access style properties to make real time changes.
+        content.style.backgroundColor = "black";
+        content.style.width = "500px";
+    }
+
+    //if we want to do something when a button is clicked, we can create a function and then 
+    //call it from the button, or assign it to the button.
+</script>
+    
+    <div id="contentId" style="color:red;font-size:32px;">
+        <!-- The total will end up here. -->
+    </div>
+
+</body>
+</html>
