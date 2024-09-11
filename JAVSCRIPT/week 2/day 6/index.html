@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>User Input Form</title>
+</head>
+<body>
+
+	<header>
+		<h1>REGISTER USER FORM</h1>
+		<h2>Please enter information</h2>
+	</header>
+
+	<main>
+		<form>
+			<label>Username: </label><br>
+			<input type="text" id="username"><br>
+
+			<label>Name: </label><br>
+			<input type="text" id="name"><br>
+
+			<label>Password: </label><br>
+			<input type="password" id="password"><br>
+
+			<label>Confirm Password: </label><br>
+			<input type="password" id="confirm_password"><br>
+
+			<label>Email: </label><br>
+			<input type="email" id="email"><br>
+
+			<label>Province: </label><br>
+			<select id="province">
+				<option value="">Select Province</option>
+				<option value="AB">Alberta</option>
+				<option value="BC">British Columbia</option>
+				<option value="MB">Manitoba</option>
+				<option value="NB">New Brunswick</option>
+				<option value="NL">Newfoundland and Labrador</option>
+				<option value="NS">Nova Scotia</option>
+				<option value="ON">Ontario</option>
+				<option value="PE">Prince Edward Island</option>
+				<option value="QC">Quebec</option>
+				<option value="SK">Saskatchewan</option>
+				<option value="YT">Yukon</option>
+				<option value="NU">Nunavut</option>
+				<option value="NT">Northwest Territories</option>
+			</select><br><br>
+
+			<div class="centered-checkbox">
+	            <input type="checkbox" id="accept_terms_checkbox">
+	            <label>Accept Terms & Conditions</label>
+	        </div><br><br>
+
+			<button id="submit_btn">Submit</button>
+		</form>
+
+		<h3 id="output_results"></h3>
+	</main>
+
+
+	<footer>
+		<p>&copy; 2024 Registration Form. All rights reserved.</p>
+	</footer>
+
+	<script type="text/javascript" src="inputForm.js"></script>
+</body>
+</html>
