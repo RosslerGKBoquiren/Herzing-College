@@ -1,0 +1,85 @@
+Scenario 1: User Under 18
+Name: John
+Age: 16
+Accidents: 0
+
+Expected Output:
+Hey John, you are too young to drive. I can't give you a quote.
+
+
+
+Scenario 2: User Between 18 and 25 With No Accidents
+Name: Mary
+Age: 22
+Accidents: 0
+
+Expected Output:
+Hi Mary, your annual insurance premium is $600.
+
+
+
+Scenario 3: User Between 18 and 25 With 2 Accidents
+Name: David
+Age: 23
+Accidents: 2
+
+Expected Output:
+Hi David, your annual insurance premium is $525.
+
+
+
+Scenario 4: User Over 25 With 3 Accidents
+Name: Sarah
+Age: 30
+Accidents: 3
+
+Expected Output:
+Hi Sarah, your annual insurance premium is $575.
+
+
+
+
+Scenario 5: User Over 25 With 5 Accidents
+Name: Mike
+Age: 40
+Accidents: 5
+
+Expected Output:
+Hi Mike, your annual insurance premium is $600.
+
+
+
+
+Scenario 6: User With More Than 5 Accidents
+Name: Alex
+Age: 45
+Accidents: 6
+
+Expected Output:
+Hey Alex, as of this time, we cannot provide you with a quote due to your number of accidents.
+
+
+
+Scenario 7: User With Invalid Age (Less Than 1)
+Name: Emma
+Age: 0
+Accidents: 0
+
+Expected Output:
+I could not provide a quote at this time. Please try again.
+
+
+
+Scenario 8: User Over 25 With No Accidents
+Name: Robert
+Age: 29
+Accidents: 0
+
+Expected Output:
+Hi Robert, your annual insurance premium is $500.
+
+
+
+
+
+
