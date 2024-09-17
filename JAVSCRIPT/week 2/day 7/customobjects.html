@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        //Objects can be created with custom properties and functions.
+        //These can be as robust as built in JavaScript objects,
+        //the only limitation is the requirements of the problem.
+
+        //first we create an object function. Almost the same as a regular function but it is used to build a "type"
+        //in this case our Person type object.
+        function Person(array) {
+            //the "this" keyword allows us to use self reference in an object, 
+			//to avoid confusion over what values we will be using.
+            this.firstname = array["firstname"];
+            this.lastname = array["lastname"];
+            this.age = array["age"];
+            //array is optional, but it allows us to add object initialization data.
+            this.sayName = function (){
+                alert("Hi, my name is " + this.firstname + " " + this.lastname);
+            }           
+        }
+
+        //initialize our first Person object.
+        var person = new Person({
+            //this is an array of data we are sending to fill in the properties of the object.
+            firstname: "Joe",
+            lastname: "Frank",
+            age: 35
+        });
+
+        //Or we can add properties and functions outside as well.
+		//This code adds a middlename property and a sayMiddleName method to the "person" object.
+        person.middlename = "Steve";
+        person.sayMiddleName = function () {
+            alert("My middle name is " + this.middlename);
+        }
+
+        person.sayName();
+        person.sayMiddleName();
+		document.writeln(person.age);
+		var person2Array = {
+			firstname: "Nnybert",
+			middlename: "John",
+            lastname: "Del Rosario",
+            age: 20
+		}
+		var person2 = new Person(person2Array);
+		person2.sayName();
+		//Errors: Following 2 lines  
+		document.writeln(person2.middlename);
+		person2.sayMiddleName();
+		//document.writeln(person2.middlename) writes undefined because middlename was not included in the object 
+		//used to initialize person2.
+		//person2.sayMiddleName() throws an error because middlename was not defined for person2.
+    </script>
+</body>
+</html>
