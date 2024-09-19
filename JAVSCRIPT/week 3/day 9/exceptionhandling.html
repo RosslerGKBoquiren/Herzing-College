@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script>
+    var txt = "";
+    function message() {
+        try {
+            //this should be "alert('Welcome guest!');" 
+            //there is an intentional typo in the function name to cause an error. 
+            adddlert("Welcome guest!");
+            //when an exception occurs, the code stops at the line that it erred on (the one right above this)
+            //any code after that error will not execute, and the execution path will be directed to the catch block.
+        }
+        catch (err) {
+            //the code will fail above so we catch our error here and display the message in a message box.
+            txt = "There was an error on this page.\n\n";
+            txt += "Error description: " + err.message + "\n\n";
+            txt += "Click OK to continue.\n\n";
+            alert(txt);
+        }
+    }
+</script>
+<title></title>
+</head>
+
+<body>
+<input type="button" value="View message" onclick="message()">
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        window.onload = function () {
+            alert("The page is fully loaded.");
+
+            var divs = document.body.getElementsByTagName("div");
+            for (i = 0; i < divs.length; i++)
+            {                
+                //This is a way to set all divs on the page with a specific event for onclick/click.
+
+                //we pull the id we want to pass into the function here, 
+                //because the divs collection won't be available in the registered function.
+               var divid = divs[i].id;
+
+                //here we call the function clicked() but still need to
+                //wrap it in a function() {} otherwise it won't work properly.
+				
+				console.log(divid);
+				// Use a closure to capture the current value of divid
+                (function(divid) {
+				 // Set onclick event handler for each div
+                divs[i].onclick = function () {
+                    clicked(divid);
+                };
+                })(divs[i].id);// Pass the current div's id to the closure
+            }
+
+            //here we will set the border of the elements with the classname "class1"
+            //to grow when we hover over it with the mouse, and the border to disappear when the 
+            //mouse leaves the area of the div
+            var classDivs = document.body.getElementsByClassName("class1");
+            for (i = 0; i < classDivs.length; i++)
+            {
+                classDivs[i].onmouseenter = function () {
+                    //add a border in the onmouseenter event
+                    //we use the "this" keyword 
+                    //classDivs variable is out of scope and not accessible here
+                    this.style.border = "solid 5px black";
+                }
+
+                classDivs[i].onmouseleave = function () {
+                    //remove the border at the onmouseout event
+                    this.style.border = "";
+                }
+            }
+        }
+
+        function clicked(element) {
+            alert(element + " was clicked.");
+        }
+    </script>
+
+    <style>
+        div {
+            width:100px;
+            height:100px;
+            display:inline-block;
+        }
+
+        #div1 {
+            background-color:red;
+        }
+        #div2 {
+            background-color:blue;
+        }
+        #div3 {
+            background-color:green;
+        }
+        #div4 {
+            background-color:magenta;
+        }
+        #div5 {
+            background-color:cyan;
+        }
+        #div6 {
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="class1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4" class="class1"></div>
+    <div id="div5"></div>
+    <div id="div6"></div>
+</body>
+</html>
