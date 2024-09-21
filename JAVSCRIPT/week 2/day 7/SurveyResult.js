@@ -10,7 +10,7 @@ let blue = document.getElementById("blue");
 let green = document.getElementById("green");
 let submitform = document.getElementById("submitform");
 
-// Custong Javascript object
+// Custom Javascript object
 function SurveyUser(array) {
     this.email = array["email"];
     this.age = array["age"];
