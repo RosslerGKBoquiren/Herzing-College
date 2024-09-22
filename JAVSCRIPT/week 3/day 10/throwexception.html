@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Throw Exception</title>
+</head>
+<body>
+    <script>
+        function myFunction() {
+            var y = document.getElementById("message");
+            //here we throw exceptions when we encounter the value as invalid.
+            try {
+                var x = document.getElementById("demo").value;
+                if (x == "") throw "empty";
+                if (isNaN(x)) throw "not a number";
+                if (x > 10) throw "too high";
+                if (x < 5) throw "too low";
+
+                //we won't reach this part of the code, so if it is valid we can let the user know.
+                y.innerHTML = "Valid Response. No Exceptions Thrown.";
+            }
+            catch (err) {                
+                y.innerHTML = "Error: " + err + ".";
+            }
+			}
+</script>
+
+<p>Please input a number between 5 and 10:</p>
+
+<input id="demo" type="text" />
+<input type="button" onclick="myFunction()" value="Test Input" />
+<p id="message"></p>
+
+</body>
+</html>

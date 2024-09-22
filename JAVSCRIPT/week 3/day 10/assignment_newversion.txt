@@ -1,0 +1,8 @@
+Take the formvalidation.html from assignment 5 and add a new element to choose the color 
+(<input type="color" />.  Store the value of the chosen color in a cookie on the success of form validation.
+Display the value of the color selected by retrieving using a getCookie function and display it at the end of form results.
+Use the setCookie to expire it in 1 day.
+Use the setCookie and getCookie functions in your source from today.
+Alter the checkCookie function to take the parameter of which color was chosen and it will run only when the submission is completely valid. Set the cookie expiry time for one day - Then display the results.
+Remember to remove the checkCookie function from the body onload event to happen after validation.
+

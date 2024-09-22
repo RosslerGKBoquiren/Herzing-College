@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Javascript Form Validation</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+    </style>
+</head>
+<body>
+
+    <header>
+        
+    </header>
+
+    <main>
+    <!-- Added a Div layer with an id usermsg-->
+    <div id="usermsg"></div>
+
+        <form name="myform" action="" method="post" onsubmit="return validateForm();">
+        <ul>
+        	<li>Email: <input type="text" name="email" id="email" maxlength="20" /></li>
+            <li>Age: <input type="text" name="age" id="age" maxlength="10" /></li>
+            <li>
+            	<input type="radio" name="choices" id="red" onclick="showClickedValue(this.value)" value="Red" />Red<br />
+                <input type="radio" name="choices" id="green" onclick="showClickedValue(this.value)" value="Green" />Green<br />
+                <input type="radio" name="choices" id="blue" onclick="showClickedValue(this.value)" value="Blue" />Blue<br />
+
+            </li>
+            <li><input type="submit" name="submitform" id="submitform" value="Click To Submit" /></li>
+        </ul>
+        </form>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script type="text/Javascript" src="SurveyResult.js"></script>
+
+
+</body>
+</html>

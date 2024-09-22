@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script>
+    //setting and getting cookies takes a bit of work in javascript 
+    //so we will set up functions that can do the work for us.
+
+    //this function will run when the body loads (see the body element below)
+    //if it doesn't find an existing cookie, then it will set one from the prompt.
+    //we can then reload/refresh the page and the prompt should give us our username back.
+    //to see the prompt again we can either delete our cookies or change the cookie we are using 
+    //from username to something else.
+    function checkCookie() {
+        var username = getCookie("username");
+        if (username != null && username != "") {
+            alert("Welcome again " + username);
+        }
+        else {
+            username = prompt("Please enter your name:", "");
+            if (username != null && username != "") {
+                setCookie("username", username, 1); //roughly 7 mins expire time. 1 = 1 day. 24 hours x 0.005 = 0.12 x 60 (mins) = 7.2 mins
+				//setCookie("username2", username + 2, 2);
+				//setCookie("username3", username + 3, 3);
+            }
+        }
+    }
+
+    //in this function we set the cookie name (anything we choose)
+    //the value we want to store in the cookie and 
+    //the number of days we want to cookie to last.
+    //cookies can be set to expire so we can refresh the data.
+    function setCookie(c_name, value, exdays) {
+        var exdate = new Date();
+		console.log("time: " + exdate);
+		//expiry date based on minute
+        exdate.setTime(exdate.getTime() + exdays*60*1000);
+		//expiry date based on number of days
+		//exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+		console.log("c_value: " + c_value);
+        document.cookie = c_name + "=" + c_value;
+		console.log("c_name: " + c_name);
+		console.log("cookie list: " + document.cookie);
+    }
+
+    //This function retrieves the cookie value from a cookie if it is found.
+    function getCookie(c_name) {
+        var c_value = document.cookie;
+        var c_start = c_value.indexOf(" " + c_name + "=");
+        if (c_start == -1) {
+            c_start = c_value.indexOf(c_name + "=");
+        }
+        if (c_start == -1) {
+            c_value = null;
+        }
+        else {
+            c_start = c_value.indexOf("=", c_start) + 1;
+            var c_end = c_value.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = c_value.length;
+            }
+            c_value = unescape(c_value.substring(c_start, c_end));
+        }
+        return c_value;
+    }
+
+    
+
+    
+</script>
+    <title>JavaScript Cookies</title>
+</head>
+<body onload="checkCookie()">
+	<script>
+	var x = document.cookie;
+	document.writeln(x);
+	
+	</script>
+</body>
+</html>

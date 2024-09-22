@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop-up Boxes in JavaScript</title>
+<script>
+    function myAlert() {
+        alert("I am an alert box!");
+    }
+
+    function myConfirm() {
+        var output;
+        var response = confirm("Press a button!");
+        if (response == true) {
+            output = "You pressed OK!";
+        }
+        else {
+            output = "You pressed Cancel!";
+        }
+        document.getElementById("demo").innerHTML = output;
+    }
+
+    function myPrompt() {
+        var output;
+
+        var person = prompt("Please enter your name", "Joe Frank"); //second parameter is the default value.
+
+        if (person != null) {
+            output = "Hello " + person + "! How are you today?";
+            document.getElementById("demo").innerHTML = output;
+        }
+    }
+</script>
+</head>
+<body>
+
+<input type="button" onclick="myAlert()" value="Show alert box">
+
+<input type="button" onclick="myConfirm()" value="Show confirm box">
+
+<input type="button" onclick="myPrompt()" value="Show prompt box">
+
+<div id="demo" style="border:solid 1px green; padding:10px;margin-top: 15px">
+
+</div>
+</body>
+</html>
