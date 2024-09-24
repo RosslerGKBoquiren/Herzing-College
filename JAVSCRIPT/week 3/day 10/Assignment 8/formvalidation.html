@@ -20,10 +20,30 @@
         <ul>
         	<li>Email: <input type="text" name="email" id="email" maxlength="20" /></li>
             <li>Age: <input type="text" name="age" id="age" maxlength="10" /></li>
+            <li>Color: <input type="color" name="color" id="color"></li>
+                <!-- <select name="color" id="color">
+                    <option value="">Select a color</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="gray">Gray</option>
+                    <option value="aqua">Aqua</option>
+                    <option value="fuchsia">Fuchsia</option>
+                    <option value="lime">Lime</option>
+                    <option value="maroon">Maroon</option>
+                    <option value="navy">Navy</option>
+                    <option value="olive">Olive</option>
+                    <option value="purple">Purple</option>
+                    <option value="silver">Silver</option>
+                    <option value="teal">Teal</option>
+                </select> -->
             <li>
-            	<input type="radio" name="choices" id="red" onclick="showClickedValue(this.value)" value="Red" />Red<br />
-                <input type="radio" name="choices" id="green" onclick="showClickedValue(this.value)" value="Green" />Green<br />
-                <input type="radio" name="choices" id="blue" onclick="showClickedValue(this.value)" value="Blue" />Blue<br />
+            	<input type="radio" name="choices" id="red" value="Red" />Red<br />
+                <input type="radio" name="choices" id="green" value="Green" />Green<br />
+                <input type="radio" name="choices" id="blue" value="Blue" />Blue<br />
 
             </li>
             <li><input type="submit" name="submitform" id="submitform" value="Click To Submit" /></li>

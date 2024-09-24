@@ -1,0 +1,101 @@
+/* General page style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Dark background to simulate a racing track */
+    color: white; /* White text for contrast */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center the text for simplicity */
+}
+
+/* Header style */
+header {
+    background-color: #111; /* Dark background for the header */
+    padding: 20px;
+    border-bottom: 5px solid red; /* Racing red border for Monaco theme */
+}
+
+#msgHeader {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+#marquee {
+    font-size: 24px;
+    color: #ffcc00; /* Yellow text to stand out */
+    margin-top: 10px;
+}
+
+/* Main section styling */
+main {
+    margin-top: 20px;
+}
+
+div[id^="racer"] {
+    margin: 10px auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 10px;
+    border: 2px solid red;
+}
+
+label {
+    font-size: 18px;
+    color: #ffcc00; /* Yellow color for labels */
+}
+
+select {
+    font-size: 16px;
+    padding: 5px;
+    width: 100%;
+    margin-top: 5px;
+    background-color: #444;
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+/* Progress bars */
+div[id^="progressbar"] {
+    width: 300px;
+    height: 20px;
+    background-color: #555;
+    border-radius: 10px;
+    margin: 10px auto;
+    border: 2px solid red;
+    position: relative;
+}
+
+div[id^="progressbar"]::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 0%; /* Progress is initially 0%, can be updated later */
+    background-color: #00cc00; /* Green to indicate progress */
+    border-radius: 10px;
+}
+
+button {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 15px;
+    color: white;
+    background-color: #222; /* Dark background for buttons */
+    border: 2px solid red; /* Red border to match the racing theme */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #ffcc00; /* Yellow on hover for a vibrant effect */
+    transform: scale(1.1); /* Slight grow effect on hover */
+}
+
+button:active {
+    background-color: red; /* Red when button is pressed */
+    transform: scale(0.95); /* Shrink effect on press */
+}
