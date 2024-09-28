@@ -1,10 +1,16 @@
 /* General page style */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #333; /* Dark background to simulate a racing track */
-    color: white; /* White text for contrast */
+html, body {
+    height: 100%; /* Ensure the full height for positioning elements */
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Dark background to simulate a racing track */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack main content and footer */
+    color: white;
     text-align: center; /* Center the text for simplicity */
 }
 
@@ -29,41 +35,58 @@ header {
 
 /* Main section styling */
 main {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Stack children of main vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    flex: 1; /* Takes up remaining space to push footer to the bottom */
+    width: 80%; /* Maintain a consistent width */
+    margin: 0 auto; /* Center the main block horizontally */
 }
 
-div[id^="racer"] {
-    margin: 10px auto;
-    width: 300px;
-    padding: 10px;
+
+/* Flexbox container for each racer */
+.racer-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
     background-color: #222;
     border-radius: 10px;
     border: 2px solid red;
+    padding: 10px;
+    width: 100%;
 }
 
-label {
+/* Flex child for the label and select */
+.racer-label {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Stack label and select vertically */
+    align-items: flex-start; /* Align label and select to the left */
+}
+
+.racer-label label {
     font-size: 18px;
     color: #ffcc00; /* Yellow color for labels */
+    margin-bottom: 5px; /* Space between label and select */
 }
 
-select {
+.racer-label select {
     font-size: 16px;
     padding: 5px;
-    width: 100%;
-    margin-top: 5px;
     background-color: #444;
     color: white;
     border: 1px solid red;
     border-radius: 5px;
 }
 
-/* Progress bars */
+/* Progress bar styling next to the label and select */
 div[id^="progressbar"] {
-    width: 300px;
+    flex: 1;
     height: 20px;
     background-color: #555;
     border-radius: 10px;
-    margin: 10px auto;
+    margin-left: 20px;
     border: 2px solid red;
     position: relative;
 }
@@ -77,6 +100,7 @@ div[id^="progressbar"]::before {
     border-radius: 10px;
 }
 
+/* Button styling */
 button {
     font-size: 18px;
     font-weight: bold;
@@ -98,4 +122,38 @@ button:hover {
 button:active {
     background-color: red; /* Red when button is pressed */
     transform: scale(0.95); /* Shrink effect on press */
+}
+
+
+
+#finishLine {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px; /* Adjust the width to accommodate the horizontal spelling */
+    background-color: red;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column; /* Align text vertically */
+    justify-content: center;
+    align-items: center;
+    writing-mode: vertical-lr; /* Adjust text direction */
+    transform: rotate(180deg); /* Correctly orient the text horizontally */
+}
+
+
+footer {
+    background-color: #111;
+    color: #ffcc00;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
 }

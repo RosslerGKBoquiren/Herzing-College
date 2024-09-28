@@ -13,65 +13,84 @@
 	</header>
 
 	<main>
-	<div id="progressbar1"></div>
-    <div id="racer1">
-        <label for="cars">Choose a car: </label>
-        <select id="cars">
-            <option value="">Select a car</option>
-            <option value="lamborghini">Lamborghini</option>
-            <option value="ferrari">Ferrari</option>
-            <option value="bugatti">Bugatti</option>
-        </select>
-    </div><br>
+	    <div class="racer-container">
+	        <div class="racer-label">
+	            <label for="cars">Choose a car: </label>
+	            <select id="cars">
+	                <option value="">Select a car</option>
+	                <option value="lamborghini">Lamborghini</option>
+	                <option value="ferrari">Ferrari</option>
+	                <option value="bugatti">Bugatti</option>
+	            </select>
+	        </div>
+	        <div id="progressbar1"></div>
+	    </div>
 
-    <div id="progressbar2"></div>
-    <div id="racer2">
-        <label for="motorcycles">Choose a motorcycle: </label>
-        <select id="motorcycles">
-            <option value="">Select a motorcycle</option>
-            <option value="harley">Harley Davidson</option>
-            <option value="ducati">Ducati</option>
-            <option value="yamaha">Yamaha</option>
-        </select>
-    </div><br>
+	    <div class="racer-container">
+	        <div class="racer-label">
+	            <label for="motorcycles">Choose a motorcycle: </label>
+	            <select id="motorcycles">
+	                <option value="">Select a motorcycle</option>
+	                <option value="harley">Harley Davidson</option>
+	                <option value="ducati">Ducati</option>
+	                <option value="yamaha">Yamaha</option>
+	            </select>
+	        </div>
+	        <div id="progressbar2"></div>
+	    </div>
 
-    <div id="progressbar3"></div>
-    <div id="racer3">
-        <label for="trucks">Choose a truck: </label>
-        <select id="trucks">
-            <option value="">Select a truck</option>
-            <option value="ford">Ford F-150</option>
-            <option value="chevy">Chevrolet Silverado</option>
-            <option value="ram">RAM 1500</option>
-        </select>
-    </div><br>
+	    <div class="racer-container">
+	        <div class="racer-label">
+	            <label for="trucks">Choose a truck: </label>
+	            <select id="trucks">
+	                <option value="">Select a truck</option>
+	                <option value="ford">Ford F-150</option>
+	                <option value="chevy">Chevrolet Silverado</option>
+	                <option value="ram">RAM 1500</option>
+	            </select>
+	        </div>
+	        <div id="progressbar3"></div>
+	    </div>
 
-    <div id="progressbar4"></div>
-    <div id="racer4">
-        <label for="bicycles">Choose a bicycle: </label>
-        <select id="bicycles">
-            <option value="">Select a bicycle</option>
-            <option value="trek">Trek</option>
-            <option value="giant">Giant</option>
-            <option value="specialized">Specialized</option>
-        </select>
-    </div><br>
+	    <div class="racer-container">
+	        <div class="racer-label">
+	            <label for="bicycles">Choose a bicycle: </label>
+	            <select id="bicycles">
+	                <option value="">Select a bicycle</option>
+	                <option value="trek">Trek</option>
+	                <option value="giant">Giant</option>
+	                <option value="specialized">Specialized</option>
+	            </select>
+	        </div>
+	        <div id="progressbar4"></div>
+	    </div>
 
-    <div id="progressbar5"></div>
-    <div id="racer5">
-        <label for="trains">Choose a train: </label>
-        <select id="trains">
-            <option value="">Select a train</option>
-            <option value="shinkansen">Shinkansen</option>
-            <option value="maglev">Maglev</option>
-            <option value="tgv">TGV</option>
-        </select>
-    </div><br>
+	    <div class="racer-container">
+	        <div class="racer-label">
+	            <label for="trains">Choose a train: </label>
+	            <select id="trains">
+	                <option value="">Select a train</option>
+	                <option value="shinkansen">Shinkansen</option>
+	                <option value="maglev">Maglev</option>
+	                <option value="tgv">TGV</option>
+	            </select>
+	        </div>
+	        <div id="progressbar5"></div>
+	    </div>
 
-    <button id="startBtn">Start Race</button>
-    <button id="resetBtn">Reset</button>
-</main>
+	    <!-- Buttons -->
+	    <button id="startBtn">Start Race</button>
+	    <button id="resetBtn">Reset</button>
 
-	<script type="text/javascript" src="carRacing.js"></script>
+	    <div id="finishLine">FINISH</div>
+
+	</main>
+
+	<footer>
+		 <p>&copy; 2024 Monaco Racing - All Rights Reserved</p>
+	</footer>
+
+
+	<script type="module" src="carRacing.js"></script>
 </body>
 </html>
