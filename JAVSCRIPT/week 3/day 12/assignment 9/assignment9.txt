@@ -1,0 +1,37 @@
+##################################################
+##############    Assignemnt 9    ################
+##################################################
+Car Racing Assignment
+Objective:
+
+Create a car racing game where users can choose a car to bet on, and then start the race. The cars' progress will be represented by progress bars that move at random speeds towards the finish line.
+
+Instructions:
+
+HTML Structure:
+
+Create an HTML file with the necessary elements:
+Five progress bars represent the cars.
+A dropdown or radio button for the user to select a car to bet on.
+A "Start Race" button to initiate the race.
+JavaScript Logic:
+
+Create a JavaScript file linked to the HTML.
+Define variables to store references to HTML elements (e.g., progress bars, dropdown).
+Implement a function to start the race when the "Start Race" button is clicked and generate a random speed for each car.
+.
+Within the race function:
+Start a loop to continuously update the progress of each car until one reaches the finish line.
+Update the progress bars accordingly based on the random speed generated for each car.
+Stop the cars (progress bars) when they reach the finish line.
+Event Handling:
+
+Attach event listeners to the "Start Race" button to trigger the race function.
+Handle user input for selecting the car to bet on.
+Styling (Optional):
+
+Apply CSS to style the progress bars and other elements to resemble a racing track.
+Add visual effects to enhance the user experience during the race.
+Submission:
+
+Submit your HTML, CSS, and JavaScript files.

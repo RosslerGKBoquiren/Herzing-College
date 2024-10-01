@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Racing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        
+        <h1 id="msgHeader">Circuit de Monaco</h1>
+		<h2 id="marquee"></h2>
+
+    </header>
+
+    <main>
+            <div id="startingLine">START</div>
+
+            <div class="progress-container">
+                <div id="status1" class="progress-bar">CAR</div>
+            </div>
+            <div class="progress-container">
+                <div id="status2" class="progress-bar">MOTORYCLE</div>
+            </div>
+            <div class="progress-container">
+                <div id="status3" class="progress-bar">TRUCK</div>
+            </div>
+            <div class="progress-container">
+                <div id="status4" class="progress-bar">BICYCLE</div>
+            </div>
+            <div class="progress-container">
+                <div id="status5" class="progress-bar">TRAIN</div>
+            </div>
+            <button onclick="triggerAll()">Start All Progress</button>
+            <button onclick="resetAll()">Reset Progress</button>
+            <div class="finishing-line"></div>
+        
+            <div id="finishLine">FINISH</div>
+
+        <div id="grey_background">
+            <div id="hidden_info" class="hide_me">
+                <a href="javascript:void(0)" id="close_btn">
+                    <img src="close_img.png" id="close_img" alt="Close" />
+                </a>
+                <p id="winner_message">Congratulations!</p>
+            </div>
+        </div>
+            
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Monaco Racing - All Rights Reserved</p>
+   </footer>
+
+    <script text="module" src="marquee.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

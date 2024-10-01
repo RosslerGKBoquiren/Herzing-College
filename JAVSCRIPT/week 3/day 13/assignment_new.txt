@@ -1,0 +1,6 @@
+Create a page with a text area, two text boxes, and a button.
+The user then types a paragraph into the textarea.
+The text boxes will take the word the user wants to find, and then the word the user wants to replace it with.
+The user presses a button, and all words that match the search word will be replaced with the replacement word.
+If a word isn't found, alert the user that the word wasn't found, and no changes were made.
+If the word is found, alert the user telling them what word was replaced with the replacement word.

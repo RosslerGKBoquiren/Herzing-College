@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript Regex</title>
+<script>
+/*The RegExp exec() method, which takes a string as an argument, returns an Array containing all
+matches. Consider the following example:*/
+var sToMatch = "a bat, a Cat, a fAt baT, a faT cat";
+var reAt = /at/;
+var arrMatches = reAt.exec(sToMatch);
+
+/*Here, arrMatches contains only one item: the first instance of "at" (which is in the word "bat").
+If you want to return all instances of "at", add the g option:*/
+var sToMatch = "a bat, a Cat, a fAt baT, a faT cat";
+var reAt = /at/g;
+var arrMatches = reAt.exec(sToMatch);
+
+
+/*In this code, arrMatches contains three items: the "at" from "bat", "Cat", and "cat". To return all
+instances of at, regardless of the case, just add the i option:*/
+var sToMatch = "a bat, a Cat, a fAt baT, a faT cat";
+var reAt = /at/gi;
+var arrMatches = reAt.exec(sToMatch);
+
+var sToChange = "The sky is red. ";
+alert(sToChange.replace("red", "blue")); //outputs "The sky is blue."
+/*Here, the substring "red" is replaced with the string "blue", making the output "The sky is blue."
+It is possible to pass in a regular expression as the first argument as well:*/
+var sToChange = "The sky is red.";
+var reRed = /red/;
+alert(sToChange.replace(reRed, "blue")); //outputs "The sky is blue. "
+
+/*This code has the same result as the previous example, producing the output "The sky is blue."
+You can also specify a function as the second argument of replace(). This function accepts one argument,
+the matching text, and returns the text that should replace it. For example:*/
+var sToChange = "The sky is red.";
+var reRed = /red/;
+var sResultText = sToChange.replace(reRed, function(sMatch) {
+return "blue";
+});
+alert(sResultText); //outputs "The sky is blue."
+</script>
+</head>
+
+<body>
+</body>
+</html>

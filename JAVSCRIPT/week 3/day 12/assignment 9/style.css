@@ -145,6 +145,37 @@ button:active {
 }
 
 
+#backgrey {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none; /* Initially hidden */
+}
+
+#contactinfo {
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    border: 1px solid black;
+    display: none; /* Initially hidden */
+}
+
+.hidden {
+    display: none; /* Class to hide elements */
+}
+
+#contactclose {
+    width: 20px;
+    height: 20px;
+}
+
+
 footer {
     background-color: #111;
     color: #ffcc00;
@@ -157,3 +188,4 @@ footer p {
     margin: 0;
     font-size: 16px;
 }
+

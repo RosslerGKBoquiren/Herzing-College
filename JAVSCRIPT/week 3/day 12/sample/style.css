@@ -1,0 +1,18 @@
+/* Styling for the progress bar container */
+.progress-container {
+    width: 500px;
+    height: 30px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 1px solid #000;
+}
+
+/* Styling for the actual progress bar */
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #76c7c0;
+    transition: width 0.1s linear;
+}

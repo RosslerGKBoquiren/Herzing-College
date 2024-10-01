@@ -1,6 +1,6 @@
 
 
-import Vehicle from `.vehicle.js`;
+import Vehicle from './vehicle.js';
 
 class Train extends Vehicle {
     constructor(name, color, speed, acceleration) {
@@ -9,7 +9,8 @@ class Train extends Vehicle {
     }
 
     move() {
-        return speed += 0.5 * this.acceleration;
+        this.speed += 0.5 * this.acceleration;
+        return this.speed;
     }
     
 }

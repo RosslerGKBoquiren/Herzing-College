@@ -9,7 +9,8 @@ class Car extends Vehicle {
     }
 
     move() {
-        return speed += 0.5 * this.acceleration;
+        this.speed += 0.5 * this.acceleration;
+        return this.speed;
     }
     
 }
