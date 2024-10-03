@@ -1,0 +1,15 @@
+regular textboxes allow for an attribute "maxlength" that limits the amount of characters a user can enter. A textarea though, which is good for comment boxes, does not have such a function. We will create on in javascript. 
+
+Create a function called limitText(limitField, limitCount, limitNum)
+
+limitField is going to represent the textarea that you want to limit. 
+
+limitCount represents the current count of characters that is in the textarea.
+
+limitNum will be the maximum amount of characters you want to allow.
+
+You will also want to add a textbox (regular one) that is readonly, and keeps track of the amount of characters in the textarea. This means when the user presses a key or releases a key, you want to run the limitText() function, and pass the appropriate values to it.
+
+As the user types, or deletes, the amount of characters in the counter textbox should match the amount of characters left the user can enter, and change on every keystroke. 
+
+Display the text "You have _27_ characters left." where the "blank27blank" is the counter textbox.

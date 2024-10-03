@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Animation Example</title>
+    <style>
+        .thumbs img {
+            width: 100px;
+            cursor: pointer;
+        }
+        .main-image {
+            width: 0;
+            transition: width 1s ease-in-out;  /* Smooth transition */
+        }
+    </style>
+</head>
+<body>
+    <div class="thumbs">
+        <img src="thumb1.jpg" alt="Thumbnail 1" onclick="showImage('thumb1.jpg')">
+        <img src="thumb2.jpg" alt="Thumbnail 2" onclick="showImage('thumb2.jpg')">
+    </div>
+    <div>
+        <img id="mainImage" class="main-image" src="" alt="Main View">
+    </div>
+
+    <script>
+        function showImage(src) {
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = src;
+            mainImage.style.width = "300px";  // Set the image to full size
+        }
+    </script>
+</body>
+</html>
