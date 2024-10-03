@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+    <h1 id="heading">Welcome to My Page</h1>
+
+    <!-- Main paragraph -->
+    <p id="content">This is the main content of the page.</p>
+
+    <!-- prompts the user to either add a new paragraph before the main
+     or replace the main completely -->
+    <input type="text" id="newText" placeholder="Enter new paragraph text">
+    <button onclick="insertParagraph()">Insert Before</button> <!-- clicking this add a new p -->>
+    <button onclick="replaceParagraph()">Replace Paragraph</button> <!-- Clicking this replace the main p -->>
+
+    <script>
+
+        // on click, the function insertParagraph takes the value of the input with id = newText
+        // saves that value in a new variable
+        // function then creates a new variable called newPara to hold a newly created 'p' tag
+        // newPara will have the value of newText stored into 'p' tag 
+        function insertParagraph() {
+            const newText = document.getElementById("newText").value;
+            const newPara = document.createElement("p");
+            newPara.textContent = newText;
+
+            const content = document.getElementById("content");
+            document.body.insertBefore(newPara, content);  // Insert before existing content
+        }
+
+        function replaceParagraph() {
+            const newText = document.getElementById("newText").value;
+            const newPara = document.createElement("p");
+            newPara.textContent = newText;
+
+            const content = document.getElementById("content");
+            content.parentNode.replaceChild(newPara, content);  // Replace existing content
+        }
+    </script>
+</body>
+</html>

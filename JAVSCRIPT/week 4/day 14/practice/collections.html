@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Links Collection Example</title>
+</head>
+<body>
+    <h1>My Favorite Links</h1>
+
+    <!-- Here are the links to be dynamically shown -->
+    <p>
+        <a href="https://www.google.com">Google</a>
+        <a href="https://www.youtube.com">YouTube</a>
+        <a href="https://www.github.com">GitHub</a>
+    </p>
+    <div id="linksList"></div>
+
+
+    <!-- This is the code to dynamically list the links -->
+    <script>
+        function listLinks() {
+            const links = document.links;  // Get all the links in the document
+            let listHTML = "<h2>Links on this page:</h2><ul>";
+            for (let i = 0; i < links.length; i++) {
+                listHTML += `<li><a href="${links[i].href}">${links[i].textContent}</a></li>`;
+            }
+            listHTML += "</ul>";
+            document.getElementById("linksList").innerHTML = listHTML;
+        }
+
+        window.onload = listLinks;  // Run the function when the page loads
+    </script>
+</body>
+</html>
+
+<!-- to improve flexibility, easier content management and improved separation of concerns,
+ keeping a separate links data can make the page more maintainable.
+ This can be done by creating a separate JSON or text file for links
+ 
+ like this:
+ lnks.json
+ [
+  {
+    "title": "Google",
+    "url": "https://www.google.com"
+  },
+  {
+    "title": "YouTube",
+    "url": "https://www.youtube.com"
+  },
+  {
+    "title": "GitHub",
+    "url": "https://www.github.com"
+  }
+]
+
+
+or like this:
+links.txt
+Google,https://www.google.com
+YouTube,https://www.youtube.com
+GitHub,https://www.github.com
+
+
+and then using javasript to fetch the JSON or text files to dynamically load the link and inject them into the DOM-->
