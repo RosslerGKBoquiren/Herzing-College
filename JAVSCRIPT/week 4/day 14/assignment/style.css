@@ -1,0 +1,37 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #009473;
+    transition: background-color 0.3s ease; 
+}
+
+main {
+    text-align: center;
+}
+
+textarea {
+    width: 98%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+input[readonly] {
+    border: none;
+    background-color: #f0f0f0;
+    width: 300px;
+    font-size: 16px;
+    color: #333;
+    margin: auto;
+    padding: 5px;
+    display: block;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Image Changer</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+
+#container{
+	width:500px;
+	border:solid 1px #ccc;
+	padding:5px;
+}
+
+#big{
+	border:solid 1px #ccc;
+	margin-bottom:5px;
+}
+
+.bigimg{
+	width:100%;
+}
+
+ul#thumbs{
+	
+	padding:0;
+}
+
+
+
+ul#thumbs > li{
+	width:96px;
+	height:96px;
+	overflow:hidden;
+	border:solid 1px #ccc;
+	display:inline-block;
+	list-style:none;
+	padding:1px;
+}
+
+li > img{
+	width:94px;
+}
+
+ul#thumbs > li:hover{
+	width:96px;
+	height:96px;
+	border:solid 2px red;
+	padding:0;
+}
+
+ul#thumbs > li.selected{
+	width:96px;
+	height:96px;
+	border:solid 2px #0066FF;
+	padding:0;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<div id="container">
+	<div id="big">
+    	<img src="img/img1.jpg" alt="img1" class="bigimg" id="displayimg" />
+    </div>
+	<ul id="thumbs">
+		<li id="thumb1" onmouseover="setImage('img1.jpg');clearClasses();" onmouseout="this.className='selected'">
+        	<img src="img/img1thumb.jpg" alt="img1thumb" />
+        </li>
+        <li id="thumb2" onmouseover="setImage('img2.jpg');clearClasses();" onmouseout="this.className='selected'">
+        	<img src="img/img2thumb.jpg" alt="img2thumb" />
+        </li>
+        <li id="thumb3" onmouseover="setImage('img1.jpg');clearClasses();" onmouseout="this.className='selected'">
+        	<img src="img/img1thumb.jpg" alt="img3thumb" />
+        </li>
+        <li id="thumb4" onmouseover="setImage('img2.jpg');clearClasses();" onmouseout="this.className='selected'">
+        	<img src="img/img2thumb.jpg" alt="img4thumb" />
+        </li>
+	</ul>
+</div>
+<!--The className property of the Element interface gets and sets the value of the class attribute of the specified element.-->
+
+
+<script type="text/javascript">
+//Script at the bottom will speed up page load
+function clearClasses(){
+	//Set all to clear the class attribute
+	document.getElementById("thumb1").setAttribute("class", "");
+	document.getElementById("thumb2").setAttribute("class", "");
+	document.getElementById("thumb3").setAttribute("class", "");
+	document.getElementById("thumb4").setAttribute("class", "");
+}
+
+function setImage(imgname){
+	document.getElementById("displayimg").src = "img/" + imgname;
+}
+
+
+</script>
+</body>
+</html>
