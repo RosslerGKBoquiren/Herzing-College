@@ -18,30 +18,23 @@ body {
 }
 
 #sliderContainer {
-    display: flex;  
-    transition: margin-left 1s ease-in-out;  
-    width: 100%;  
-    height: 100%; 
-    
+   position: relative;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
 }
 
 .slide {
-    flex: 0 0 100%;  
+    position: absolute;
+    width: 100%;
     height: 100%;
-    display: flex;  
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+    transition: left 2s;
+    left: 0;
     
 }
-
-
-
 
 .slide img {
     height: 100%;
     width: 100%;
-    object-fit: contain;  
-    display: block;
-    box-sizing: border-box;
+    object-fit: cover;  
 }

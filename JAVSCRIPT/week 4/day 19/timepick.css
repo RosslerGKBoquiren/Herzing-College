@@ -1,0 +1,32 @@
+.timewrap {
+    position: relative;
+    display: inline-block;
+}
+
+.timeslist {
+    position: absolute;
+    width: 225px;
+    height: auto;
+    border: solid 1px #aaa;
+    left: 0;
+    top: 23px;
+    display: none;
+    box-shadow: 2px 2px 2px #444;
+    background-color: white;
+    z-index: 10;
+}
+
+.timebutton {
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 75px;
+    background-color: inherit;
+    text-align: center;
+}
+
+.timebutton:hover {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}

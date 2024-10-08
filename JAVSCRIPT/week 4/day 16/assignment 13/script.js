@@ -1,41 +1,32 @@
 window.addEventListener('DOMContentLoaded', function() {
-    const sliderContainer = document.getElementById('sliderContainer');
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    let currentSlide = 0;
+    let slideIndex = 0;
+    showSlides();
 
-    
-    sliderContainer.style.marginLeft = '0px';
-
-    
-    function getSlideWidth() {
-        return document.getElementById('slider').offsetWidth;
-    }
-
-    function nextSlide() {
-        currentSlide++;
-
+    function showSlides() {
+        let slides = document.getElementsByClassName('slide');
         
-        if (currentSlide === totalSlides) {
-            currentSlide = 0;
+        
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.left = '100%';  
         }
 
         
-        sliderContainer.style.marginLeft = `-${currentSlide * getSlideWidth()}px`;
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
 
-        changeBodyColor(slides[currentSlide].id);
+        
+        slides[slideIndex - 1].style.left = '0';
+
+        
+        changeBodyColor(slides[slideIndex - 1].id);
+
+        
+        setTimeout(showSlides, 3000);
     }
 
-    // Automatically change slides every 3 seconds
-    setInterval(nextSlide, 3000);
-
-    // Adjust the slide width and reapply the margin on window resize
-    window.addEventListener('resize', function() {
-        const slideWidth = getSlideWidth();  
-        sliderContainer.style.marginLeft = `-${currentSlide * slideWidth}px`;  
-    });
-
-
+    
     function changeBodyColor(slideId) {
         switch (slideId) {
             case 'red':
