@@ -1,0 +1,75 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background: linear-gradient(135deg, #f9f9f9 0%, #dde9f3 100%); 
+}
+
+.container {
+    text-align: center; 
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 500;
+    color: #007bff; 
+    margin-bottom: 20px; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+.timewrap {
+    position: relative;
+    display: inline-block;
+}
+
+.timeslist {
+    position: absolute;
+    width: 225px;
+    height: auto;
+    border: solid 1px #aaa;
+    left: 0;
+    top: 23px;
+    display: none;
+    box-shadow: 2px 2px 2px #444;
+    background-color: #f9f9f9;
+    z-index: 10;
+    border-radius: 4px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.timebutton {
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 75px;
+    background-color: inherit;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.timebutton:hover {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.timepick {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.timepick:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
