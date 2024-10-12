@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript Regex</title>
+<script>
+
+/*Suppose you want to match "bat", "cat", and "fat". It is very easy to use a simple character class for
+this purpose:*/
+var sToMatch = "a bat, a Cat, a fAt baT, a faT cat";
+var reBatCatRat = /[bcf]at/gi;
+var arrMatches = sToMatch.match(reBatCatRat);
+
+/*The arrMatches array is now be filled with these values: "bat", "Cat", "fAt", "baT", "faT", and
+"cat". You can also include special characters inside simple classes (and any other type of character
+class as well). Suppose you replace the b character with its Unicode equivalent:*/
+var sToMatch = "a bat, a Cat, a fAt baT, a faT cat";
+var reBatCatRat = /[\u0062cf]at/gi;
+var arrMatches = sToMatch.match(reBatCatRat);
+
+/*This code behaves the same as it did in the previous example.*/
+
+
+/*At times you may want to match all characters except for a select few. In this case, you can use a negation
+class, which specifies characters to exclude. For example, to match all characters except a and b, the character
+class is [^ab]. The caret (^) tells the regular expression that the character must not match the characters
+to follow.*/
+/*Going back to the previous example, what if you only wanted to get words containing at but not beginning
+with b or c?*/
+
+var sToMatch = "a bat, a Cat, a fAt baT, a faT cat";
+var reBatCatRat = /[^bc]at/gi;
+var arrMatches = sToMatch.match(reBatCatRat);
+
+/*In this case, arrMatches contains "fAt" and "faT", because these strings match the pattern of a
+sequence ending with at but not beginning with b or c.*/
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

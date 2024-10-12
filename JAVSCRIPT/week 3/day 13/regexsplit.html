@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript Regex</title>
+<script>
+
+/*The second method is split(), which splits a string into a number of substrings and returns them in an
+array, like this:*/
+var sColor = "red,blue,yellow,green";
+var arrColors = sColor.split(","); //split at each comma
+
+/*The previous code creates an array, arrColors, that contains four items, "red", "blue", "yellow", and
+"green'. The same thing can be accomplished using a regular expression instead of the comma:*/
+var sColor = "red,blue,yellow,green";
+var reComma = /\,/;
+var arrColors = sColor.split(reComma); //split at each comma
+
+/*Note the regular expression reComma requires a backslash before the comma character. The comma has
+special meaning in regular expression syntax, which you don't intend as its meaning in this case.*/
+
+
+/*Suppose you want to remove all new line characters from a string (a common task when dealing with
+user-input text). You can do so like this:*/
+var sNewString = sStringWithNewLines.replace(/\n/g, "");
+</script>
+</head>
+
+<body>
+</body>
+</html>
