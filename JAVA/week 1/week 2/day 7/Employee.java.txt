@@ -1,0 +1,112 @@
+class Employee2
+	{
+		private String sFName;
+		private String sLName;
+		private String sTitle;
+		private String sSSN;
+		private int sAge;
+
+		public Employee2(String fname, String lname, String title, String ssn, int age)
+		{
+			sFName = fname; sLName = lname; sTitle = title; sSSN = ssn; sAge = age;
+		}
+
+		@Override
+		public boolean equals(Object obj)
+		{
+			Employee2 tmpEmployee = (Employee2)obj;
+			System.out.printf("Checking Equality... %s equals %s? %b", tmpEmployee.sSSN, this.sSSN, tmpEmployee.sSSN == this.sSSN);
+			if (tmpEmployee.sSSN == this.sSSN)
+				return true;
+			else
+				return false;
+		}
+	}
+
+	class Employee
+	{
+		private String sFName;
+		private String sLName;
+		private String sTitle;
+		private String sSSN;
+		private int sAge;
+
+		public Employee(String fname, String lname, String title, String ssn, int age)
+		{
+			sFName = fname; sLName = lname; sTitle = title; sSSN = ssn; sAge = age;
+		}
+
+		@Override 
+		public String toString()
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.append(String.format("\nsFName = %s\n", this.sFName));
+			sb.append(String.format("sLName = %s\n", this.sLName));
+			sb.append(String.format("sTitle = %s\n", this.sTitle));
+			sb.append(String.format("sSSN = %s\n", this.sSSN));
+			sb.append(String.format("sAge = %s\n", this.sAge));
+			return sb.toString();
+		}
+
+		@Override 
+		public int hashCode()
+		{
+			return sSSN.hashCode();
+		}
+
+		@Override
+		public boolean equals(Object obj)
+		{
+			Employee tmpEmployee = (Employee)obj;
+			System.out.printf("Checking Equality... %s equals %s? %b", tmpEmployee.sSSN, this.sSSN, tmpEmployee.sSSN == this.sSSN);
+			if (tmpEmployee.sSSN == this.sSSN)
+					return true;
+			else
+					return false;
+		}
+		
+		
+		public static void main(String[] args)
+		{
+			Employee E1 = new Employee("Janie", "Doe", "President", "000-000-0000", 32);
+			Employee E2 = new Employee("Jim", "Thorpe", "Vice President", "222-000-0000", 34);
+			Employee2 E3 = new Employee2("Joe", "Throw", "Vice President", "222-000-0000", 34);
+			Employee2 E4 = new Employee2("Joe", "Throw", "Vice President", "222-000-0000", 34);
+
+			System.out.println("EMPLOYEE WITH OVERRIDES:\n");
+			System.out.printf("E1.toString(): %s\n", E1.toString());
+			System.out.printf("E1.hashCode(): %d\n", E1.hashCode());
+			System.out.printf("E1.equals(E2): %b\n", E1.equals(E2));
+
+			// the equals method is implemented to check for equal values of the SSN field.
+			// the == usage determines if the object is the same reference (same actual object in memory, not just values set)
+			System.out.printf("Object.equals(E1, E2) = %b\n", E1.equals(E2));
+			System.out.printf("(Reference Equals) E1 == E2: %b\n", E1 == E2);
+
+			System.out.println("\n-------------------------------");
+			System.out.println("EMPLOYEE2 WITHOUT OVERRIDES:\n");
+			System.out.printf("E3.toString(): %s\n", E3.toString());
+			System.out.printf("E3.hashCode(): %d\n", E3.hashCode());
+			System.out.printf("E3.equals(E4): %b\n", E3.equals(E4));			
+			System.out.printf("(Reference Equals)E3 == E4 = %b\n", (E3 == E4));
+
+			System.out.println("\n-------------------------------");
+			Employee2 E5 = E4;
+			System.out.printf("E5.equals(E4): %s\n", E5.equals(E4));
+			System.out.println("E5 and E4 are equal because I had a line like this:\n");
+			System.out.println("Employee2 E5 = E4;\n");
+			System.out.printf("E4.equals(E5) = %b\n", E4.equals(E5));
+			System.out.printf("(Reference Equals)E4 == E5 = %b\n", (E4 == E5));
+
+			System.out.println("\n-------------------------------\n");
+			System.out.println("GETTYPE():\n");
+			System.out.printf("E1.getClass().getName(): %s\n", E1.getClass().getName());
+			System.out.printf("E2.getClass().getName(): %s\n", E2.getClass().getName());
+			System.out.printf("E3.getClass().getName(): %s\n", E3.getClass().getName());
+			System.out.printf("E4.getClass().getName(): %s\n", E4.getClass().getName());
+			System.out.printf("E5.getClass().getName(): %s\n", E5.getClass().getName());
+			
+
+
+		}
+	}
