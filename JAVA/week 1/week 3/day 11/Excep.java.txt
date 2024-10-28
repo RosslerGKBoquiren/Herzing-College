@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+/**
+ * Excep.java
+ * 
+ * @author Nasrin Khodapanah <nkhodapanah@mtl.herzing.ca> Created on Jan 29,
+ *         2024 2024
+ */
+
+public class Excep {
+
+	public static void main(String[] args) {
+		// getInt("Enter an integer");
+		// System.out.println(returnFinally());
+		extracted();
+	}
+
+	/**
+	 * Method to take an integer value from user
+	 * 
+	 * @param txt String
+	 * @return an integer entry from user
+	 */
+	public static int getInt(String txt) {
+		int entry = 0;
+		while (true) {
+			try {
+				Scanner scanner = new Scanner(System.in);
+				System.out.println(txt);
+				entry = scanner.nextInt();
+				break;
+			} catch (Exception e) {
+				System.out.println("Invalid entry.\n" + e);
+			}
+
+		}
+		return entry;
+	}
+
+	@SuppressWarnings("finally")
+	/**
+	 * Method to see return in finally block is not good idea
+	 * 
+	 * @return integer
+	 */
+	public static int returnFinally() {
+		try {
+			return 3;
+		} catch (Exception e) {
+			return 4;
+		} finally {
+			return 5;
+		}
+	}
+
+	/**
+	 * Retrieve 2 integers and display result of their division. Use "while" loop to
+	 * ensure two integers are ultimately provided by the user. Implement
+	 * try/catch/finally blocks to handle exceptions.
+	 */
+	public static void extracted() {
+		while (true) {
+			String num1, num2;
+			int n1, n2;
+			System.out.println("Enter 2 integers:");
+			Scanner scanner = new Scanner(System.in);
+			num1 = scanner.nextLine();
+			num2 = scanner.nextLine();
+			if (num1.equals("x") || num2.equals("x")) {
+				System.out.println("YOU EXIT. GAME OVER :(");
+				break;
+			}
+			try {
+				n1 = Integer.parseInt(num1);
+				n2 = Integer.parseInt(num2);
+				System.out.println("The result of dividing num1 by num2 is: " + division(n1, n2));
+			} catch (ArithmeticException | NumberFormatException e) {
+				System.out.println("Hehe\n" + e);
+			} finally {
+				System.out.println("Finally HERE!");
+
+			}
+		}
+	}
+
+	/**
+	 * Retrieve 2 integers and return their division
+	 * 
+	 * @param num1 integer
+	 * @param num2 integer
+	 * @return division of 2 integers
+	 */
+	public static int division(int num1, int num2) {
+		int result = 0;
+		result = num1 / num2;
+
+		return result;
+	}
+
+}
