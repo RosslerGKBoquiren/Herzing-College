@@ -7,9 +7,9 @@ public class HugeArray {
         int N = 1000;
         int[] a = new int[N * N * N * N];
         
-        int M = 200;
-        int[] b = new int[M * M * M * M];
-      
+//        int M = 200;
+//        int[] b = new int[M * M * M * M];
+//      
     } 
 } 
 

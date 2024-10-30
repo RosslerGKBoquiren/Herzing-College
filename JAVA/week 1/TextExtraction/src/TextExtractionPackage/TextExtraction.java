@@ -7,7 +7,7 @@ public class TextExtraction {
 
 	public static void main(String[] args) {
 		
-		String url = "https://www.example.com/page";
+		String url = "https://www.example.com/page/page";
 		String tweet = "Excited to announce our new product #launch! #exciting #newbeginnings";
 		String sentence = "The quick brown fox jumps over the lazy dog";
 
