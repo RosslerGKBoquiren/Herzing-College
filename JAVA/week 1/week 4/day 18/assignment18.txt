@@ -1,0 +1,10 @@
+===================================================================================
+===============================   ASSIGNMENT 18   ==================================
+===================================================================================
+
+Draw a String with Swag (your name - see the screenshot)
+Create a round empty rectangle of any size to go around your String.
+Draw an image (pick up a square one)
+Create a circle of size 300px diameter in the MIDDLE of your frame size (800x800) that goes around your image.
+Create an oval (filled) anywhere on the screen with a long radius of 150px and a short radius of 80px.
+Create a polygon with the 6 sides of 80px each.

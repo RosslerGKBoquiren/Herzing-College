@@ -1,0 +1,260 @@
+/**
+ *FormFrame.java
+ *@author Nasrin Khodapanah <nkhodapanah@mtl.herzing.ca>
+ *Created on Feb 13, 2024
+ *2024
+ */
+package Day4;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
+
+/**
+ * 
+ */
+public class FormFrame extends JFrame {
+
+	public FormFrame() {
+		this.setTitle("The Form Items");
+		this.setSize(350, 600);
+		this.setLocationRelativeTo(null);
+		this.setAlwaysOnTop(true);
+		this.setResizable(false);
+		
+		//Main Panel
+		JPanel mainPanel = new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
+		
+		
+		//Panel for combo box
+		JPanel panCombo = new JPanel();
+		panCombo.setBackground(Color.decode("#fffff0"));
+		JLabel colorSelect = new JLabel("Select Color: ");
+		String[] colors = {"", "Blue", "Red", "Green", "Yellow", "Black"};
+		JComboBox<String> combo = new JComboBox<String>(colors);
+		combo.addItem("Cyan");
+		JButton colorBtn = new JButton("Display Color");
+		
+		combo.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				//System.out.println("Color Selected: " + e.getItem()); ;
+				
+			}
+		});
+		
+		colorBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Selected color (by Jbutton): " + combo.getSelectedItem());
+				
+			}
+		});
+		combo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JComboBox jcBox = (JComboBox) e.getSource();
+				String selectedColor = (String) jcBox.getSelectedItem();
+				System.out.println("Selected color (by combo): " + selectedColor);
+				
+			}
+		});
+		
+		//checkbox
+		JPanel panCheck = new JPanel();
+		panCheck.setBackground(Color.decode("#D1FDAD"));
+		JLabel caseSelect = new JLabel("Select Case: ");
+		JCheckBox case1 = new JCheckBox("Case 1");
+		JCheckBox case2 = new JCheckBox("Case 2");
+		JCheckBox case3 = new JCheckBox("Case 3");
+		JButton caseBtn = new JButton("Verify Case");
+		
+		case2.setSelected(true);
+		
+		
+		caseBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (case1.isSelected())
+					System.out.println("Case 1 was selected");
+				if (case2.isSelected())
+					System.out.println("Case 2 was selected");
+				if (case3.isSelected())
+					System.out.println("Case 3 was selected");
+			}
+		});
+		
+		
+		
+		
+		//Radio Button
+		JPanel panRadio = new JPanel();
+		panRadio.setBackground(Color.decode("#fffff0"));
+		JLabel selectRadio = new JLabel("Select the race: ");
+		JRadioButton asian = new JRadioButton("Asian");
+		JRadioButton latino = new JRadioButton("Latino");
+		JRadioButton white = new JRadioButton("White");
+		ButtonGroup raceGroup = new ButtonGroup();
+		raceGroup.add(asian);
+		raceGroup.add(latino);
+		raceGroup.add(white);
+		JButton radioBtn = new JButton("Display Race");
+		radioBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(asian.isSelected())
+					System.out.println("Race: Asian");
+				if(latino.isSelected())
+					System.out.println("Race: Latino");
+				if(white.isSelected())
+					System.out.println("Race: White");
+				
+			}
+		});
+		
+		//TextField
+		JPanel txtfPan = new JPanel();
+		txtfPan.setBackground(Color.decode("#D1FDAD"));
+		JLabel txtfLabel = new JLabel("Type your name:");
+		JTextField txtF = new JTextField();
+		
+		txtF.setPreferredSize(new Dimension(200, 30));
+		txtF.setFont(new Font("Consolas", Font.PLAIN, 20));
+		txtF.setForeground(Color.red);
+		
+		
+		//Textarea
+		JPanel txtaPan = new JPanel();
+		txtaPan.setBackground(Color.decode("#fffff0"));
+		JLabel txtaLabel = new JLabel("Type your Story");
+		JTextArea txtA = new JTextArea();
+		JButton txtBtn = new JButton("Get Text");
+		
+		txtA.setPreferredSize(new Dimension(150,70));
+		txtA.setBackground(Color.decode("#ecfede"));
+		txtA.setLineWrap(true);
+		
+		txtBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Name: " + txtF.getText());
+				System.out.println("Story: " + txtA.getText());
+				
+			}
+		});
+		
+		
+		
+		
+		//Format TextFields
+		JPanel formatPan = new JPanel();
+		formatPan.setBackground(Color.decode("#D1FDAD"));
+		JLabel formatLabel = new JLabel("Numbers only: ");
+		JFormattedTextField formattedTxtF = new JFormattedTextField(NumberFormat.getNumberInstance());
+		JButton formatBtn = new JButton("Display Number");
+		formattedTxtF.setPreferredSize(new Dimension(150,30));
+		
+		formatBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Number: " + formattedTxtF.getText());
+				
+			}
+		});
+		
+		JLabel maskLabel = new JLabel("Phone number: ");
+		JFormattedTextField  formattedTxtFPhone = null;
+		
+		try {
+			//Mask Formatter
+			MaskFormatter tel = new MaskFormatter("(###)###-####UL");
+			formattedTxtFPhone = new JFormattedTextField(tel);
+		}catch(ParseException e) {
+			System.err.println("What was that?");
+		}
+		
+		formattedTxtFPhone.setPreferredSize(new Dimension(120,30));
+		
+		//add components to panels
+		panCombo.add(colorSelect);
+		panCombo.add(combo);
+		panCombo.add(colorBtn);
+//		
+		panCheck.add(caseSelect);
+		panCheck.add(case1);
+		panCheck.add(case2);
+		panCheck.add(case3);
+		panCheck.add(caseBtn);
+//		
+		panRadio.add(selectRadio);
+		panRadio.add(asian);
+		panRadio.add(latino);
+		panRadio.add(white);
+		panRadio.add(radioBtn);
+//		
+		txtfPan.add(txtfLabel);
+		txtfPan.add(txtF);
+//		
+		txtaPan.add(txtaLabel);
+		txtaPan.add(txtA);
+		txtaPan.add(txtBtn);
+//		
+		formatPan.add(formatLabel);
+		formatPan.add(formattedTxtF);
+		formatPan.add(formatBtn);
+		formatPan.add(formatLabel);
+		formatPan.add(formattedTxtFPhone);
+		
+		//add panels
+		mainPanel.add(panCombo);
+		mainPanel.add(panCheck);
+		mainPanel.add(panRadio);
+		mainPanel.add(txtfPan);
+		mainPanel.add(txtaPan);
+		mainPanel.add(formatPan);
+		
+		//add panel to frame
+		this.setContentPane(mainPanel);
+		
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		new FormFrame();
+
+	}
+
+}
