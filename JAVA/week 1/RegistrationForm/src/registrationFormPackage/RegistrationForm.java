@@ -70,7 +70,7 @@ public class RegistrationForm extends JFrame {
         addComponent(addressField, gridBagConstraints, 2, 6);
 
         // Province drop box
-        addLabel("State:", gridBagConstraints, 7);
+        addLabel("Province  :", gridBagConstraints, 7);
         String[] states = {"Yukon", "Nunavut", "Northwest Territories", "Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Nova Scotia", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan"};
         JComboBox<String> stateComboBox = new JComboBox<>(states);
         addComponent(stateComboBox, gridBagConstraints, 2, 7);
