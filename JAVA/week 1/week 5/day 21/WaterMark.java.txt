@@ -1,0 +1,156 @@
+/**
+ *Day21.java
+ *@author Nasrin Khodapanah <nkhodapanah@mtl.herzing.ca>
+ *Created on Feb 14, 2024
+ *2024
+ */
+package Day21;
+
+/**
+ * 
+ */
+
+
+	
+	import java.awt.BorderLayout;
+	import java.awt.Color;
+	import java.awt.Dimension;
+	import java.awt.Font;
+	import java.awt.event.ActionEvent;
+	import java.awt.event.ActionListener;
+	import java.awt.event.MouseAdapter;
+	import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+	import javax.swing.BoxLayout;
+	import javax.swing.JButton;
+	import javax.swing.JFrame;
+	import javax.swing.JLabel;
+	import javax.swing.JOptionPane;
+	import javax.swing.JPanel;
+	import javax.swing.JTextField;
+	import javax.swing.border.BevelBorder;
+	import javax.swing.border.LineBorder;
+	import javax.swing.border.TitledBorder;
+
+	public class WaterMark extends JFrame{
+		//Constructor
+		public WaterMark() {
+			this.setTitle("Text field WaterMark");
+			this.setSize(350, 200);
+			this.setLocationRelativeTo(null);
+			
+			//Main Panel
+			JPanel mainPanel = new JPanel();
+			mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
+			
+			//Sub Panels
+			JPanel txtFPanel = new JPanel(), btnPanel = new JPanel();
+			txtFPanel.setBackground(Color.LIGHT_GRAY);
+			
+			//Text Field
+			JLabel lbl = new JLabel("Type in your name: ");
+			JTextField txtF = new JTextField();
+			txtF.setText("Enter Your Name");
+			txtF.setPreferredSize(new Dimension(200, 30));
+			txtF.setFont(new Font("Consolas", Font.BOLD, 12));
+			txtF.setBackground(Color.white);
+			txtF.setForeground(Color.gray);
+			
+			//add mouse listener to text field
+			txtF.addMouseListener(new MouseListener() {
+				
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mousePressed(MouseEvent e) {
+					txtF.setText("");
+					
+				}
+				
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					//txtF.setText("");
+					
+				}
+				
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					txtF.setText("");
+					
+				}
+			});
+			
+			//add button
+			JButton btn = new JButton("Display Name");
+			btn.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					String name = "";
+					name = txtF.getText();
+					Boolean nameEmp = name.isEmpty();
+					Boolean namePlaceHolder = name.equals("Enter Your Name");
+					//System.out.println(nameEmp);
+					//System.out.println(namePlaceHolder);
+					
+					//in case the text field is not empty and is not placeholder
+					if (!nameEmp && !namePlaceHolder)
+						System.out.println("Your name is: " + name);
+					else 
+						JOptionPane.showMessageDialog(null, "No Name Entered");
+					
+					txtF.setText("Enter Your Name");
+					
+					
+						
+				}
+			});
+			
+			//adding more styling to txtF & btn Panels
+			LineBorder border = new LineBorder(Color.DARK_GRAY, 2, true);
+			TitledBorder titBorder = new TitledBorder(border, "Top Panel");
+			txtFPanel.setBorder(titBorder);
+			 
+			btnPanel.setLayout(new BorderLayout());
+			//btnPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 5, true));
+			btnPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+			btn.setBorder(new BevelBorder(BevelBorder.RAISED));
+			
+			//Add Label & TF to tf1Pan
+			txtFPanel.add(lbl);
+			txtFPanel.add(txtF);
+//			
+			btnPanel.add(btn);
+//			
+//			//Ad tf1Panel to the mainPanel
+			mainPanel.add(txtFPanel);		
+			mainPanel.add(btnPanel);
+			
+			//Add mainPanel to the frame
+			this.setContentPane(mainPanel);
+			
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setVisible(true);		
+		}
+
+		public static void main(String[] args) {
+			new WaterMark();
+
+		}
+
+	}
+
+
+

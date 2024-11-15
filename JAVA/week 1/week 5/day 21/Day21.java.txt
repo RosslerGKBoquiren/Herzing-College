@@ -1,0 +1,122 @@
+/**
+ *Day21.java
+ *@author Nasrin Khodapanah <nkhodapanah@mtl.herzing.ca>
+ *Created on Feb 14, 2024
+ *2024
+ */
+package Day21;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+/**
+ * 
+ */
+public class Day21 extends JFrame {
+	// Constructor
+		public Day21() {
+	this.setTitle("Day 21 Lecture");
+	this.setSize(500, 200);
+	this.setLocationRelativeTo(null);
+	JFrame frame = this;
+	
+	//Panel to hold the Buttons
+	JPanel pan = new JPanel();
+	
+	//Add Buttons
+	JButton btn1 = new JButton("PopUp1");
+	//add action listener to btn1
+	btn1.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ImageIcon icon = new ImageIcon("images/cart.png");
+			JOptionPane.showMessageDialog(null, "This is my message...", "This is the title", JOptionPane.QUESTION_MESSAGE, icon);
+			
+		}
+	});
+	
+	JButton btn2 = new JButton("PopUp2");
+	//add action listener to btn2
+	btn2.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int response = JOptionPane.showConfirmDialog(frame, "Do you like Java?", "Java Programming", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+			if(response == JOptionPane.OK_OPTION) 
+				System.out.println("Good to go!");
+			else if (response == JOptionPane.NO_OPTION)
+				System.out.println("I'am not happy...");
+			else if (response == JOptionPane.CANCEL_OPTION)
+				System.out.println("Canceled, bye!");
+				
+		}
+	});
+	
+	JButton btn3 = new JButton("PopUp3");
+	//add action listener to btn3
+	btn3.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String name = "";
+			do {
+				name = JOptionPane.showInputDialog(null, "What is your name?", "Get Name Info",JOptionPane.QUESTION_MESSAGE);
+				
+			if (name != null)
+				System.out.println("Your name is: " + name);
+			else
+				JOptionPane.showMessageDialog(null, "No Name Entered!");
+			} while(name == null);
+		}
+	});
+	
+	JButton btn4 = new JButton("PopUp4");
+	//add action listener to btn4
+	btn4.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ImageIcon icon = new ImageIcon("images/cart.png");
+			String[] pizzas = {"Cheese", "All dressed", "Peperoni", "Mexican", "Veggie"};
+			String result = (String)JOptionPane.showInputDialog(
+					null, 
+					"What is your favorite topping?", 
+					"Pizza", 
+					JOptionPane.QUESTION_MESSAGE, 
+					icon, 
+					pizzas,
+					pizzas[0]);
+			System.out.println("Your favorite topping is: " + result);
+			
+		}
+	});
+	
+	
+	
+	//Add Buttons to Panel
+	pan.add(btn1);
+	pan.add(btn2);
+	pan.add(btn3);
+	pan.add(btn4);
+	
+	
+	//Add panel pan to the Frame
+	this.setContentPane(pan);
+	
+	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	this.setVisible(true);
+
+}
+	public static void main(String[] args) {
+		new Day21();
+
+	}
+
+}
