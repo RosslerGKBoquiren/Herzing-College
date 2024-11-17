@@ -7,6 +7,10 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.regex.Pattern;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -31,7 +35,7 @@ public class RegistrationFormUpdate extends JFrame{
 	private JFormattedTextField phoneField;
 	
 	public RegistrationFormUpdate() {
-        // Frame settings
+		// Frame settings
         setTitle("New Account Registration");
         setSize(400, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,7 +106,6 @@ public class RegistrationFormUpdate extends JFrame{
 
         // Phone number field with MaskFormatter
         addLabel("Phone No:", gridBagConstraints, 9);
-        
         try {
             MaskFormatter phoneFormatter = new MaskFormatter("(###) ###-####");
             phoneFormatter.setPlaceholderCharacter('_');
@@ -126,33 +129,49 @@ public class RegistrationFormUpdate extends JFrame{
 
         // Action listeners for buttons
         submitButton.addActionListener(e -> {
-        	
-	    	if (nameField.getText().isEmpty() ||
-	    	        emailField.getText().isEmpty() ||
-	    	        new String(passwordField.getPassword()).isEmpty() ||
-	    	        new String(confirmPasswordField.getPassword()).isEmpty() ||
-	    	        (!maleButton.isSelected() && !femaleButton.isSelected()) || 
-	    	        addressField.getText().isEmpty() ||
-	    	        provinceComboBox.getSelectedItem().equals("Select a province") ||  
-	    	        countryField.getText().isEmpty() ||
-	    	        phoneField.getText().contains("_")) { 
-	    	        
-	    	        JOptionPane.showMessageDialog(this, "Please fill out all required fields correctly.", "Error", JOptionPane.ERROR_MESSAGE);
-	    	    } else {
-	    	    	
-		            StringBuilder output = new StringBuilder("Form Data:\n");
-		            output.append("Name: ").append(nameField.getText()).append("\n");
-		            output.append("Email: ").append(emailField.getText()).append("\n");
-		            output.append("Password: ").append(new String(passwordField.getPassword())).append("\n");
-		            output.append("Confirm Password: ").append(new String(confirmPasswordField.getPassword())).append("\n");
-		            output.append("Gender: ").append(maleButton.isSelected() ? "Male" : femaleButton.isSelected() ? "Female" : "Not selected").append("\n");
-		            output.append("Address: ").append(addressField.getText()).append("\n");
-		            output.append("Province: ").append((String) provinceComboBox.getSelectedItem()).append("\n");
-		            output.append("Country: ").append(countryField.getText()).append("\n");
-		            output.append("Phone No: ").append(phoneField.getText()).append("\n");
-		            System.out.println(output.toString());
-		            }
-		        });
+            String name = nameField.getText();
+            String email = emailField.getText();
+            String password = new String(passwordField.getPassword());
+            String confirmPassword = new String(confirmPasswordField.getPassword());
+            String gender = maleButton.isSelected() ? "Male" : femaleButton.isSelected() ? "Female" : "";
+            String address = addressField.getText();
+            String selectedProvince = (String) provinceComboBox.getSelectedItem(); 
+            String country = countryField.getText();
+            String phone = phoneField.getText();
+
+            // Validate form fields
+            StringBuilder errors = new StringBuilder();
+            if (name.isEmpty()) errors.append("Name cannot be empty.\n");
+            if (email.isEmpty() || !isValidEmail(email)) errors.append("Invalid email address.\n");
+            if (password.isEmpty()) errors.append("Password cannot be empty.\n");
+            if (!password.equals(confirmPassword)) errors.append("Passwords do not match.\n");
+            if (gender.isEmpty()) errors.append("Gender must be selected.\n");
+            if (address.isEmpty()) errors.append("Address cannot be empty.\n");
+            if (selectedProvince.equals("Select a province")) errors.append("Please select a province.\n");
+            if (country.isEmpty()) errors.append("Country cannot be empty.\n");
+            if (phone.contains("_")) errors.append("Phone number is incomplete.\n");
+
+            if (errors.length() > 0) {
+                JOptionPane.showMessageDialog(this, errors.toString(), "Validation Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                int confirm = JOptionPane.showConfirmDialog(this,
+                        "Please confirm your details:\n" +
+                                "Name: " + name + "\n" +
+                                "Email: " + email + "\n" +
+                                "Gender: " + gender + "\n" +
+                                "Address: " + address + "\n" +
+                                "Province: " + selectedProvince + "\n" +
+                                "Country: " + country + "\n" +
+                                "Phone: " + phone,
+                        "Confirm Details",
+                        JOptionPane.YES_NO_OPTION);
+
+                if (confirm == JOptionPane.YES_OPTION) {
+                    saveToDatabase(name, email, password, gender, address, selectedProvince, country, phone);
+                }
+            }
+        });
+
 
         clearButton.addActionListener(e -> {
             nameField.setText("");
@@ -217,6 +236,38 @@ public class RegistrationFormUpdate extends JFrame{
 
         setVisible(true);
     }
+	
+	private boolean isValidEmail(String email) {
+        String emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        return Pattern.matches(emailRegex, email);
+    }
+	
+	
+	private void saveToDatabase(String name, String email, String password, String gender, String address,
+            String provinceValue, String country, String phone) {
+	try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root", "");
+		PreparedStatement stmt = conn.prepareStatement("INSERT INTO users (name, email, password, gender, address, province, country, phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
+		
+		stmt.setString(1, name);
+		stmt.setString(2, email);
+		stmt.setString(3, password);
+		stmt.setString(4, gender);
+		stmt.setString(5, address);
+		stmt.setString(6, provinceValue);
+		stmt.setString(7, country);
+		stmt.setString(8, phone);
+		
+		int rowsInserted = stmt.executeUpdate();
+		if (rowsInserted > 0) {
+		JOptionPane.showMessageDialog(this, "Registration successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+		}
+	
+	} catch (Exception ex) {
+		ex.printStackTrace();
+		JOptionPane.showMessageDialog(this, "Error saving data to the database.", "Database Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
 
     private void addLabel(String text, GridBagConstraints gridBagConstraints, int y) {
         gridBagConstraints.gridx = 0;
