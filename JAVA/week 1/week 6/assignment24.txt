@@ -1,0 +1,46 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+		Assignment week 6
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Develop a console program to manage students' information, including their first name, last name, program, and teacher, using structures for efficient data management.
+
+Data Structure: Utilize structures to represent each student's information. Define the structure with fields for:
+
+First Name
+Last Name
+Age
+Program
+Teacher
+
+Functionality:
+
+Add a New Student: Provide an option for the user to input information for a new student via the console. Prompt the user for each piece of information required.
+Remove a Student: Allow the user to remove a student from the system. This could involve selecting the student to remove based on their name or another identifier entered via the console.
+Edit a Student: Enable the user to modify the information of an existing student. Prompt the user to input the identifier of the student to be edited and then provide options to update any of the student's attributes.
+
+User Interface:
+
+Design a clear and intuitive console interface that guides the user through the options for adding, removing, and editing students.
+Utilize console output for displaying prompts and messages to the user.
+
+Implementation:
+
+Develop the program using VB.NET console application.
+Utilize console input and output for interaction with the user.
+
+Testing:
+
+Thoroughly test the program to ensure it correctly handles adding, removing, and editing student information.
+Verify the program's behavior for various scenarios, including valid and invalid user inputs.
+
+
+
+Additional Considerations:
+
+Implement robust error handling to manage unexpected user inputs or system errors gracefully.
+Consider adding features for data validation to ensure the integrity of the student information.
+Provide options for displaying the list of current students and their information to the user.

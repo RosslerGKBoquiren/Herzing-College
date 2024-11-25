@@ -1,0 +1,11 @@
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\obj\Debug\StudentManagementSystem.vbproj.AssemblyReference.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\obj\Debug\StudentManagementSystem.Resources.resources
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\obj\Debug\StudentManagementSystem.vbproj.GenerateResource.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\obj\Debug\StudentManagementSystem.vbproj.CoreCompileInputs.cache
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\bin\Debug\StudentManagementSystem.exe.config
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\bin\Debug\StudentManagementSystem.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\bin\Debug\StudentManagementSystem.pdb
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\bin\Debug\StudentManagementSystem.xml
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\obj\Debug\StudentManagementSystem.exe
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\obj\Debug\StudentManagementSystem.xml
+C:\Users\Win10\OneDrive\WFG\Herzing\Web Development\JAVA\week 6\StudentManagementSystemSln\StudentManagementSystem\obj\Debug\StudentManagementSystem.pdb
