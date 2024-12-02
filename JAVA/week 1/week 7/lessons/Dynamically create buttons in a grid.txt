@@ -1,0 +1,66 @@
+' For instance 3x3 (Ideally is dynamic - by asking user ... menu opption 3, 5, 10)
+Dim numberRow As Integer = 5
+Dim numberOfBtn As Integer = (numberRow ^ 2) - 1
+Dim btns(numberOfBtn) As Button
+Dim size As Integer = 50
+Dim x As Integer = 0
+Dim y As Integer = 0
+
+
+Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'set buttons size by the number of row
+    If numberRow = 10 Then
+        size = numberOfBtn / 3 + 3
+    ElseIf numberOfBtn = 5 Then
+        size = numberOfBtn * 3
+    ElseIf numberRow = 3 Then
+        size = Math.Exp(numberOfBtn) / (numberOfBtn * numberRow)
+    End If
+    'craete & set buttons
+    'go to the next line if a row's been completed
+    For i As Integer = 0 To btns.Length - 1 Step 1
+        If i > 0 And i Mod numberRow = 0 Then
+            y += size
+            x = 0
+        End If
+        'create of new button
+        btns(i) = New Button
+        'set size of the button
+        btns(i).Size = New System.Drawing.Size(size, size)
+        'set text for button
+        btns(i).Text = i
+        'set position for button
+        btns(i).Location = New System.Drawing.Point(x, y)
+        'add event
+        AddHandler btns(i).Click, AddressOf onButton_click
+        'add controls
+        Me.Controls.Add(btns(i))
+        'move to the next button position
+        x += size
+
+    Next
+    'set a random button as winner
+    Dim rand As Random = New Random
+    btns(rnd_num(rand, 0, numberOfBtn)).Text = "Win"
+
+End Sub
+''' <summary>
+''' onClick event
+''' </summary>
+''' <param name="sender"></param>
+''' <param name="e"></param>
+Private Sub onButton_click(sender As Object, e As EventArgs)
+    Dim btn As New Button
+    btn = CType(sender, Button)
+    MessageBox.Show(btn.Text & " was clicked.", "What has been clicked", MessageBoxButtons.OK)
+End Sub
+''' <summary>
+''' Get random integer based on min & max
+''' </summary>
+''' <param name="r_num"></param>
+''' <param name="min"></param>
+''' <param name="max"></param>
+''' <returns></returns>
+Private Function rnd_num(r_num As System.Random, min As Integer, max As Integer) As Integer
+    Return r_num.Next(min, max + 1)
+End Function

@@ -1,0 +1,79 @@
+Dim counter As Integer = 0
+
+Private Sub btn_cal_Click(sender As Object, e As EventArgs) Handles btn_cal.Click
+    'If rd_blue.Checked Then
+    '    lb_top.BackColor = Color.Blue
+    'ElseIf rd_green.Checked Then
+    '    lb_top.BackColor = Color.Green
+    'ElseIf rb_red.Checked Then
+    '    lb_top.BackColor = Color.Red
+    'ElseIf rb_orange.Checked Then
+    '    lb_top.BackColor = Color.Orange
+    'End If
+
+
+
+    'Controls: This accesses the collection of controls contained within the gb_check_num control.
+    'OfType: This filters the controls to only include those of type RadioButton.
+    'It's using the OfType method to ensure that only RadioButton controls are considered.
+    Dim radio_color = gb_radio_color.
+                        Controls.
+                        OfType(Of RadioButton).
+                        FirstOrDefault(Function(r) r.Checked = True)
+    lb_top.BackColor = Color.FromName(radio_color.Text)
+
+    Dim radio = gb_radio_num.
+                Controls.
+                OfType(Of RadioButton).
+                FirstOrDefault(Function(r) r.Checked = True)
+
+    Dim num1 As Integer, num2 As Integer = 0
+
+    num1 = radio.Text
+
+    For Each c As CheckBox In gb_check.Controls.OfType(Of CheckBox)()
+        If c.Checked Then
+            num2 += CInt(c.Text)
+        End If
+
+    Next
+
+    lb_top.Text = num1 * num2
+
+End Sub
+
+Private Sub btn_timer_Click(sender As Object, e As EventArgs) Handles btn_timer.Click
+    If timer.Enabled Then
+        timer.Enabled = False
+    Else
+        timer.Enabled = True
+    End If
+End Sub
+
+Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
+    counter += 3
+    lb_top.Text = counter
+    pb2.Value = counter
+
+    If counter >= pb2.Maximum Then
+        counter = 0
+    End If
+
+    Select Case counter Mod 5
+        Case 0
+            lb_top.BackColor = Color.Blue
+        Case 1
+            lb_top.BackColor = Color.Green
+        Case 2
+            lb_top.BackColor = Color.Red
+        Case 3
+            lb_top.BackColor = Color.Orange
+        Case 4
+            lb_top.BackColor = Color.Chocolate
+    End Select
+End Sub
+
+Private Sub tb_Scroll(sender As Object, e As EventArgs) Handles tb.Scroll
+    timer.Interval = tb.Value
+    pb1.Value = tb.Value
+End Sub

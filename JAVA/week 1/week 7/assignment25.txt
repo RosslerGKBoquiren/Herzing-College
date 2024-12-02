@@ -1,0 +1,34 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+		Assignment week 7
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Title: Database Table Update with User Information
+
+The student is expected to develop a small application in VB.NET as their last assignment, aiming to apply Object-Oriented Programming (OOP) principles. 
+The primary goals of the application include collecting users information and inserting them in the database.
+
+Objective: In this assignment, you'll add new user information (Assignment 19) to the Database table.
+
+
+Task Description:
+
+1- Creation Table: Already created for Assignment of week 5.
+
+2- Create Class users with following information:
+	name, email, password, gender, address, state, country, phone number
+
+3- Form Validation: Upon clicking the register button, ensure that all entered information is valid. Validate each field for correctness, such as ensuring that required fields are not left empty and that data formats match expected patterns (e.g., email addresses, phone numbers).
+
+4- Error Handling: If any errors are detected during the validation process, prompt the user with an error message box indicating the specific issues that need to be addressed. Optionally, you can also display error messages directly on the form next to the relevant fields or by making the field border red.
+
+5- Data Confirmation: Once all information is validated successfully, display a confirmation message box to the user, summarizing the details entered. Prompt the user to confirm whether they wish to proceed with adding their information to the database.
+
+6- Database Update: If the user confirms their details, add the entered information to the "users" table in the database.
+
+
+
+Upon completion of the assignment, submit the Project file.
